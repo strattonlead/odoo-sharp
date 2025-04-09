@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp", "OdooSharp\OdooSharp.csproj", "{E7BE6705-7D9C-497F-ACBB-D48448A5620F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp", "OdooSharp\OdooSharp.csproj", "{E7BE6705-7D9C-497F-ACBB-D48448A5620F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.DependencyInjection", "OdooSharp.DependencyInjection\OdooSharp.DependencyInjection.csproj", "{9BD8B60A-E2FB-49AB-A538-E8BB8149029C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.DependencyInjection", "OdooSharp.DependencyInjection\OdooSharp.DependencyInjection.csproj", "{9BD8B60A-E2FB-49AB-A538-E8BB8149029C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.Codegen", "OdooSharp.Codegen\OdooSharp.Codegen.csproj", "{36130B5D-28AC-4FF0-AC01-E490458B2414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9BD8B60A-E2FB-49AB-A538-E8BB8149029C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD8B60A-E2FB-49AB-A538-E8BB8149029C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD8B60A-E2FB-49AB-A538-E8BB8149029C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36130B5D-28AC-4FF0-AC01-E490458B2414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36130B5D-28AC-4FF0-AC01-E490458B2414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36130B5D-28AC-4FF0-AC01-E490458B2414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36130B5D-28AC-4FF0-AC01-E490458B2414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

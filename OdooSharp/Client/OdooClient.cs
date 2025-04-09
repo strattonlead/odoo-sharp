@@ -61,16 +61,10 @@ namespace OdooSharp.Client
             return false;
         }
 
-        public async Task<List<OdooModel>> GetModelsAsync() => await SearchReadPagedAsync<OdooModel>(new object[0], new string[] { "model", "name" });
+        public async Task<List<OdooModel>> GetModelsAsync() => await SearchReadAllPagedAsync<OdooModel>(new object[0], new string[] { "model", "name" });
 
-        public async Task<List<T>> SearchReadAsync<T>(object[] domain = null, string[] fields = null)
+        public async Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model)
         {
-            var model = _getModelName<T>();
-            if (domain == null)
-            {
-                domain = _getDomain<T>();
-            }
-
             var payload = new
             {
                 jsonrpc = "2.0",
@@ -85,16 +79,12 @@ namespace OdooSharp.Client
                         _session!.Uid,
                         _options.Password,
                         model,
-                        "search_read",
-                        new object[] { domain },
-                        new
-                        {
-                            fields,
-                            limit = 100
-                        }
+                        "fields_get",
+                        new object[] { },
+                        new { }
                     }
                 },
-                id = 1
+                id = 2
             };
 
             var response = await _httpClient.PostAsync(
@@ -103,13 +93,58 @@ namespace OdooSharp.Client
 
             var json = await response.Content.ReadAsStringAsync();
             var doc = JsonDocument.Parse(json);
-            var root = doc.RootElement.GetProperty("result");
 
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<List<T>>(root.GetRawText(), options) ?? new List<T>();
+            return JsonSerializer.Deserialize<OdooFieldsResponse>(json, options) ?? new OdooFieldsResponse();
         }
 
-        public async Task<List<T>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null)
+        //public async Task<List<T>> SearchReadAsync<T>(object[] domain = null, string[] fields = null)
+        //{
+        //    var model = _getModelName<T>();
+        //    if (domain == null)
+        //    {
+        //        domain = _getDomain<T>();
+        //    }
+
+        //    var payload = new
+        //    {
+        //        jsonrpc = "2.0",
+        //        method = "call",
+        //        @params = new
+        //        {
+        //            service = "object",
+        //            method = "execute_kw",
+        //            args = new object[]
+        //            {
+        //                _options.Database,
+        //                _session!.Uid,
+        //                _options.Password,
+        //                model,
+        //                "search_read",
+        //                new object[] { domain },
+        //                new
+        //                {
+        //                    fields,
+        //                    limit = 100
+        //                }
+        //            }
+        //        },
+        //        id = 1
+        //    };
+
+        //    var response = await _httpClient.PostAsync(
+        //        $"{_options.Url}/jsonrpc",
+        //        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+        //    var json = await response.Content.ReadAsStringAsync();
+        //    var doc = JsonDocument.Parse(json);
+        //    var root = doc.RootElement.GetProperty("result");
+
+        //    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        //    return JsonSerializer.Deserialize<List<T>>(root.GetRawText(), options) ?? new List<T>();
+        //}
+
+        public async Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null)
         {
             var model = _getModelName<T>();
             if (domain == null)
@@ -155,15 +190,29 @@ namespace OdooSharp.Client
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            var root = doc.RootElement.GetProperty("result");
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<List<T>>(root.GetRawText(), options) ?? new List<T>();
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<List<T>>>(response);
         }
 
-        public async Task<T> GetByIdAsync<T>(int id, string[] fields)
+        private async Task<T> _deserializeHttpReponseAsync<T>(HttpResponseMessage responseMessage)
+        {
+            var json = await responseMessage.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            try
+            {
+                return JsonSerializer.Deserialize<T>(json, options);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine();
+                Console.WriteLine($"Provided json: {json}");
+                Console.WriteLine();
+            }
+            return default;
+        }
+
+        public async Task<JsonRpcResponse<T>> GetByIdAsync<T>(int id, string[] fields = null)
         {
             var model = _getModelName<T>();
 
@@ -193,18 +242,21 @@ namespace OdooSharp.Client
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            var result = doc.RootElement.GetProperty("result");
+            var listResponse = await _deserializeHttpReponseAsync<JsonRpcResponse<List<T>>>(response);
+            return listResponse.FirstOrDefault();
 
-            if (result.GetArrayLength() == 0)
-                return default;
+            //var json = await response.Content.ReadAsStringAsync();
+            //var doc = JsonDocument.Parse(json);
+            //var result = doc.RootElement.GetProperty("result");
 
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<T>(result[0].GetRawText(), options);
+            //if (result.GetArrayLength() == 0)
+            //    return default;
+
+            //var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            //return JsonSerializer.Deserialize<T>(result[0].GetRawText(), options);
         }
 
-        public async Task<List<T>> SearchReadPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100)
+        public async Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100)
         {
             var model = _getModelName<T>();
             if (domain == null)
@@ -258,7 +310,7 @@ namespace OdooSharp.Client
             return results;
         }
 
-        public async Task<int> CreateAsync<T>(string model, T data)
+        public async Task<JsonRpcResponse<int>> CreateAsync<T>(string model, T data)
         {
             var payload = new
             {
@@ -285,12 +337,13 @@ namespace OdooSharp.Client
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("result").GetInt32();
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<int>>(response);
+            //var json = await response.Content.ReadAsStringAsync();
+            //var doc = JsonDocument.Parse(json);
+            //return doc.RootElement.GetProperty("result").GetInt32();
         }
 
-        public async Task<bool> WriteAsync<T>(string model, int id, T values)
+        public async Task<JsonRpcResponse<bool>> WriteAsync<T>(string model, int id, T values)
         {
             var payload = new
             {
@@ -317,12 +370,13 @@ namespace OdooSharp.Client
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("result").GetBoolean();
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<bool>>(response);
+            //var json = await response.Content.ReadAsStringAsync();
+            //var doc = JsonDocument.Parse(json);
+            //return doc.RootElement.GetProperty("result").GetBoolean();
         }
 
-        public async Task<bool> DeleteAsync(string model, int id)
+        public async Task<JsonRpcResponse<bool>> DeleteAsync(string model, int id)
         {
             var payload = new
             {
@@ -349,9 +403,10 @@ namespace OdooSharp.Client
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("result").GetBoolean();
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<bool>>(response);
+            //var json = await response.Content.ReadAsStringAsync();
+            //var doc = JsonDocument.Parse(json);
+            //return doc.RootElement.GetProperty("result").GetBoolean();
         }
 
         private string _getModelName<T>()
