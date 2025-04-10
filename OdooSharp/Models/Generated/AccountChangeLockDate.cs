@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fiscalyear_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("fiscalyear_lock_date")]
         public DateTime? FiscalyearLockDate { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fiscalyear_lock_date_for_me")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("fiscalyear_lock_date_for_me")]
         public DateTime? FiscalyearLockDateForMe { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fiscalyear_lock_date_for_everyone")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("fiscalyear_lock_date_for_everyone")]
         public DateTime? FiscalyearLockDateForEveryone { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_fiscalyear_lock_date_exception_for_me_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_fiscalyear_lock_date_exception_for_me_id")]
         public int? MinFiscalyearLockDateExceptionForMeId { get; set; }
 
         /// <summary>
@@ -112,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_fiscalyear_lock_date_exception_for_everyone_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_fiscalyear_lock_date_exception_for_everyone_id")]
         public int? MinFiscalyearLockDateExceptionForEveryoneId { get; set; }
 
         /// <summary>
@@ -125,6 +133,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("tax_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("tax_lock_date")]
         public DateTime? TaxLockDate { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("tax_lock_date_for_me")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("tax_lock_date_for_me")]
         public DateTime? TaxLockDateForMe { get; set; }
 
         /// <summary>
@@ -151,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("tax_lock_date_for_everyone")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("tax_lock_date_for_everyone")]
         public DateTime? TaxLockDateForEveryone { get; set; }
 
         /// <summary>
@@ -165,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_tax_lock_date_exception_for_me_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_tax_lock_date_exception_for_me_id")]
         public int? MinTaxLockDateExceptionForMeId { get; set; }
 
         /// <summary>
@@ -179,6 +191,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_tax_lock_date_exception_for_everyone_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_tax_lock_date_exception_for_everyone_id")]
         public int? MinTaxLockDateExceptionForEveryoneId { get; set; }
 
         /// <summary>
@@ -192,6 +205,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sale_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("sale_lock_date")]
         public DateTime? SaleLockDate { get; set; }
 
         /// <summary>
@@ -205,6 +219,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sale_lock_date_for_me")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("sale_lock_date_for_me")]
         public DateTime? SaleLockDateForMe { get; set; }
 
         /// <summary>
@@ -218,6 +233,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sale_lock_date_for_everyone")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("sale_lock_date_for_everyone")]
         public DateTime? SaleLockDateForEveryone { get; set; }
 
         /// <summary>
@@ -232,6 +248,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_sale_lock_date_exception_for_me_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_sale_lock_date_exception_for_me_id")]
         public int? MinSaleLockDateExceptionForMeId { get; set; }
 
         /// <summary>
@@ -246,6 +263,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_sale_lock_date_exception_for_everyone_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_sale_lock_date_exception_for_everyone_id")]
         public int? MinSaleLockDateExceptionForEveryoneId { get; set; }
 
         /// <summary>
@@ -259,6 +277,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("purchase_lock_date")]
         public DateTime? PurchaseLockDate { get; set; }
 
         /// <summary>
@@ -272,6 +291,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_lock_date_for_me")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("purchase_lock_date_for_me")]
         public DateTime? PurchaseLockDateForMe { get; set; }
 
         /// <summary>
@@ -285,6 +305,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_lock_date_for_everyone")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("purchase_lock_date_for_everyone")]
         public DateTime? PurchaseLockDateForEveryone { get; set; }
 
         /// <summary>
@@ -299,6 +320,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_purchase_lock_date_exception_for_me_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_purchase_lock_date_exception_for_me_id")]
         public int? MinPurchaseLockDateExceptionForMeId { get; set; }
 
         /// <summary>
@@ -313,6 +335,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("min_purchase_lock_date_exception_for_everyone_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("min_purchase_lock_date_exception_for_everyone_id")]
         public int? MinPurchaseLockDateExceptionForEveryoneId { get; set; }
 
         /// <summary>
@@ -326,6 +349,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("hard_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("hard_lock_date")]
         public DateTime? HardLockDate { get; set; }
 
         /// <summary>
@@ -339,6 +363,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("current_hard_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("current_hard_lock_date")]
         public DateTime? CurrentHardLockDate { get; set; }
 
         /// <summary>
@@ -352,6 +377,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("exception_needed_fields")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("exception_needed_fields")]
         public string ExceptionNeededFields { get; set; }
 
         /// <summary>
@@ -362,9 +388,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [me]=for me,[everyone]=for everyone</para>
         /// </summary>
         [JsonPropertyName("exception_applies_to")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("exception_applies_to")]
         public string ExceptionAppliesTo { get; set; }
 
         /// <summary>
@@ -375,9 +403,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [5min]=for 5 minutes,[15min]=for 15 minutes,[1h]=for 1 hour,[24h]=for 24 hours,[forever]=forever</para>
         /// </summary>
         [JsonPropertyName("exception_duration")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("exception_duration")]
         public string ExceptionDuration { get; set; }
 
         /// <summary>
@@ -391,6 +421,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("exception_reason")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("exception_reason")]
         public string ExceptionReason { get; set; }
 
         /// <summary>
@@ -403,6 +434,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("show_draft_entries_warning")]
+        [OdooField("show_draft_entries_warning")]
         public bool ShowDraftEntriesWarning { get; set; }
 
         /// <summary>
@@ -417,6 +449,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -430,6 +463,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -444,6 +478,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -457,6 +492,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

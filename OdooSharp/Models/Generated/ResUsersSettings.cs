@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -86,6 +91,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -99,6 +105,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -112,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("homemenu_config")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("homemenu_config")]
         public object HomemenuConfig { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_discuss_sidebar_category_channel_open")]
+        [OdooField("is_discuss_sidebar_category_channel_open")]
         public bool IsDiscussSidebarCategoryChannelOpen { get; set; }
 
         /// <summary>
@@ -136,6 +145,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_discuss_sidebar_category_chat_open")]
+        [OdooField("is_discuss_sidebar_category_chat_open")]
         public bool IsDiscussSidebarCategoryChatOpen { get; set; }
 
         /// <summary>
@@ -149,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("push_to_talk_key")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("push_to_talk_key")]
         public string PushToTalkKey { get; set; }
 
         /// <summary>
@@ -161,6 +172,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("use_push_to_talk")]
+        [OdooField("use_push_to_talk")]
         public bool UsePushToTalk { get; set; }
 
         /// <summary>
@@ -173,6 +185,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("voice_active_duration")]
+        [OdooField("voice_active_duration")]
         public int VoiceActiveDuration { get; set; }
 
         /// <summary>
@@ -186,6 +199,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.users.settings.volumes</para>
         /// </summary>
         [JsonPropertyName("volume_settings_ids")]
+        [OdooField("volume_settings_ids")]
         public List<int> VolumeSettingsIds { get; set; }
 
         /// <summary>
@@ -196,9 +210,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [all]=All Messages,[no_notif]=Nothing</para>
         /// </summary>
         [JsonPropertyName("channel_notifications")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("channel_notifications")]
         public string ChannelNotifications { get; set; }
 
         /// <summary>
@@ -212,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mute_until_dt")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("mute_until_dt")]
         public DateTime? MuteUntilDt { get; set; }
 
         /// <summary>
@@ -222,9 +239,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [public]=Public,[private]=Private,[confidential]=Only internal users</para>
         /// </summary>
         [JsonPropertyName("calendar_default_privacy")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("calendar_default_privacy")]
         public string CalendarDefaultPrivacy { get; set; }
 
     }

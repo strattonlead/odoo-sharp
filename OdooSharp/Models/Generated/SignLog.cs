@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("log_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("log_date")]
         public DateTime? LogDate { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sign_request_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("sign_request_id")]
         public int? SignRequestId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sign_request_item_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("sign_request_item_id")]
         public int? SignRequestItemId { get; set; }
 
         /// <summary>
@@ -86,6 +91,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -100,6 +106,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -112,6 +119,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("latitude")]
+        [OdooField("latitude")]
         public double Latitude { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("longitude")]
+        [OdooField("longitude")]
         public double Longitude { get; set; }
 
         /// <summary>
@@ -137,6 +146,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("ip")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("ip")]
         public string Ip { get; set; }
 
         /// <summary>
@@ -150,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("log_hash")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("log_hash")]
         public string LogHash { get; set; }
 
         /// <summary>
@@ -163,6 +174,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("token")]
         public string Token { get; set; }
 
         /// <summary>
@@ -173,9 +185,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [create]=Creation,[open]=View/Download,[save]=Save,[sign]=Signature,[refuse]=Refuse,[cancel]=Cancel,[update_mail]=Mail Update,[update]=Update</para>
         /// </summary>
         [JsonPropertyName("action")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("action")]
         public string Action { get; set; }
 
         /// <summary>
@@ -186,9 +200,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [shared]=Shared,[sent]=Before Signature,[signed]=After Signature,[refused]=Refused Signature,[canceled]=Cancelled,[expired]=Expired</para>
         /// </summary>
         [JsonPropertyName("request_state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("request_state")]
         public string RequestState { get; set; }
 
         /// <summary>
@@ -203,6 +219,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -216,6 +233,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -230,6 +248,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -243,6 +262,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

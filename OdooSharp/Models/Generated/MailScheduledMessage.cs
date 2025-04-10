@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("subject")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("subject")]
         public string Subject { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("body")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("body")]
         public string Body { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("scheduled_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("scheduled_date")]
         public DateTime? ScheduledDate { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.attachment</para>
         /// </summary>
         [JsonPropertyName("attachment_ids")]
+        [OdooField("attachment_ids")]
         public List<int> AttachmentIds { get; set; }
 
         /// <summary>
@@ -93,9 +99,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [reply_all]=Reply-All,[forward]=Forward</para>
         /// </summary>
         [JsonPropertyName("composition_comment_option")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("composition_comment_option")]
         public string CompositionCommentOption { get; set; }
 
         /// <summary>
@@ -109,6 +117,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("notified_bcc")]
+        [OdooField("notified_bcc")]
         public List<int> NotifiedBcc { get; set; }
 
         /// <summary>
@@ -121,6 +130,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("show_notified_bcc")]
+        [OdooField("show_notified_bcc")]
         public bool ShowNotifiedBcc { get; set; }
 
         /// <summary>
@@ -134,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("model")]
         public string Model { get; set; }
 
         /// <summary>
@@ -147,6 +158,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("res_id")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("res_id")]
         public object ResId { get; set; }
 
         /// <summary>
@@ -161,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("author_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("author_id")]
         public int? AuthorId { get; set; }
 
         /// <summary>
@@ -174,6 +187,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("partner_ids")]
+        [OdooField("partner_ids")]
         public List<int> PartnerIds { get; set; }
 
         /// <summary>
@@ -186,6 +200,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_note")]
+        [OdooField("is_note")]
         public bool IsNote { get; set; }
 
         /// <summary>
@@ -199,6 +214,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("notification_parameters")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("notification_parameters")]
         public string NotificationParameters { get; set; }
 
         /// <summary>
@@ -212,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("send_context")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("send_context")]
         public object SendContext { get; set; }
 
         /// <summary>
@@ -226,6 +243,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -239,6 +257,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -253,6 +272,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -266,6 +286,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

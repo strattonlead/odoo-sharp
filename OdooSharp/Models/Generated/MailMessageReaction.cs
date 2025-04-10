@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("message_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("message_id")]
         public int? MessageId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("content")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("content")]
         public string Content { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -86,6 +91,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("guest_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("guest_id")]
         public int? GuestId { get; set; }
 
     }

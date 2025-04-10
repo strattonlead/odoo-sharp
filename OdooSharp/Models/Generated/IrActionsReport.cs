@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("type")]
         public string Type { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("xml_id")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("xml_id")]
         public string XmlId { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("path")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("path")]
         public string Path { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("help")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("help")]
         public string Help { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("binding_model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("binding_model_id")]
         public int? BindingModelId { get; set; }
 
         /// <summary>
@@ -120,9 +128,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [action]=Action,[report]=Report</para>
         /// </summary>
         [JsonPropertyName("binding_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("binding_type")]
         public string BindingType { get; set; }
 
         /// <summary>
@@ -136,6 +146,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("binding_view_types")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("binding_view_types")]
         public string BindingViewTypes { get; set; }
 
         /// <summary>
@@ -149,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("binding_invisible")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("binding_invisible")]
         public string BindingInvisible { get; set; }
 
         /// <summary>
@@ -163,6 +175,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -176,6 +189,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -190,6 +204,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -203,6 +218,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -216,6 +232,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("model")]
         public string Model { get; set; }
 
         /// <summary>
@@ -230,6 +247,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("model_id")]
         public int? ModelId { get; set; }
 
         /// <summary>
@@ -240,9 +258,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [qweb-html]=HTML,[qweb-pdf]=PDF,[qweb-text]=Text</para>
         /// </summary>
         [JsonPropertyName("report_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("report_type")]
         public string ReportType { get; set; }
 
         /// <summary>
@@ -256,6 +276,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("report_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("report_name")]
         public string ReportName { get; set; }
 
         /// <summary>
@@ -269,6 +290,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("report_file")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("report_file")]
         public string ReportFile { get; set; }
 
         /// <summary>
@@ -282,6 +304,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("group_ids")]
+        [OdooField("group_ids")]
         public List<int> GroupIds { get; set; }
 
         /// <summary>
@@ -294,6 +317,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("multi")]
+        [OdooField("multi")]
         public bool Multi { get; set; }
 
         /// <summary>
@@ -308,6 +332,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("paperformat_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("paperformat_id")]
         public int? PaperformatId { get; set; }
 
         /// <summary>
@@ -321,6 +346,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("print_report_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("print_report_name")]
         public string PrintReportName { get; set; }
 
         /// <summary>
@@ -333,6 +359,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("attachment_use")]
+        [OdooField("attachment_use")]
         public bool AttachmentUse { get; set; }
 
         /// <summary>
@@ -346,6 +373,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("attachment")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("attachment")]
         public string Attachment { get; set; }
 
         /// <summary>
@@ -359,6 +387,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("domain")]
         public string Domain { get; set; }
 
         /// <summary>
@@ -371,6 +400,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_invoice_report")]
+        [OdooField("is_invoice_report")]
         public bool IsInvoiceReport { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -53,9 +56,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [active]=Active,[revoked]=Revoked,[expired]=Expired</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -70,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -84,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -97,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reason")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("reason")]
         public string Reason { get; set; }
 
         /// <summary>
@@ -110,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("end_datetime")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("end_datetime")]
         public DateTime? EndDatetime { get; set; }
 
         /// <summary>
@@ -120,9 +129,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [fiscalyear_lock_date]=Global Lock Date,[tax_lock_date]=Tax Return Lock Date,[sale_lock_date]=Sales Lock Date,[purchase_lock_date]=Purchase Lock Date</para>
         /// </summary>
         [JsonPropertyName("lock_date_field")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lock_date_field")]
         public string LockDateField { get; set; }
 
         /// <summary>
@@ -136,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("lock_date")]
         public DateTime? LockDate { get; set; }
 
         /// <summary>
@@ -149,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("company_lock_date")]
         public DateTime? CompanyLockDate { get; set; }
 
         /// <summary>
@@ -162,6 +175,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fiscalyear_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("fiscalyear_lock_date")]
         public DateTime? FiscalyearLockDate { get; set; }
 
         /// <summary>
@@ -175,6 +189,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("tax_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("tax_lock_date")]
         public DateTime? TaxLockDate { get; set; }
 
         /// <summary>
@@ -188,6 +203,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sale_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("sale_lock_date")]
         public DateTime? SaleLockDate { get; set; }
 
         /// <summary>
@@ -201,6 +217,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_lock_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("purchase_lock_date")]
         public DateTime? PurchaseLockDate { get; set; }
 
         /// <summary>
@@ -215,6 +232,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -228,6 +246,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -242,6 +261,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -255,6 +275,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

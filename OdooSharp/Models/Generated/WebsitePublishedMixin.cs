@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("website_published")]
+        [OdooField("website_published")]
         public bool WebsitePublished { get; set; }
 
         /// <summary>
@@ -55,6 +58,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_published")]
+        [OdooField("is_published")]
         public bool IsPublished { get; set; }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("can_publish")]
+        [OdooField("can_publish")]
         public bool CanPublish { get; set; }
 
         /// <summary>
@@ -80,6 +85,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_url")]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
@@ -93,6 +99,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_absolute_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_absolute_url")]
         public string WebsiteAbsoluteUrl { get; set; }
 
     }

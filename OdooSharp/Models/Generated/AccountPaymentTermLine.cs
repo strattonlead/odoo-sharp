@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -41,9 +43,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [percent]=Percent,[fixed]=Fixed</para>
         /// </summary>
         [JsonPropertyName("value")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("value")]
         public string Value { get; set; }
 
         /// <summary>
@@ -56,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("value_amount")]
+        [OdooField("value_amount")]
         public double ValueAmount { get; set; }
 
         /// <summary>
@@ -66,9 +71,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [days_after]=Days after invoice date,[days_after_end_of_month]=Days after end of month,[days_after_end_of_next_month]=Days after end of next month,[days_end_of_month_on_the]=Days end of month on the</para>
         /// </summary>
         [JsonPropertyName("delay_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("delay_type")]
         public string DelayType { get; set; }
 
         /// <summary>
@@ -81,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_days_next_month")]
+        [OdooField("display_days_next_month")]
         public bool DisplayDaysNextMonth { get; set; }
 
         /// <summary>
@@ -94,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("days_next_month")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("days_next_month")]
         public string DaysNextMonth { get; set; }
 
         /// <summary>
@@ -106,6 +115,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("nb_days")]
+        [OdooField("nb_days")]
         public int NbDays { get; set; }
 
         /// <summary>
@@ -120,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("payment_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("payment_id")]
         public int? PaymentId { get; set; }
 
         /// <summary>
@@ -134,6 +145,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -147,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -161,6 +174,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -174,6 +188,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

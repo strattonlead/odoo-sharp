@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("guest_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("guest_id")]
         public int? GuestId { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_self")]
+        [OdooField("is_self")]
         public bool IsSelf { get; set; }
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("channel_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("channel_id")]
         public int? ChannelId { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("custom_channel_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("custom_channel_name")]
         public string CustomChannelName { get; set; }
 
         /// <summary>
@@ -112,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fetched_message_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("fetched_message_id")]
         public int? FetchedMessageId { get; set; }
 
         /// <summary>
@@ -126,6 +134,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("seen_message_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("seen_message_id")]
         public int? SeenMessageId { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("new_message_separator")]
+        [OdooField("new_message_separator")]
         public int NewMessageSeparator { get; set; }
 
         /// <summary>
@@ -150,6 +160,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("message_unread_counter")]
+        [OdooField("message_unread_counter")]
         public int MessageUnreadCounter { get; set; }
 
         /// <summary>
@@ -160,9 +171,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [all]=All Messages,[mentions]=Mentions Only,[no_notif]=Nothing</para>
         /// </summary>
         [JsonPropertyName("custom_notifications")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("custom_notifications")]
         public string CustomNotifications { get; set; }
 
         /// <summary>
@@ -176,6 +189,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mute_until_dt")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("mute_until_dt")]
         public DateTime? MuteUntilDt { get; set; }
 
         /// <summary>
@@ -188,6 +202,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_pinned")]
+        [OdooField("is_pinned")]
         public bool IsPinned { get; set; }
 
         /// <summary>
@@ -201,6 +216,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("unpin_dt")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("unpin_dt")]
         public DateTime? UnpinDt { get; set; }
 
         /// <summary>
@@ -214,6 +230,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("last_interest_dt")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("last_interest_dt")]
         public DateTime? LastInterestDt { get; set; }
 
         /// <summary>
@@ -227,6 +244,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("last_seen_dt")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("last_seen_dt")]
         public DateTime? LastSeenDt { get; set; }
 
         /// <summary>
@@ -240,6 +258,7 @@ namespace OdooSharp.Models
         /// <para>Relation: discuss.channel.rtc.session</para>
         /// </summary>
         [JsonPropertyName("rtc_session_ids")]
+        [OdooField("rtc_session_ids")]
         public List<int> RtcSessionIds { get; set; }
 
         /// <summary>
@@ -254,6 +273,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("rtc_inviting_session_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("rtc_inviting_session_id")]
         public int? RtcInvitingSessionId { get; set; }
 
         /// <summary>
@@ -268,6 +288,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -281,6 +302,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -295,6 +317,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -308,6 +331,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

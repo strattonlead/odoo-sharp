@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reference")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("reference")]
         public string Reference { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("amount")]
+        [OdooField("amount")]
         public double Amount { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("vendor_bill_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("vendor_bill_id")]
         public int? VendorBillId { get; set; }
 
         /// <summary>
@@ -152,6 +162,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_order_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("purchase_order_id")]
         public int? PurchaseOrderId { get; set; }
 
     }

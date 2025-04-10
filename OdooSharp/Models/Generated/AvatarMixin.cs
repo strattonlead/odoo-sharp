@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_1920")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_1920")]
         public byte[] Image1920 { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_1024")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_1024")]
         public byte[] Image1024 { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_512")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_512")]
         public byte[] Image512 { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_256")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_256")]
         public byte[] Image256 { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_128")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_128")]
         public byte[] Image128 { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("avatar_1920")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("avatar_1920")]
         public object Avatar1920 { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("avatar_1024")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("avatar_1024")]
         public object Avatar1024 { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("avatar_512")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("avatar_512")]
         public object Avatar512 { get; set; }
 
         /// <summary>
@@ -148,6 +158,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("avatar_256")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("avatar_256")]
         public object Avatar256 { get; set; }
 
         /// <summary>
@@ -161,6 +172,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("avatar_128")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("avatar_128")]
         public object Avatar128 { get; set; }
 
     }

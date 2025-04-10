@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_1920")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_1920")]
         public byte[] Image1920 { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_1024")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_1024")]
         public byte[] Image1024 { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_512")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_512")]
         public byte[] Image512 { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_256")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_256")]
         public byte[] Image256 { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_128")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image_128")]
         public byte[] Image128 { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -121,6 +129,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_tmpl_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_tmpl_id")]
         public int? ProductTmplId { get; set; }
 
         /// <summary>
@@ -149,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_variant_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_variant_id")]
         public int? ProductVariantId { get; set; }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("video_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("video_url")]
         public string VideoUrl { get; set; }
 
         /// <summary>
@@ -175,6 +187,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("embed_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("embed_code")]
         public string EmbedCode { get; set; }
 
         /// <summary>
@@ -187,6 +200,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("can_image_1024_be_zoomed")]
+        [OdooField("can_image_1024_be_zoomed")]
         public bool CanImage1024BeZoomed { get; set; }
 
         /// <summary>
@@ -201,6 +215,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -214,6 +229,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -228,6 +244,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -241,6 +258,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

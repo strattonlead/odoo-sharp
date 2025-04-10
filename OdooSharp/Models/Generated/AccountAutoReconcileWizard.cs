@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move.line</para>
         /// </summary>
         [JsonPropertyName("line_ids")]
+        [OdooField("line_ids")]
         public List<int> LineIds { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("from_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("from_date")]
         public DateTime? FromDate { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("to_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("to_date")]
         public DateTime? ToDate { get; set; }
 
         /// <summary>
@@ -97,6 +103,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.account</para>
         /// </summary>
         [JsonPropertyName("account_ids")]
+        [OdooField("account_ids")]
         public List<int> AccountIds { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("partner_ids")]
+        [OdooField("partner_ids")]
         public List<int> PartnerIds { get; set; }
 
         /// <summary>
@@ -120,9 +128,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [one_to_one]=Perfect Match,[zero_balance]=Clear Account</para>
         /// </summary>
         [JsonPropertyName("search_mode")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("search_mode")]
         public string SearchMode { get; set; }
 
         /// <summary>
@@ -137,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -150,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -164,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -177,6 +190,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

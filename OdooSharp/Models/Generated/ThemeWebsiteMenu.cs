@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("url")]
         public string Url { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("page_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("page_id")]
         public int? PageId { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("new_window")]
+        [OdooField("new_window")]
         public bool NewWindow { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("parent_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("parent_id")]
         public int? ParentId { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mega_menu_content")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("mega_menu_content")]
         public string MegaMenuContent { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mega_menu_classes")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("mega_menu_classes")]
         public string MegaMenuClasses { get; set; }
 
         /// <summary>
@@ -147,6 +157,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("use_main_menu_as_parent")]
+        [OdooField("use_main_menu_as_parent")]
         public bool UseMainMenuAsParent { get; set; }
 
         /// <summary>
@@ -160,6 +171,7 @@ namespace OdooSharp.Models
         /// <para>Relation: website.menu</para>
         /// </summary>
         [JsonPropertyName("copy_ids")]
+        [OdooField("copy_ids")]
         public List<int> CopyIds { get; set; }
 
         /// <summary>
@@ -174,6 +186,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -187,6 +200,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -201,6 +215,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -214,6 +229,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

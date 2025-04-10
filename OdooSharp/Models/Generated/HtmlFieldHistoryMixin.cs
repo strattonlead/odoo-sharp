@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("html_field_history")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("html_field_history")]
         public object HtmlFieldHistory { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("html_field_history_metadata")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("html_field_history_metadata")]
         public object HtmlFieldHistoryMetadata { get; set; }
 
     }

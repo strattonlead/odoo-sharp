@@ -132,6 +132,12 @@ namespace OdooSharp.Models
         [JsonPropertyName("type")]
         [JsonConverter(typeof(OdooFieldTypeConverter))]
         public OdooFieldType FieldType { get; set; }
+
+        /// <summary>
+        /// The possible selection keys and values.
+        /// </summary>
+        [JsonPropertyName("selection")]
+        public object Selection { get; set; }
     }
 
     public class OdooFlexibleBoolConverter : JsonConverter<bool>

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("visitor_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("visitor_id")]
         public int? VisitorId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("page_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("page_id")]
         public int? PageId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("url")]
         public string Url { get; set; }
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("visit_datetime")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("visit_datetime")]
         public DateTime? VisitDatetime { get; set; }
 
         /// <summary>
@@ -99,6 +105,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_id")]
         public int? ProductId { get; set; }
 
     }

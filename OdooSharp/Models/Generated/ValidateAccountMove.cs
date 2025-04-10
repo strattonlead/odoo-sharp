@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move</para>
         /// </summary>
         [JsonPropertyName("move_ids")]
+        [OdooField("move_ids")]
         public List<int> MoveIds { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("force_post")]
+        [OdooField("force_post")]
         public bool ForcePost { get; set; }
 
         /// <summary>
@@ -68,6 +72,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_force_post")]
+        [OdooField("display_force_post")]
         public bool DisplayForcePost { get; set; }
 
         /// <summary>
@@ -80,6 +85,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_entries")]
+        [OdooField("is_entries")]
         public bool IsEntries { get; set; }
 
         /// <summary>
@@ -93,6 +99,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("abnormal_date_partner_ids")]
+        [OdooField("abnormal_date_partner_ids")]
         public List<int> AbnormalDatePartnerIds { get; set; }
 
         /// <summary>
@@ -105,6 +112,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("ignore_abnormal_date")]
+        [OdooField("ignore_abnormal_date")]
         public bool IgnoreAbnormalDate { get; set; }
 
         /// <summary>
@@ -118,6 +126,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("abnormal_amount_partner_ids")]
+        [OdooField("abnormal_amount_partner_ids")]
         public List<int> AbnormalAmountPartnerIds { get; set; }
 
         /// <summary>
@@ -130,6 +139,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("ignore_abnormal_amount")]
+        [OdooField("ignore_abnormal_amount")]
         public bool IgnoreAbnormalAmount { get; set; }
 
         /// <summary>
@@ -144,6 +154,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -157,6 +168,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -171,6 +183,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -184,6 +197,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

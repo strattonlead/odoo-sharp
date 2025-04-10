@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("guest_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("guest_id")]
         public int? GuestId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("last_poll")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("last_poll")]
         public DateTime? LastPoll { get; set; }
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("last_presence")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("last_presence")]
         public DateTime? LastPresence { get; set; }
 
         /// <summary>
@@ -95,9 +101,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [online]=Online,[away]=Away,[offline]=Offline</para>
         /// </summary>
         [JsonPropertyName("status")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("status")]
         public string Status { get; set; }
 
     }

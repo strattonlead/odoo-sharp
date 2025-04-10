@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_seo_optimized")]
+        [OdooField("is_seo_optimized")]
         public bool IsSeoOptimized { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_meta_title")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_meta_title")]
         public string WebsiteMetaTitle { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_meta_description")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_meta_description")]
         public string WebsiteMetaDescription { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_meta_keywords")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_meta_keywords")]
         public string WebsiteMetaKeywords { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_meta_og_img")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_meta_og_img")]
         public string WebsiteMetaOgImg { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("seo_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("seo_name")]
         public string SeoName { get; set; }
 
     }

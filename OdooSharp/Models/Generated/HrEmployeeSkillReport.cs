@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("employee_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("employee_id")]
         public int? EmployeeId { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("has_department_manager_access")]
+        [OdooField("has_department_manager_access")]
         public bool HasDepartmentManagerAccess { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("department_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("department_id")]
         public int? DepartmentId { get; set; }
 
         /// <summary>
@@ -99,6 +105,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("skill_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("skill_id")]
         public int? SkillId { get; set; }
 
         /// <summary>
@@ -113,6 +120,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("skill_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("skill_type_id")]
         public int? SkillTypeId { get; set; }
 
         /// <summary>
@@ -126,6 +134,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("skill_level")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("skill_level")]
         public string SkillLevel { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("level_progress")]
+        [OdooField("level_progress")]
         public double LevelProgress { get; set; }
 
         /// <summary>
@@ -150,6 +160,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
     }

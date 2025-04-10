@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lead_create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("lead_create_date")]
         public DateTime? LeadCreateDate { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_conversion")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_conversion")]
         public DateTime? DateConversion { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_deadline")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_deadline")]
         public DateTime? DateDeadline { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_closed")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_closed")]
         public DateTime? DateClosed { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("author_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("author_id")]
         public int? AuthorId { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("team_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("team_id")]
         public int? TeamId { get; set; }
 
         /// <summary>
@@ -152,6 +162,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lead_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("lead_id")]
         public int? LeadId { get; set; }
 
         /// <summary>
@@ -165,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("body")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("body")]
         public string Body { get; set; }
 
         /// <summary>
@@ -179,6 +191,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("subtype_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("subtype_id")]
         public int? SubtypeId { get; set; }
 
         /// <summary>
@@ -193,6 +206,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mail_activity_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("mail_activity_type_id")]
         public int? MailActivityTypeId { get; set; }
 
         /// <summary>
@@ -207,6 +221,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("country_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("country_id")]
         public int? CountryId { get; set; }
 
         /// <summary>
@@ -221,6 +236,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -235,6 +251,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("stage_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("stage_id")]
         public int? StageId { get; set; }
 
         /// <summary>
@@ -249,6 +266,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -259,9 +277,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [lead]=Lead,[opportunity]=Opportunity</para>
         /// </summary>
         [JsonPropertyName("lead_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lead_type")]
         public string LeadType { get; set; }
 
         /// <summary>
@@ -274,6 +294,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -287,6 +308,7 @@ namespace OdooSharp.Models
         /// <para>Relation: crm.tag</para>
         /// </summary>
         [JsonPropertyName("tag_ids")]
+        [OdooField("tag_ids")]
         public List<int> TagIds { get; set; }
 
         /// <summary>
@@ -297,9 +319,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [won]=Won,[lost]=Lost,[pending]=Pending</para>
         /// </summary>
         [JsonPropertyName("won_status")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("won_status")]
         public string WonStatus { get; set; }
 
     }

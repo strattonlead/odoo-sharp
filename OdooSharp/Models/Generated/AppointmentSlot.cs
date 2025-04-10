@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("appointment_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("appointment_type_id")]
         public int? AppointmentTypeId { get; set; }
 
         /// <summary>
@@ -55,9 +58,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [users]=Users,[resources]=Resources (e.g. Tables, Courts, Rooms, ...)</para>
         /// </summary>
         [JsonPropertyName("schedule_based_on")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("schedule_based_on")]
         public string ScheduleBasedOn { get; set; }
 
         /// <summary>
@@ -68,9 +73,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [recurring]=Regular,[unique]=One Shot</para>
         /// </summary>
         [JsonPropertyName("slot_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("slot_type")]
         public string SlotType { get; set; }
 
         /// <summary>
@@ -83,6 +90,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("allday")]
+        [OdooField("allday")]
         public bool Allday { get; set; }
 
         /// <summary>
@@ -96,6 +104,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.users</para>
         /// </summary>
         [JsonPropertyName("restrict_to_user_ids")]
+        [OdooField("restrict_to_user_ids")]
         public List<int> RestrictToUserIds { get; set; }
 
         /// <summary>
@@ -109,6 +118,7 @@ namespace OdooSharp.Models
         /// <para>Relation: appointment.resource</para>
         /// </summary>
         [JsonPropertyName("restrict_to_resource_ids")]
+        [OdooField("restrict_to_resource_ids")]
         public List<int> RestrictToResourceIds { get; set; }
 
         /// <summary>
@@ -119,9 +129,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [1]=Monday,[2]=Tuesday,[3]=Wednesday,[4]=Thursday,[5]=Friday,[6]=Saturday,[7]=Sunday</para>
         /// </summary>
         [JsonPropertyName("weekday")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("weekday")]
         public string Weekday { get; set; }
 
         /// <summary>
@@ -134,6 +146,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("start_hour")]
+        [OdooField("start_hour")]
         public double StartHour { get; set; }
 
         /// <summary>
@@ -146,6 +159,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("end_hour")]
+        [OdooField("end_hour")]
         public double EndHour { get; set; }
 
         /// <summary>
@@ -159,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("start_datetime")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("start_datetime")]
         public DateTime? StartDatetime { get; set; }
 
         /// <summary>
@@ -172,6 +187,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("end_datetime")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("end_datetime")]
         public DateTime? EndDatetime { get; set; }
 
         /// <summary>
@@ -184,6 +200,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("duration")]
+        [OdooField("duration")]
         public double Duration { get; set; }
 
         /// <summary>
@@ -198,6 +215,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -211,6 +229,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -225,6 +244,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -238,6 +258,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

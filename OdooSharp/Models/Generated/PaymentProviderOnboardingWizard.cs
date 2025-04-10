@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -41,9 +43,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [stripe]=Credit & Debit card (via Stripe),[paypal]=PayPal,[manual]=Custom payment instructions</para>
         /// </summary>
         [JsonPropertyName("payment_method")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("payment_method")]
         public string PaymentMethod { get; set; }
 
         /// <summary>
@@ -57,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("paypal_email_account")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("paypal_email_account")]
         public string PaypalEmailAccount { get; set; }
 
         /// <summary>
@@ -70,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("manual_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("manual_name")]
         public string ManualName { get; set; }
 
         /// <summary>
@@ -83,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("journal_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("journal_name")]
         public string JournalName { get; set; }
 
         /// <summary>
@@ -96,6 +103,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("acc_number")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("acc_number")]
         public string AccNumber { get; set; }
 
         /// <summary>
@@ -109,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("manual_post_msg")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("manual_post_msg")]
         public string ManualPostMsg { get; set; }
 
         /// <summary>
@@ -121,6 +130,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("_data_fetched")]
+        [OdooField("_data_fetched")]
         public bool _dataFetched { get; set; }
 
         /// <summary>
@@ -135,6 +145,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -148,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -162,6 +174,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -175,6 +188,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

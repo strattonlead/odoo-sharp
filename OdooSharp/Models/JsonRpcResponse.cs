@@ -10,7 +10,7 @@ namespace OdooSharp.Models
         public string JsonRpc { get; set; }
 
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [JsonPropertyName("error")]
         public OdooRpcError Error { get; set; }

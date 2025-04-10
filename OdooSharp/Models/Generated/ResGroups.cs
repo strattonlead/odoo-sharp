@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.users</para>
         /// </summary>
         [JsonPropertyName("user_ids")]
+        [OdooField("user_ids")]
         public List<int> UserIds { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.users</para>
         /// </summary>
         [JsonPropertyName("all_user_ids")]
+        [OdooField("all_user_ids")]
         public List<int> AllUserIds { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.model.access</para>
         /// </summary>
         [JsonPropertyName("model_access")]
+        [OdooField("model_access")]
         public List<int> ModelAccess { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.rule</para>
         /// </summary>
         [JsonPropertyName("rule_groups")]
+        [OdooField("rule_groups")]
         public List<int> RuleGroups { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.ui.menu</para>
         /// </summary>
         [JsonPropertyName("menu_access")]
+        [OdooField("menu_access")]
         public List<int> MenuAccess { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.ui.view</para>
         /// </summary>
         [JsonPropertyName("view_access")]
+        [OdooField("view_access")]
         public List<int> ViewAccess { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("comment")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("comment")]
         public string Comment { get; set; }
 
         /// <summary>
@@ -149,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("category_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("category_id")]
         public int? CategoryId { get; set; }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("full_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("full_name")]
         public string FullName { get; set; }
 
         /// <summary>
@@ -174,6 +186,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("share")]
+        [OdooField("share")]
         public bool Share { get; set; }
 
         /// <summary>
@@ -186,6 +199,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("api_key_duration")]
+        [OdooField("api_key_duration")]
         public double ApiKeyDuration { get; set; }
 
         /// <summary>
@@ -199,6 +213,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("implied_ids")]
+        [OdooField("implied_ids")]
         public List<int> ImpliedIds { get; set; }
 
         /// <summary>
@@ -212,6 +227,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("all_implied_ids")]
+        [OdooField("all_implied_ids")]
         public List<int> AllImpliedIds { get; set; }
 
         /// <summary>
@@ -225,6 +241,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("implied_by_ids")]
+        [OdooField("implied_by_ids")]
         public List<int> ImpliedByIds { get; set; }
 
         /// <summary>
@@ -238,6 +255,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("all_implied_by_ids")]
+        [OdooField("all_implied_by_ids")]
         public List<int> AllImpliedByIds { get; set; }
 
         /// <summary>
@@ -251,6 +269,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("disjoint_ids")]
+        [OdooField("disjoint_ids")]
         public List<int> DisjointIds { get; set; }
 
         /// <summary>
@@ -265,6 +284,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -278,6 +298,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -292,6 +313,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -305,6 +327,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -317,6 +340,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -329,6 +353,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("visible")]
+        [OdooField("visible")]
         public bool Visible { get; set; }
 
         /// <summary>
@@ -341,6 +366,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("color")]
+        [OdooField("color")]
         public int Color { get; set; }
 
     }

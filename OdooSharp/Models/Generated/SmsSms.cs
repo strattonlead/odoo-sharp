@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("uuid")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("uuid")]
         public string Uuid { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("number")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("number")]
         public string Number { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("body")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("body")]
         public string Body { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mail_message_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("mail_message_id")]
         public int? MailMessageId { get; set; }
 
         /// <summary>
@@ -108,9 +115,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [outgoing]=In Queue,[process]=Processing,[pending]=Sent,[sent]=Delivered,[error]=Error,[canceled]=Cancelled</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -121,9 +130,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [unknown]=Unknown error,[sms_number_missing]=Missing Number,[sms_number_format]=Wrong Number Format,[sms_country_not_supported]=Country Not Supported,[sms_registration_needed]=Country-specific Registration Required,[sms_credit]=Insufficient Credit,[sms_server]=Server Error,[sms_acc]=Unregistered Account,[sms_blacklist]=Blacklisted,[sms_duplicate]=Duplicate,[sms_optout]=Opted Out</para>
         /// </summary>
         [JsonPropertyName("failure_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("failure_type")]
         public string FailureType { get; set; }
 
         /// <summary>
@@ -138,6 +149,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sms_tracker_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("sms_tracker_id")]
         public int? SmsTrackerId { get; set; }
 
         /// <summary>
@@ -150,6 +162,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("to_delete")]
+        [OdooField("to_delete")]
         public bool ToDelete { get; set; }
 
         /// <summary>
@@ -164,6 +177,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -177,6 +191,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -191,6 +206,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -204,6 +220,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

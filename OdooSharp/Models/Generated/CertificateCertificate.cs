@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("content")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("content")]
         public byte[] Content { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("pkcs12_password")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("pkcs12_password")]
         public string Pkcs12Password { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("private_key_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("private_key_id")]
         public int? PrivateKeyId { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("public_key_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("public_key_id")]
         public int? PublicKeyId { get; set; }
 
         /// <summary>
@@ -108,9 +115,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [general]=General</para>
         /// </summary>
         [JsonPropertyName("scope")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("scope")]
         public string Scope { get; set; }
 
         /// <summary>
@@ -121,9 +130,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [der]=DER,[pem]=PEM,[pkcs12]=PKCS12</para>
         /// </summary>
         [JsonPropertyName("content_format")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("content_format")]
         public string ContentFormat { get; set; }
 
         /// <summary>
@@ -137,6 +148,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("pem_certificate")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("pem_certificate")]
         public byte[] PemCertificate { get; set; }
 
         /// <summary>
@@ -150,6 +162,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("subject_common_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("subject_common_name")]
         public string SubjectCommonName { get; set; }
 
         /// <summary>
@@ -163,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("serial_number")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("serial_number")]
         public string SerialNumber { get; set; }
 
         /// <summary>
@@ -176,6 +190,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_start")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_start")]
         public DateTime? DateStart { get; set; }
 
         /// <summary>
@@ -189,6 +204,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_end")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_end")]
         public DateTime? DateEnd { get; set; }
 
         /// <summary>
@@ -202,6 +218,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("loading_error")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("loading_error")]
         public string LoadingError { get; set; }
 
         /// <summary>
@@ -214,6 +231,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_valid")]
+        [OdooField("is_valid")]
         public bool IsValid { get; set; }
 
         /// <summary>
@@ -226,6 +244,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -240,6 +259,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -253,6 +273,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("country_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("country_code")]
         public string CountryCode { get; set; }
 
         /// <summary>
@@ -267,6 +288,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -280,6 +302,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -294,6 +317,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -307,6 +331,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

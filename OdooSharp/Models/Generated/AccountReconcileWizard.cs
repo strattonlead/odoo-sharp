@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move.line</para>
         /// </summary>
         [JsonPropertyName("move_line_ids")]
+        [OdooField("move_line_ids")]
         public List<int> MoveLineIds { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reco_account_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("reco_account_id")]
         public int? RecoAccountId { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("amount")]
+        [OdooField("amount")]
         public decimal Amount { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_currency_id")]
         public int? CompanyCurrencyId { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("amount_currency")]
+        [OdooField("amount_currency")]
         public decimal AmountCurrency { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reco_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("reco_currency_id")]
         public int? RecoCurrencyId { get; set; }
 
         /// <summary>
@@ -136,6 +145,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("edit_mode_amount")]
+        [OdooField("edit_mode_amount")]
         public decimal EditModeAmount { get; set; }
 
         /// <summary>
@@ -148,6 +158,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("edit_mode_amount_currency")]
+        [OdooField("edit_mode_amount_currency")]
         public decimal EditModeAmountCurrency { get; set; }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("edit_mode_reco_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("edit_mode_reco_currency_id")]
         public int? EditModeRecoCurrencyId { get; set; }
 
         /// <summary>
@@ -174,6 +186,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("edit_mode")]
+        [OdooField("edit_mode")]
         public bool EditMode { get; set; }
 
         /// <summary>
@@ -186,6 +199,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("single_currency_mode")]
+        [OdooField("single_currency_mode")]
         public bool SingleCurrencyMode { get; set; }
 
         /// <summary>
@@ -198,6 +212,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("allow_partials")]
+        [OdooField("allow_partials")]
         public bool AllowPartials { get; set; }
 
         /// <summary>
@@ -210,6 +225,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("force_partials")]
+        [OdooField("force_partials")]
         public bool ForcePartials { get; set; }
 
         /// <summary>
@@ -222,6 +238,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_allow_partials")]
+        [OdooField("display_allow_partials")]
         public bool DisplayAllowPartials { get; set; }
 
         /// <summary>
@@ -235,6 +252,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
@@ -249,6 +267,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("journal_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("journal_id")]
         public int? JournalId { get; set; }
 
         /// <summary>
@@ -263,6 +282,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_id")]
         public int? AccountId { get; set; }
 
         /// <summary>
@@ -275,6 +295,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_rec_pay_account")]
+        [OdooField("is_rec_pay_account")]
         public bool IsRecPayAccount { get; set; }
 
         /// <summary>
@@ -289,6 +310,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("to_partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("to_partner_id")]
         public int? ToPartnerId { get; set; }
 
         /// <summary>
@@ -302,6 +324,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("label")]
         public string Label { get; set; }
 
         /// <summary>
@@ -316,6 +339,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("tax_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("tax_id")]
         public int? TaxId { get; set; }
 
         /// <summary>
@@ -328,6 +352,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("to_check")]
+        [OdooField("to_check")]
         public bool ToCheck { get; set; }
 
         /// <summary>
@@ -340,6 +365,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_write_off_required")]
+        [OdooField("is_write_off_required")]
         public bool IsWriteOffRequired { get; set; }
 
         /// <summary>
@@ -352,6 +378,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_transfer_required")]
+        [OdooField("is_transfer_required")]
         public bool IsTransferRequired { get; set; }
 
         /// <summary>
@@ -365,6 +392,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("transfer_warning_message")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("transfer_warning_message")]
         public string TransferWarningMessage { get; set; }
 
         /// <summary>
@@ -379,6 +407,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("transfer_from_account_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("transfer_from_account_id")]
         public int? TransferFromAccountId { get; set; }
 
         /// <summary>
@@ -392,6 +421,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lock_date_violated_warning_message")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lock_date_violated_warning_message")]
         public string LockDateViolatedWarningMessage { get; set; }
 
         /// <summary>
@@ -406,6 +436,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reco_model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("reco_model_id")]
         public int? RecoModelId { get; set; }
 
         /// <summary>
@@ -419,6 +450,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.reconcile.model</para>
         /// </summary>
         [JsonPropertyName("reco_model_autocomplete_ids")]
+        [OdooField("reco_model_autocomplete_ids")]
         public List<int> RecoModelAutocompleteIds { get; set; }
 
         /// <summary>
@@ -433,6 +465,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -446,6 +479,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -460,6 +494,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -473,6 +508,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

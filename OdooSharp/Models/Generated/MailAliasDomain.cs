@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.company</para>
         /// </summary>
         [JsonPropertyName("company_ids")]
+        [OdooField("company_ids")]
         public List<int> CompanyIds { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("bounce_alias")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("bounce_alias")]
         public string BounceAlias { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("bounce_email")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("bounce_email")]
         public string BounceEmail { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("catchall_alias")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("catchall_alias")]
         public string CatchallAlias { get; set; }
 
         /// <summary>
@@ -121,6 +129,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("catchall_email")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("catchall_email")]
         public string CatchallEmail { get; set; }
 
         /// <summary>
@@ -134,6 +143,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("default_from")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("default_from")]
         public string DefaultFrom { get; set; }
 
         /// <summary>
@@ -147,6 +157,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("default_from_email")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("default_from_email")]
         public string DefaultFromEmail { get; set; }
 
         /// <summary>
@@ -161,6 +172,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -174,6 +186,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -188,6 +201,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -201,6 +215,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

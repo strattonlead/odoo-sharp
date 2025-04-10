@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("website_id")]
         public int? WebsiteId { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("website_published")]
+        [OdooField("website_published")]
         public bool WebsitePublished { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_published")]
+        [OdooField("is_published")]
         public bool IsPublished { get; set; }
 
         /// <summary>
@@ -81,6 +86,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("can_publish")]
+        [OdooField("can_publish")]
         public bool CanPublish { get; set; }
 
         /// <summary>
@@ -94,6 +100,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_url")]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
@@ -107,6 +114,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_absolute_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("website_absolute_url")]
         public string WebsiteAbsoluteUrl { get; set; }
 
         /// <summary>
@@ -120,6 +128,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -134,6 +143,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("action_server_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("action_server_id")]
         public int? ActionServerId { get; set; }
 
         /// <summary>
@@ -147,6 +157,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("field_names")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("field_names")]
         public string FieldNames { get; set; }
 
         /// <summary>
@@ -161,6 +172,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("filter_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("filter_id")]
         public int? FilterId { get; set; }
 
         /// <summary>
@@ -173,6 +185,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("limit")]
+        [OdooField("limit")]
         public int Limit { get; set; }
 
         /// <summary>
@@ -186,6 +199,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("model_name")]
         public string ModelName { get; set; }
 
         /// <summary>
@@ -200,6 +214,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -213,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -227,6 +243,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -240,6 +257,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -252,6 +270,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("product_cross_selling")]
+        [OdooField("product_cross_selling")]
         public bool ProductCrossSelling { get; set; }
 
     }

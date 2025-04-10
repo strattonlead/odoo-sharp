@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("alias_id")]
         public int? AliasId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alias_name")]
         public string AliasName { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_domain_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("alias_domain_id")]
         public int? AliasDomainId { get; set; }
 
         /// <summary>
@@ -85,6 +90,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alias_domain")]
         public string AliasDomain { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_defaults")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alias_defaults")]
         public string AliasDefaults { get; set; }
 
         /// <summary>
@@ -111,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias_email")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alias_email")]
         public string AliasEmail { get; set; }
 
     }

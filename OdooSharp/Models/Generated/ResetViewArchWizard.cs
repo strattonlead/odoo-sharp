@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("view_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("view_id")]
         public int? ViewId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("view_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("view_name")]
         public string ViewName { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("has_diff")]
+        [OdooField("has_diff")]
         public bool HasDiff { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("arch_diff")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("arch_diff")]
         public string ArchDiff { get; set; }
 
         /// <summary>
@@ -93,9 +99,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [soft]=Restore previous version (soft reset).,[hard]=Reset to file version (hard reset).,[other_view]=Reset to another view.</para>
         /// </summary>
         [JsonPropertyName("reset_mode")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("reset_mode")]
         public string ResetMode { get; set; }
 
         /// <summary>
@@ -110,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("compare_view_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("compare_view_id")]
         public int? CompareViewId { get; set; }
 
         /// <summary>
@@ -123,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("arch_to_compare")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("arch_to_compare")]
         public string ArchToCompare { get; set; }
 
         /// <summary>
@@ -137,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -150,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -164,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -177,6 +190,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

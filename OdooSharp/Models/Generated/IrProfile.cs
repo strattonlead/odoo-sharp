@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("session")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("session")]
         public string Session { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("duration")]
+        [OdooField("duration")]
         public double Duration { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("init_stack_trace")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("init_stack_trace")]
         public string InitStackTrace { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sql")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("sql")]
         public string Sql { get; set; }
 
         /// <summary>
@@ -120,6 +128,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sql_count")]
+        [OdooField("sql_count")]
         public int SqlCount { get; set; }
 
         /// <summary>
@@ -133,6 +142,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("traces_async")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("traces_async")]
         public string TracesAsync { get; set; }
 
         /// <summary>
@@ -146,6 +156,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("traces_sync")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("traces_sync")]
         public string TracesSync { get; set; }
 
         /// <summary>
@@ -159,6 +170,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("qweb")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("qweb")]
         public string Qweb { get; set; }
 
         /// <summary>
@@ -171,6 +183,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("entry_count")]
+        [OdooField("entry_count")]
         public int EntryCount { get; set; }
 
         /// <summary>
@@ -184,6 +197,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("speedscope")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("speedscope")]
         public object Speedscope { get; set; }
 
         /// <summary>
@@ -197,6 +211,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("speedscope_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("speedscope_url")]
         public string SpeedscopeUrl { get; set; }
 
     }

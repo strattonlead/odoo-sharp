@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("attribute_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("attribute_id")]
         public int? AttributeId { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Relation: product.template.attribute.line</para>
         /// </summary>
         [JsonPropertyName("pav_attribute_line_ids")]
+        [OdooField("pav_attribute_line_ids")]
         public List<int> PavAttributeLineIds { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("default_extra_price")]
+        [OdooField("default_extra_price")]
         public double DefaultExtraPrice { get; set; }
 
         /// <summary>
@@ -107,6 +114,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_custom")]
+        [OdooField("is_custom")]
         public bool IsCustom { get; set; }
 
         /// <summary>
@@ -120,6 +128,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("html_color")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("html_color")]
         public string HtmlColor { get; set; }
 
         /// <summary>
@@ -130,9 +139,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [radio]=Radio,[pills]=Pills,[select]=Select,[color]=Color,[multi]=Multi-checkbox</para>
         /// </summary>
         [JsonPropertyName("display_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_type")]
         public string DisplayType { get; set; }
 
         /// <summary>
@@ -145,6 +156,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("color")]
+        [OdooField("color")]
         public int Color { get; set; }
 
         /// <summary>
@@ -158,6 +170,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("image")]
         public byte[] Image { get; set; }
 
         /// <summary>
@@ -170,6 +183,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -182,6 +196,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_used_on_products")]
+        [OdooField("is_used_on_products")]
         public bool IsUsedOnProducts { get; set; }
 
         /// <summary>
@@ -194,6 +209,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("default_extra_price_changed")]
+        [OdooField("default_extra_price_changed")]
         public bool DefaultExtraPriceChanged { get; set; }
 
         /// <summary>
@@ -208,6 +224,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -221,6 +238,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -235,6 +253,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -248,6 +267,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -54,9 +57,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [draft]=Draft,[error]=Error,[done]=Done</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -69,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("lead_number")]
+        [OdooField("lead_number")]
         public int LeadNumber { get; set; }
 
         /// <summary>
@@ -79,9 +85,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [companies]=Companies,[people]=Companies and their Contacts</para>
         /// </summary>
         [JsonPropertyName("search_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("search_type")]
         public string SearchType { get; set; }
 
         /// <summary>
@@ -92,9 +100,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [credits]=Insufficient Credits,[no_result]=No Result</para>
         /// </summary>
         [JsonPropertyName("error_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("error_type")]
         public string ErrorType { get; set; }
 
         /// <summary>
@@ -105,9 +115,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [lead]=Leads,[opportunity]=Opportunities</para>
         /// </summary>
         [JsonPropertyName("lead_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lead_type")]
         public string LeadType { get; set; }
 
         /// <summary>
@@ -122,6 +134,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("team_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("team_id")]
         public int? TeamId { get; set; }
 
         /// <summary>
@@ -136,6 +149,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -149,6 +163,7 @@ namespace OdooSharp.Models
         /// <para>Relation: crm.tag</para>
         /// </summary>
         [JsonPropertyName("tag_ids")]
+        [OdooField("tag_ids")]
         public List<int> TagIds { get; set; }
 
         /// <summary>
@@ -162,6 +177,7 @@ namespace OdooSharp.Models
         /// <para>Relation: crm.lead</para>
         /// </summary>
         [JsonPropertyName("lead_ids")]
+        [OdooField("lead_ids")]
         public List<int> LeadIds { get; set; }
 
         /// <summary>
@@ -174,6 +190,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("lead_count")]
+        [OdooField("lead_count")]
         public int LeadCount { get; set; }
 
         /// <summary>
@@ -186,6 +203,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("filter_on_size")]
+        [OdooField("filter_on_size")]
         public bool FilterOnSize { get; set; }
 
         /// <summary>
@@ -198,6 +216,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("company_size_min")]
+        [OdooField("company_size_min")]
         public int CompanySizeMin { get; set; }
 
         /// <summary>
@@ -210,6 +229,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("company_size_max")]
+        [OdooField("company_size_max")]
         public int CompanySizeMax { get; set; }
 
         /// <summary>
@@ -223,6 +243,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.country</para>
         /// </summary>
         [JsonPropertyName("country_ids")]
+        [OdooField("country_ids")]
         public List<int> CountryIds { get; set; }
 
         /// <summary>
@@ -236,6 +257,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.country.state</para>
         /// </summary>
         [JsonPropertyName("state_ids")]
+        [OdooField("state_ids")]
         public List<int> StateIds { get; set; }
 
         /// <summary>
@@ -249,6 +271,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.country.state</para>
         /// </summary>
         [JsonPropertyName("available_state_ids")]
+        [OdooField("available_state_ids")]
         public List<int> AvailableStateIds { get; set; }
 
         /// <summary>
@@ -262,6 +285,7 @@ namespace OdooSharp.Models
         /// <para>Relation: crm.iap.lead.industry</para>
         /// </summary>
         [JsonPropertyName("industry_ids")]
+        [OdooField("industry_ids")]
         public List<int> IndustryIds { get; set; }
 
         /// <summary>
@@ -274,6 +298,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("contact_number")]
+        [OdooField("contact_number")]
         public int ContactNumber { get; set; }
 
         /// <summary>
@@ -284,9 +309,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [role]=Role,[seniority]=Seniority</para>
         /// </summary>
         [JsonPropertyName("contact_filter_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("contact_filter_type")]
         public string ContactFilterType { get; set; }
 
         /// <summary>
@@ -301,6 +328,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("preferred_role_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("preferred_role_id")]
         public int? PreferredRoleId { get; set; }
 
         /// <summary>
@@ -314,6 +342,7 @@ namespace OdooSharp.Models
         /// <para>Relation: crm.iap.lead.role</para>
         /// </summary>
         [JsonPropertyName("role_ids")]
+        [OdooField("role_ids")]
         public List<int> RoleIds { get; set; }
 
         /// <summary>
@@ -328,6 +357,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("seniority_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("seniority_id")]
         public int? SeniorityId { get; set; }
 
         /// <summary>
@@ -341,6 +371,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lead_credits")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lead_credits")]
         public string LeadCredits { get; set; }
 
         /// <summary>
@@ -354,6 +385,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lead_contacts_credits")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lead_contacts_credits")]
         public string LeadContactsCredits { get; set; }
 
         /// <summary>
@@ -367,6 +399,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("lead_total_credits")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("lead_total_credits")]
         public string LeadTotalCredits { get; set; }
 
         /// <summary>
@@ -381,6 +414,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -394,6 +428,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -408,6 +443,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -421,6 +457,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

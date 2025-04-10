@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -41,9 +43,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [google]=Google,[microsoft]=Outlook</para>
         /// </summary>
         [JsonPropertyName("external_calendar_provider")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("external_calendar_provider")]
         public string ExternalCalendarProvider { get; set; }
 
         /// <summary>
@@ -57,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("cal_client_id")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("cal_client_id")]
         public string CalClientId { get; set; }
 
         /// <summary>
@@ -70,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("cal_client_secret")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("cal_client_secret")]
         public string CalClientSecret { get; set; }
 
         /// <summary>
@@ -82,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("cal_sync_paused")]
+        [OdooField("cal_sync_paused")]
         public bool CalSyncPaused { get; set; }
 
         /// <summary>
@@ -95,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("microsoft_outlook_client_identifier")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("microsoft_outlook_client_identifier")]
         public string MicrosoftOutlookClientIdentifier { get; set; }
 
         /// <summary>
@@ -108,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("microsoft_outlook_client_secret")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("microsoft_outlook_client_secret")]
         public string MicrosoftOutlookClientSecret { get; set; }
 
         /// <summary>
@@ -120,6 +129,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("microsoft_outlook_sync_paused")]
+        [OdooField("microsoft_outlook_sync_paused")]
         public bool MicrosoftOutlookSyncPaused { get; set; }
 
         /// <summary>
@@ -134,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -147,6 +158,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -161,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -174,6 +187,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("iso_numeric")]
+        [OdooField("iso_numeric")]
         public int IsoNumeric { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("full_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("full_name")]
         public string FullName { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("symbol")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("symbol")]
         public string Symbol { get; set; }
 
         /// <summary>
@@ -94,6 +100,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("rate")]
+        [OdooField("rate")]
         public double Rate { get; set; }
 
         /// <summary>
@@ -106,6 +113,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("inverse_rate")]
+        [OdooField("inverse_rate")]
         public double InverseRate { get; set; }
 
         /// <summary>
@@ -119,6 +127,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("rate_string")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("rate_string")]
         public string RateString { get; set; }
 
         /// <summary>
@@ -132,6 +141,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.currency.rate</para>
         /// </summary>
         [JsonPropertyName("rate_ids")]
+        [OdooField("rate_ids")]
         public List<int> RateIds { get; set; }
 
         /// <summary>
@@ -144,6 +154,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("rounding")]
+        [OdooField("rounding")]
         public double Rounding { get; set; }
 
         /// <summary>
@@ -156,6 +167,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("decimal_places")]
+        [OdooField("decimal_places")]
         public int DecimalPlaces { get; set; }
 
         /// <summary>
@@ -168,6 +180,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -178,9 +191,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [after]=After Amount,[before]=Before Amount</para>
         /// </summary>
         [JsonPropertyName("position")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("position")]
         public string Position { get; set; }
 
         /// <summary>
@@ -194,6 +209,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
@@ -207,6 +223,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_unit_label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("currency_unit_label")]
         public string CurrencyUnitLabel { get; set; }
 
         /// <summary>
@@ -220,6 +237,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_subunit_label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("currency_subunit_label")]
         public string CurrencySubunitLabel { get; set; }
 
         /// <summary>
@@ -232,6 +250,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_current_company_currency")]
+        [OdooField("is_current_company_currency")]
         public bool IsCurrentCompanyCurrency { get; set; }
 
         /// <summary>
@@ -246,6 +265,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -259,6 +279,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -273,6 +294,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -286,6 +308,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -298,6 +321,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_rounding_warning")]
+        [OdooField("display_rounding_warning")]
         public bool DisplayRoundingWarning { get; set; }
 
         /// <summary>
@@ -311,6 +335,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("fiscal_country_codes")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("fiscal_country_codes")]
         public string FiscalCountryCodes { get; set; }
 
     }

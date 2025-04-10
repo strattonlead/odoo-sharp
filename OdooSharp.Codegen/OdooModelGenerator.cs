@@ -1,5 +1,6 @@
 ﻿using OdooSharp.Models;
 using System.Text;
+using System.Text.Json;
 
 namespace OdooSharp.Codegen
 {
@@ -31,41 +32,74 @@ namespace OdooSharp.Codegen
             var yes = "yes";
             var no = "no";
 
-            foreach (var field in fields)
+            foreach (var pair in fields)
             {
-                var csharpType = OdooFieldMapper.MapToCSharpType(field.Value, modelName);
-                var propertyName = ToPascalCase(field.Key);
+                var field = pair.Value;
+
+                var csharpType = OdooFieldMapper.MapToCSharpType(field, modelName);
+                var propertyName = ToPascalCase(pair.Key);
 
                 sb.AppendLine($"        /// <summary>");
-                sb.AppendLine($"        /// <para>Name: {field.Value.Label}</para>");
-                sb.AppendLine($"        /// <para>Internal: {field.Value.Name}</para>");
-                sb.AppendLine($"        /// <para>Store: {(field.Value.Store ? yes : no)}</para>");
-                sb.AppendLine($"        /// <para>Required: {(field.Value.Required ? yes : no)}</para>");
-                sb.AppendLine($"        /// <para>Readonly: {(field.Value.Readonly ? yes : no)}</para>");
-                sb.AppendLine($"        /// <para>Company Dependent: {(field.Value.CompanyDependent ? yes : no)}</para>");
-                sb.AppendLine($"        /// <para>Field type: {field.Value.FieldType}</para>");
+                sb.AppendLine($"        /// <para>Name: {field.Label}</para>");
+                sb.AppendLine($"        /// <para>Internal: {field.Name}</para>");
+                sb.AppendLine($"        /// <para>Store: {(field.Store ? yes : no)}</para>");
+                sb.AppendLine($"        /// <para>Required: {(field.Required ? yes : no)}</para>");
+                sb.AppendLine($"        /// <para>Readonly: {(field.Readonly ? yes : no)}</para>");
+                sb.AppendLine($"        /// <para>Company Dependent: {(field.CompanyDependent ? yes : no)}</para>");
+                sb.AppendLine($"        /// <para>Field type: {field.FieldType}</para>");
 
-                if (!string.IsNullOrWhiteSpace(field.Value.Relation))
+                if (field.Selection is JsonElement)
                 {
-                    sb.AppendLine($"        /// <para>Relation: {field.Value.Relation}</para>");
+                    var selection = (JsonElement)field.Selection;
+                    if (selection.ValueKind == JsonValueKind.Array)
+                    {
+                        var values = new StringBuilder();
+                        foreach (var option in selection.EnumerateArray())
+                        {
+                            if (option.ValueKind == JsonValueKind.Array && option.GetArrayLength() == 2)
+                            {
+                                var valueElement = option[0];
+                                var labelElement = option[1];
+
+                                string value = valueElement.GetString();
+                                string label = labelElement.GetString();
+
+                                values.Append($"[{value}]={label},");
+                            }
+                        }
+
+                        if (values.Length > 1)
+                        {
+                            values.Length--;
+                        }
+
+                        sb.AppendLine($"        /// <para>Allowed selection values: {values}</para>");
+
+                    }
+                }
+
+
+                if (!string.IsNullOrWhiteSpace(field.Relation))
+                {
+                    sb.AppendLine($"        /// <para>Relation: {field.Relation}</para>");
                 }
                 sb.AppendLine($"        /// </summary>");
 
-                sb.AppendLine($"        [JsonPropertyName(\"{field.Key}\")]");
-                if (field.Value.FieldType == OdooFieldType.Many2One)
+                sb.AppendLine($"        [JsonPropertyName(\"{pair.Key}\")]");
+                if (field.FieldType == OdooFieldType.Many2One)
                 {
                     sb.AppendLine($"        [JsonConverter(typeof(OdooMany2OneIdConverter))]");
                 }
-                else if (field.Value.FieldType == OdooFieldType.Text
-                    || field.Value.FieldType == OdooFieldType.Char
-                    || field.Value.FieldType == OdooFieldType.Html
-                    || field.Value.FieldType == OdooFieldType.Url
-                    || field.Value.FieldType == OdooFieldType.Selection
-                    || field.Value.FieldType == OdooFieldType.Reference)
+                else if (field.FieldType == OdooFieldType.Text
+                    || field.FieldType == OdooFieldType.Char
+                    || field.FieldType == OdooFieldType.Html
+                    || field.FieldType == OdooFieldType.Url
+                    || field.FieldType == OdooFieldType.Selection
+                    || field.FieldType == OdooFieldType.Reference)
                 {
                     sb.AppendLine($"        [JsonConverter(typeof(OdooFlexibleStringConverter))]");
                 }
-                else if (field.Value.FieldType == OdooFieldType.DateTime || field.Value.FieldType == OdooFieldType.Date)
+                else if (field.FieldType == OdooFieldType.DateTime || field.FieldType == OdooFieldType.Date)
                 {
                     sb.AppendLine($"        [JsonConverter(typeof(OdooDateTimeConverter))]");
                 }
@@ -77,6 +111,8 @@ namespace OdooSharp.Codegen
                 {
                     sb.AppendLine($"        [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]");
                 }
+
+                sb.AppendLine($"        [OdooField(\"{field.Name}\")]");
                 sb.AppendLine($"        public {csharpType} {propertyName} {{ get; set; }}");
                 sb.AppendLine();
             }

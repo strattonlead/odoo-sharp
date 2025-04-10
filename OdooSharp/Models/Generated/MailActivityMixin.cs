@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.activity</para>
         /// </summary>
         [JsonPropertyName("activity_ids")]
+        [OdooField("activity_ids")]
         public List<int> ActivityIds { get; set; }
 
         /// <summary>
@@ -54,9 +57,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [overdue]=Overdue,[today]=Today,[planned]=Planned</para>
         /// </summary>
         [JsonPropertyName("activity_state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_state")]
         public string ActivityState { get; set; }
 
         /// <summary>
@@ -71,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_user_id")]
         public int? ActivityUserId { get; set; }
 
         /// <summary>
@@ -85,6 +91,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_type_id")]
         public int? ActivityTypeId { get; set; }
 
         /// <summary>
@@ -98,6 +105,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_type_icon")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_type_icon")]
         public string ActivityTypeIcon { get; set; }
 
         /// <summary>
@@ -111,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_date_deadline")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("activity_date_deadline")]
         public DateTime? ActivityDateDeadline { get; set; }
 
         /// <summary>
@@ -124,6 +133,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("my_activity_date_deadline")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("my_activity_date_deadline")]
         public DateTime? MyActivityDateDeadline { get; set; }
 
         /// <summary>
@@ -137,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_summary")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_summary")]
         public string ActivitySummary { get; set; }
 
         /// <summary>
@@ -147,9 +158,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [warning]=Alert,[danger]=Error</para>
         /// </summary>
         [JsonPropertyName("activity_exception_decoration")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_exception_decoration")]
         public string ActivityExceptionDecoration { get; set; }
 
         /// <summary>
@@ -163,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_exception_icon")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_exception_icon")]
         public string ActivityExceptionIcon { get; set; }
 
         /// <summary>
@@ -177,6 +191,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_calendar_event_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_calendar_event_id")]
         public int? ActivityCalendarEventId { get; set; }
 
     }

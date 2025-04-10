@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("group_by_email")]
+        [OdooField("group_by_email")]
         public bool GroupByEmail { get; set; }
 
         /// <summary>
@@ -55,6 +58,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("group_by_name")]
+        [OdooField("group_by_name")]
         public bool GroupByName { get; set; }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("group_by_is_company")]
+        [OdooField("group_by_is_company")]
         public bool GroupByIsCompany { get; set; }
 
         /// <summary>
@@ -79,6 +84,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("group_by_vat")]
+        [OdooField("group_by_vat")]
         public bool GroupByVat { get; set; }
 
         /// <summary>
@@ -91,6 +97,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("group_by_parent_id")]
+        [OdooField("group_by_parent_id")]
         public bool GroupByParentId { get; set; }
 
         /// <summary>
@@ -101,9 +108,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [option]=Option,[selection]=Selection,[finished]=Finished</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -116,6 +125,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("number_group")]
+        [OdooField("number_group")]
         public int NumberGroup { get; set; }
 
         /// <summary>
@@ -130,6 +140,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("current_line_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("current_line_id")]
         public int? CurrentLineId { get; set; }
 
         /// <summary>
@@ -143,6 +154,7 @@ namespace OdooSharp.Models
         /// <para>Relation: base.partner.merge.line</para>
         /// </summary>
         [JsonPropertyName("line_ids")]
+        [OdooField("line_ids")]
         public List<int> LineIds { get; set; }
 
         /// <summary>
@@ -156,6 +168,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("partner_ids")]
+        [OdooField("partner_ids")]
         public List<int> PartnerIds { get; set; }
 
         /// <summary>
@@ -170,6 +183,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("dst_partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("dst_partner_id")]
         public int? DstPartnerId { get; set; }
 
         /// <summary>
@@ -182,6 +196,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("exclude_contact")]
+        [OdooField("exclude_contact")]
         public bool ExcludeContact { get; set; }
 
         /// <summary>
@@ -194,6 +209,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("exclude_journal_item")]
+        [OdooField("exclude_journal_item")]
         public bool ExcludeJournalItem { get; set; }
 
         /// <summary>
@@ -206,6 +222,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("maximum_group")]
+        [OdooField("maximum_group")]
         public int MaximumGroup { get; set; }
 
         /// <summary>
@@ -220,6 +237,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -233,6 +251,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -247,6 +266,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -260,6 +280,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

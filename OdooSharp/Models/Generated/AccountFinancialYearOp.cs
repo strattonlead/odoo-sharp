@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("opening_move_posted")]
+        [OdooField("opening_move_posted")]
         public bool OpeningMovePosted { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("opening_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("opening_date")]
         public DateTime? OpeningDate { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("fiscalyear_last_day")]
+        [OdooField("fiscalyear_last_day")]
         public int FiscalyearLastDay { get; set; }
 
         /// <summary>
@@ -92,9 +98,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [1]=January,[2]=February,[3]=March,[4]=April,[5]=May,[6]=June,[7]=July,[8]=August,[9]=September,[10]=October,[11]=November,[12]=December</para>
         /// </summary>
         [JsonPropertyName("fiscalyear_last_month")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("fiscalyear_last_month")]
         public string FiscalyearLastMonth { get; set; }
 
         /// <summary>
@@ -109,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -122,6 +131,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -136,6 +146,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -149,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -159,9 +171,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [year]=annually,[semester]=semi-annually,[4_months]=every 4 months,[trimester]=quarterly,[2_months]=every 2 months,[monthly]=monthly</para>
         /// </summary>
         [JsonPropertyName("account_tax_periodicity")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("account_tax_periodicity")]
         public string AccountTaxPeriodicity { get; set; }
 
         /// <summary>
@@ -174,6 +188,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("account_tax_periodicity_reminder_day")]
+        [OdooField("account_tax_periodicity_reminder_day")]
         public int AccountTaxPeriodicityReminderDay { get; set; }
 
         /// <summary>
@@ -188,6 +203,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_tax_periodicity_journal_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_tax_periodicity_journal_id")]
         public int? AccountTaxPeriodicityJournalId { get; set; }
 
     }

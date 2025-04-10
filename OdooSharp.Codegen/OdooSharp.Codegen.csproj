@@ -7,7 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNetEnv" Version="3.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
     <ProjectReference Include="..\OdooSharp\OdooSharp.csproj" />
   </ItemGroup>
 

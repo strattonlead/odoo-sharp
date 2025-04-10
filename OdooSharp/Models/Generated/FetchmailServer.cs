@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_authorization_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_authorization_code")]
         public string GoogleGmailAuthorizationCode { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_refresh_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_refresh_token")]
         public string GoogleGmailRefreshToken { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_access_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_access_token")]
         public string GoogleGmailAccessToken { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("google_gmail_access_token_expiration")]
+        [OdooField("google_gmail_access_token_expiration")]
         public int GoogleGmailAccessTokenExpiration { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_uri")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_uri")]
         public string GoogleGmailUri { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -120,6 +128,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -130,9 +139,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [draft]=Not Confirmed,[done]=Confirmed</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -146,6 +157,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("server")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("server")]
         public string Server { get; set; }
 
         /// <summary>
@@ -158,6 +170,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("port")]
+        [OdooField("port")]
         public int Port { get; set; }
 
         /// <summary>
@@ -168,9 +181,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [imap]=IMAP Server,[pop]=POP Server,[local]=Local Server,[gmail]=Gmail OAuth Authentication</para>
         /// </summary>
         [JsonPropertyName("server_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("server_type")]
         public string ServerType { get; set; }
 
         /// <summary>
@@ -184,6 +199,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("server_type_info")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("server_type_info")]
         public string ServerTypeInfo { get; set; }
 
         /// <summary>
@@ -196,6 +212,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_ssl")]
+        [OdooField("is_ssl")]
         public bool IsSsl { get; set; }
 
         /// <summary>
@@ -208,6 +225,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("attach")]
+        [OdooField("attach")]
         public bool Attach { get; set; }
 
         /// <summary>
@@ -220,6 +238,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("original")]
+        [OdooField("original")]
         public bool Original { get; set; }
 
         /// <summary>
@@ -233,6 +252,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
@@ -246,6 +266,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("user")]
         public string User { get; set; }
 
         /// <summary>
@@ -259,6 +280,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("password")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("password")]
         public string Password { get; set; }
 
         /// <summary>
@@ -273,6 +295,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("object_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("object_id")]
         public int? ObjectId { get; set; }
 
         /// <summary>
@@ -285,6 +308,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("priority")]
+        [OdooField("priority")]
         public int Priority { get; set; }
 
         /// <summary>
@@ -298,6 +322,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.mail</para>
         /// </summary>
         [JsonPropertyName("message_ids")]
+        [OdooField("message_ids")]
         public List<int> MessageIds { get; set; }
 
         /// <summary>
@@ -311,6 +336,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("configuration")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("configuration")]
         public string Configuration { get; set; }
 
         /// <summary>
@@ -324,6 +350,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("script")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("script")]
         public string Script { get; set; }
 
         /// <summary>
@@ -338,6 +365,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -351,6 +379,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -365,6 +394,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -378,6 +408,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

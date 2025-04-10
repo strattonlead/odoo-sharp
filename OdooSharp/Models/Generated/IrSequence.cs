@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("code")]
         public string Code { get; set; }
 
         /// <summary>
@@ -67,9 +71,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [standard]=Standard,[no_gap]=No gap</para>
         /// </summary>
         [JsonPropertyName("implementation")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("implementation")]
         public string Implementation { get; set; }
 
         /// <summary>
@@ -82,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -95,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("prefix")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("prefix")]
         public string Prefix { get; set; }
 
         /// <summary>
@@ -108,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("suffix")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("suffix")]
         public string Suffix { get; set; }
 
         /// <summary>
@@ -120,6 +129,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("number_next")]
+        [OdooField("number_next")]
         public int NumberNext { get; set; }
 
         /// <summary>
@@ -132,6 +142,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("number_next_actual")]
+        [OdooField("number_next_actual")]
         public int NumberNextActual { get; set; }
 
         /// <summary>
@@ -144,6 +155,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("number_increment")]
+        [OdooField("number_increment")]
         public int NumberIncrement { get; set; }
 
         /// <summary>
@@ -156,6 +168,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("padding")]
+        [OdooField("padding")]
         public int Padding { get; set; }
 
         /// <summary>
@@ -170,6 +183,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -182,6 +196,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("use_date_range")]
+        [OdooField("use_date_range")]
         public bool UseDateRange { get; set; }
 
         /// <summary>
@@ -195,6 +210,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.sequence.date_range</para>
         /// </summary>
         [JsonPropertyName("date_range_ids")]
+        [OdooField("date_range_ids")]
         public List<int> DateRangeIds { get; set; }
 
         /// <summary>
@@ -209,6 +225,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -222,6 +239,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -236,6 +254,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -249,6 +268,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

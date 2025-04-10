@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("description")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("description")]
         public string Description { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("model_id")]
         public int? ModelId { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("model_name")]
         public string ModelName { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("model_is_mail_thread")]
+        [OdooField("model_is_mail_thread")]
         public bool ModelIsMailThread { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.actions.server</para>
         /// </summary>
         [JsonPropertyName("action_server_ids")]
+        [OdooField("action_server_ids")]
         public List<int> ActionServerIds { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("url")]
         public string Url { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("webhook_uuid")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("webhook_uuid")]
         public string WebhookUuid { get; set; }
 
         /// <summary>
@@ -148,6 +158,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("record_getter")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("record_getter")]
         public string RecordGetter { get; set; }
 
         /// <summary>
@@ -160,6 +171,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("log_webhook_calls")]
+        [OdooField("log_webhook_calls")]
         public bool LogWebhookCalls { get; set; }
 
         /// <summary>
@@ -172,6 +184,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -182,9 +195,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [on_stage_set]=Stage is set to,[on_user_set]=User is set,[on_tag_set]=Tag is added,[on_state_set]=State is set to,[on_priority_set]=Priority is set to,[on_archive]=On archived,[on_unarchive]=On unarchived,[on_create_or_write]=On save,[on_create]=On creation,[on_write]=On update,[on_unlink]=On deletion,[on_change]=On UI change,[on_time]=Based on date field,[on_time_created]=After creation,[on_time_updated]=After last update,[on_message_received]=On incoming message,[on_message_sent]=On outgoing message,[on_webhook]=On webhook</para>
         /// </summary>
         [JsonPropertyName("trigger")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("trigger")]
         public string Trigger { get; set; }
 
         /// <summary>
@@ -199,6 +214,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("trg_selection_field_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("trg_selection_field_id")]
         public int? TrgSelectionFieldId { get; set; }
 
         /// <summary>
@@ -212,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("trg_field_ref_model_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("trg_field_ref_model_name")]
         public string TrgFieldRefModelName { get; set; }
 
         /// <summary>
@@ -225,6 +242,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("trg_field_ref")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("trg_field_ref")]
         public object TrgFieldRef { get; set; }
 
         /// <summary>
@@ -239,6 +257,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("trg_date_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("trg_date_id")]
         public int? TrgDateId { get; set; }
 
         /// <summary>
@@ -251,6 +270,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("trg_date_range")]
+        [OdooField("trg_date_range")]
         public int TrgDateRange { get; set; }
 
         /// <summary>
@@ -261,9 +281,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [minutes]=Minutes,[hour]=Hours,[day]=Days,[month]=Months</para>
         /// </summary>
         [JsonPropertyName("trg_date_range_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("trg_date_range_type")]
         public string TrgDateRangeType { get; set; }
 
         /// <summary>
@@ -278,6 +300,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("trg_date_calendar_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("trg_date_calendar_id")]
         public int? TrgDateCalendarId { get; set; }
 
         /// <summary>
@@ -291,6 +314,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("filter_pre_domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("filter_pre_domain")]
         public string FilterPreDomain { get; set; }
 
         /// <summary>
@@ -304,6 +328,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("filter_domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("filter_domain")]
         public string FilterDomain { get; set; }
 
         /// <summary>
@@ -317,6 +342,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("last_run")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("last_run")]
         public DateTime? LastRun { get; set; }
 
         /// <summary>
@@ -330,6 +356,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.model.fields</para>
         /// </summary>
         [JsonPropertyName("on_change_field_ids")]
+        [OdooField("on_change_field_ids")]
         public List<int> OnChangeFieldIds { get; set; }
 
         /// <summary>
@@ -343,6 +370,7 @@ namespace OdooSharp.Models
         /// <para>Relation: ir.model.fields</para>
         /// </summary>
         [JsonPropertyName("trigger_field_ids")]
+        [OdooField("trigger_field_ids")]
         public List<int> TriggerFieldIds { get; set; }
 
         /// <summary>
@@ -356,6 +384,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("least_delay_msg")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("least_delay_msg")]
         public string LeastDelayMsg { get; set; }
 
         /// <summary>
@@ -370,6 +399,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -383,6 +413,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -397,6 +428,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -410,6 +442,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

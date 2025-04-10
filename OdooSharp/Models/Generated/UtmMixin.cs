@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("campaign_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("campaign_id")]
         public int? CampaignId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("source_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("source_id")]
         public int? SourceId { get; set; }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("medium_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("medium_id")]
         public int? MediumId { get; set; }
 
     }

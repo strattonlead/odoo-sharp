@@ -1,12 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using OdooSharp.Client;
 using OdooSharp.Codegen;
+using OdooSharp.Configuration;
 
-
-var client = new OdooClient(new OdooSharp.Configuration.OdooClientOptions()
+var envVars = new EnvVars();
+var options = new OdooClientOptions()
 {
+    Database = envVars.Database,
+    Username = envVars.Username,
+    Password = envVars.Password,
+    Url = envVars.Url
+};
 
-});
+var client = new OdooClient(options);
 
 Console.WriteLine("Authenticate...");
 await client.AuthenticateAsync();

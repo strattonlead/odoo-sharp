@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("target_model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("target_model_id")]
         public int? TargetModelId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("website_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("website_id")]
         public int? WebsiteId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// <para>Relation: website.menu</para>
         /// </summary>
         [JsonPropertyName("menu_ids")]
+        [OdooField("menu_ids")]
         public List<int> MenuIds { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_in_menu")]
+        [OdooField("is_in_menu")]
         public bool IsInMenu { get; set; }
 
         /// <summary>
@@ -97,6 +103,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("url")]
         public string Url { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_homepage")]
+        [OdooField("is_homepage")]
         public bool IsHomepage { get; set; }
 
         /// <summary>
@@ -121,6 +129,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("can_publish")]
+        [OdooField("can_publish")]
         public bool CanPublish { get; set; }
 
         /// <summary>
@@ -133,6 +142,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_published")]
+        [OdooField("is_published")]
         public bool IsPublished { get; set; }
 
         /// <summary>
@@ -147,6 +157,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -160,6 +171,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -174,6 +186,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -187,6 +200,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -200,6 +214,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -213,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("date_publish")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("date_publish")]
         public DateTime? DatePublish { get; set; }
 
         /// <summary>
@@ -225,6 +241,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("website_indexed")]
+        [OdooField("website_indexed")]
         public bool WebsiteIndexed { get; set; }
 
         /// <summary>
@@ -235,9 +252,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: []=Public,[connected]=Signed In,[restricted_group]=Restricted Group,[password]=With Password</para>
         /// </summary>
         [JsonPropertyName("visibility")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("visibility")]
         public string Visibility { get; set; }
 
         /// <summary>
@@ -251,6 +270,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("visibility_password_display")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("visibility_password_display")]
         public string VisibilityPasswordDisplay { get; set; }
 
         /// <summary>
@@ -264,6 +284,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.groups</para>
         /// </summary>
         [JsonPropertyName("group_ids")]
+        [OdooField("group_ids")]
         public List<int> GroupIds { get; set; }
 
         /// <summary>
@@ -276,6 +297,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_new_page_template")]
+        [OdooField("is_new_page_template")]
         public bool IsNewPageTemplate { get; set; }
 
         /// <summary>
@@ -289,6 +311,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("old_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("old_url")]
         public string OldUrl { get; set; }
 
         /// <summary>
@@ -301,6 +324,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("redirect_old_url")]
+        [OdooField("redirect_old_url")]
         public bool RedirectOldUrl { get; set; }
 
         /// <summary>
@@ -311,9 +335,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [301]=301 Moved permanently,[302]=302 Moved temporarily</para>
         /// </summary>
         [JsonPropertyName("redirect_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("redirect_type")]
         public string RedirectType { get; set; }
 
     }

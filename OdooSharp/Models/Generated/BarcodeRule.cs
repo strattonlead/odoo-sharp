@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("barcode_nomenclature_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("barcode_nomenclature_id")]
         public int? BarcodeNomenclatureId { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -80,9 +85,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [any]=Any,[ean13]=EAN-13,[ean8]=EAN-8,[upca]=UPC-A,[gs1-128]=GS1-128</para>
         /// </summary>
         [JsonPropertyName("encoding")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("encoding")]
         public string Encoding { get; set; }
 
         /// <summary>
@@ -93,9 +100,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [alias]=Alias,[product]=Unit Product,[quantity]=Quantity,[location]=Location,[location_dest]=Destination location,[lot]=Lot number,[package]=Package,[use_date]=Best before Date,[expiration_date]=Expiration Date,[package_type]=Package Type,[pack_date]=Pack Date</para>
         /// </summary>
         [JsonPropertyName("type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("type")]
         public string Type { get; set; }
 
         /// <summary>
@@ -109,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("pattern")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("pattern")]
         public string Pattern { get; set; }
 
         /// <summary>
@@ -122,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("alias")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alias")]
         public string Alias { get; set; }
 
         /// <summary>
@@ -136,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -149,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -163,6 +176,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -176,6 +190,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -188,6 +203,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_gs1_nomenclature")]
+        [OdooField("is_gs1_nomenclature")]
         public bool IsGs1Nomenclature { get; set; }
 
         /// <summary>
@@ -198,9 +214,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [date]=Date,[measure]=Measure,[identifier]=Numeric Identifier,[alpha]=Alpha-Numeric Name</para>
         /// </summary>
         [JsonPropertyName("gs1_content_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("gs1_content_type")]
         public string Gs1ContentType { get; set; }
 
         /// <summary>
@@ -213,6 +231,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("gs1_decimal_usage")]
+        [OdooField("gs1_decimal_usage")]
         public bool Gs1DecimalUsage { get; set; }
 
         /// <summary>
@@ -227,6 +246,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("associated_uom_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("associated_uom_id")]
         public int? AssociatedUomId { get; set; }
 
     }

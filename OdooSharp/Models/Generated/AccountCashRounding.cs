@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("rounding")]
+        [OdooField("rounding")]
         public double Rounding { get; set; }
 
         /// <summary>
@@ -66,9 +70,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [biggest_tax]=Modify tax amount,[add_invoice_line]=Add a rounding line</para>
         /// </summary>
         [JsonPropertyName("strategy")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("strategy")]
         public string Strategy { get; set; }
 
         /// <summary>
@@ -83,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("profit_account_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("profit_account_id")]
         public int? ProfitAccountId { get; set; }
 
         /// <summary>
@@ -97,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("loss_account_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("loss_account_id")]
         public int? LossAccountId { get; set; }
 
         /// <summary>
@@ -107,9 +115,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [UP]=Up,[DOWN]=Down,[HALF-UP]=Nearest</para>
         /// </summary>
         [JsonPropertyName("rounding_method")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("rounding_method")]
         public string RoundingMethod { get; set; }
 
         /// <summary>
@@ -124,6 +134,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -137,6 +148,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -151,6 +163,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -164,6 +177,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

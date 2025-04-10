@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("question_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("question_id")]
         public int? QuestionId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value_answer_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("value_answer_id")]
         public int? ValueAnswerId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value_text_box")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("value_text_box")]
         public string ValueTextBox { get; set; }
 
         /// <summary>
@@ -86,6 +91,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("appointment_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("appointment_type_id")]
         public int? AppointmentTypeId { get; set; }
 
         /// <summary>
@@ -100,6 +106,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("calendar_event_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("calendar_event_id")]
         public int? CalendarEventId { get; set; }
 
         /// <summary>
@@ -114,6 +121,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -124,9 +132,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [char]=Single line text,[text]=Multi-line text,[select]=Dropdown (one answer),[radio]=Radio (one answer),[checkbox]=Checkboxes (multiple answers)</para>
         /// </summary>
         [JsonPropertyName("question_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("question_type")]
         public string QuestionType { get; set; }
 
         /// <summary>
@@ -141,6 +151,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -154,6 +165,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -168,6 +180,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -181,6 +194,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -195,6 +209,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("calendar_booking_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("calendar_booking_id")]
         public int? CalendarBookingId { get; set; }
 
     }

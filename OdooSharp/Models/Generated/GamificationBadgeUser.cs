@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_partner_id")]
         public int? UserPartnerId { get; set; }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sender_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("sender_id")]
         public int? SenderId { get; set; }
 
         /// <summary>
@@ -87,6 +92,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("badge_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("badge_id")]
         public int? BadgeId { get; set; }
 
         /// <summary>
@@ -101,6 +107,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("challenge_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("challenge_id")]
         public int? ChallengeId { get; set; }
 
         /// <summary>
@@ -114,6 +121,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("comment")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("comment")]
         public string Comment { get; set; }
 
         /// <summary>
@@ -127,6 +135,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("badge_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("badge_name")]
         public string BadgeName { get; set; }
 
         /// <summary>
@@ -137,9 +146,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [bronze]=Bronze,[silver]=Silver,[gold]=Gold</para>
         /// </summary>
         [JsonPropertyName("level")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("level")]
         public string Level { get; set; }
 
         /// <summary>
@@ -154,6 +165,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -167,6 +179,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -181,6 +194,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -194,6 +208,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -208,6 +223,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("employee_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("employee_id")]
         public int? EmployeeId { get; set; }
 
     }

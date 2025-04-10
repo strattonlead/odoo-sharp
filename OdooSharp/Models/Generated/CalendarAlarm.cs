@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -54,9 +57,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [notification]=Notification,[email]=Email,[sms]=SMS Text Message</para>
         /// </summary>
         [JsonPropertyName("alarm_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("alarm_type")]
         public string AlarmType { get; set; }
 
         /// <summary>
@@ -69,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("duration")]
+        [OdooField("duration")]
         public int Duration { get; set; }
 
         /// <summary>
@@ -79,9 +85,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [minutes]=Minutes,[hours]=Hours,[days]=Days</para>
         /// </summary>
         [JsonPropertyName("interval")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("interval")]
         public string Interval { get; set; }
 
         /// <summary>
@@ -94,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("duration_minutes")]
+        [OdooField("duration_minutes")]
         public int DurationMinutes { get; set; }
 
         /// <summary>
@@ -108,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("mail_template_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("mail_template_id")]
         public int? MailTemplateId { get; set; }
 
         /// <summary>
@@ -121,6 +131,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("body")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("body")]
         public string Body { get; set; }
 
         /// <summary>
@@ -133,6 +144,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("notify_responsible")]
+        [OdooField("notify_responsible")]
         public bool NotifyResponsible { get; set; }
 
         /// <summary>
@@ -147,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -160,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -174,6 +188,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -187,6 +202,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -199,6 +215,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("default_for_new_appointment_type")]
+        [OdooField("default_for_new_appointment_type")]
         public bool DefaultForNewAppointmentType { get; set; }
 
         /// <summary>
@@ -213,6 +230,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sms_template_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("sms_template_id")]
         public int? SmsTemplateId { get; set; }
 
     }

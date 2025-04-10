@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("spreadsheet_binary_data")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("spreadsheet_binary_data")]
         public byte[] SpreadsheetBinaryData { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("spreadsheet_data")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("spreadsheet_data")]
         public string SpreadsheetData { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("spreadsheet_file_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("spreadsheet_file_name")]
         public string SpreadsheetFileName { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("thumbnail")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("thumbnail")]
         public byte[] Thumbnail { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("spreadsheet_snapshot")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("spreadsheet_snapshot")]
         public byte[] SpreadsheetSnapshot { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_thumbnail")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("display_thumbnail")]
         public byte[] DisplayThumbnail { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// <para>Relation: spreadsheet.revision</para>
         /// </summary>
         [JsonPropertyName("spreadsheet_revision_ids")]
+        [OdooField("spreadsheet_revision_ids")]
         public List<int> SpreadsheetRevisionIds { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("current_revision_uuid")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("current_revision_uuid")]
         public string CurrentRevisionUuid { get; set; }
 
         /// <summary>
@@ -149,6 +159,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("dashboard_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("dashboard_id")]
         public int? DashboardId { get; set; }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("excel_export")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("excel_export")]
         public byte[] ExcelExport { get; set; }
 
         /// <summary>
@@ -175,6 +187,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("access_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("access_token")]
         public string AccessToken { get; set; }
 
         /// <summary>
@@ -188,6 +201,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("full_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("full_url")]
         public string FullUrl { get; set; }
 
         /// <summary>
@@ -201,6 +215,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -215,6 +230,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -228,6 +244,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -242,6 +259,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -255,6 +273,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

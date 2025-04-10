@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("code")]
         public string Code { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("address_format")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("address_format")]
         public string AddressFormat { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("address_view_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("address_view_id")]
         public int? AddressViewId { get; set; }
 
         /// <summary>
@@ -98,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -111,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("image_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("image_url")]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -123,6 +131,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("phone_code")]
+        [OdooField("phone_code")]
         public int PhoneCode { get; set; }
 
         /// <summary>
@@ -136,6 +145,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.country.group</para>
         /// </summary>
         [JsonPropertyName("country_group_ids")]
+        [OdooField("country_group_ids")]
         public List<int> CountryGroupIds { get; set; }
 
         /// <summary>
@@ -149,6 +159,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.country.state</para>
         /// </summary>
         [JsonPropertyName("state_ids")]
+        [OdooField("state_ids")]
         public List<int> StateIds { get; set; }
 
         /// <summary>
@@ -159,9 +170,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [before]=Before Address,[after]=After Address</para>
         /// </summary>
         [JsonPropertyName("name_position")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name_position")]
         public string NamePosition { get; set; }
 
         /// <summary>
@@ -175,6 +188,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("vat_label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("vat_label")]
         public string VatLabel { get; set; }
 
         /// <summary>
@@ -187,6 +201,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("state_required")]
+        [OdooField("state_required")]
         public bool StateRequired { get; set; }
 
         /// <summary>
@@ -199,6 +214,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("zip_required")]
+        [OdooField("zip_required")]
         public bool ZipRequired { get; set; }
 
         /// <summary>
@@ -213,6 +229,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -226,6 +243,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -240,6 +258,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -253,6 +272,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -265,6 +285,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_stripe_supported_country")]
+        [OdooField("is_stripe_supported_country")]
         public bool IsStripeSupportedCountry { get; set; }
 
     }

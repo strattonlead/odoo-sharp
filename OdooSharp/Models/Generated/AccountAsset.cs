@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("analytic_distribution")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("analytic_distribution")]
         public object AnalyticDistribution { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("analytic_precision")]
+        [OdooField("analytic_precision")]
         public int AnalyticPrecision { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.analytic.account</para>
         /// </summary>
         [JsonPropertyName("distribution_analytic_account_ids")]
+        [OdooField("distribution_analytic_account_ids")]
         public List<int> DistributionAnalyticAccountIds { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.activity</para>
         /// </summary>
         [JsonPropertyName("activity_ids")]
+        [OdooField("activity_ids")]
         public List<int> ActivityIds { get; set; }
 
         /// <summary>
@@ -92,9 +98,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [overdue]=Overdue,[today]=Today,[planned]=Planned</para>
         /// </summary>
         [JsonPropertyName("activity_state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_state")]
         public string ActivityState { get; set; }
 
         /// <summary>
@@ -109,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_user_id")]
         public int? ActivityUserId { get; set; }
 
         /// <summary>
@@ -123,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_type_id")]
         public int? ActivityTypeId { get; set; }
 
         /// <summary>
@@ -136,6 +146,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_type_icon")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_type_icon")]
         public string ActivityTypeIcon { get; set; }
 
         /// <summary>
@@ -149,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_date_deadline")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("activity_date_deadline")]
         public DateTime? ActivityDateDeadline { get; set; }
 
         /// <summary>
@@ -162,6 +174,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("my_activity_date_deadline")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("my_activity_date_deadline")]
         public DateTime? MyActivityDateDeadline { get; set; }
 
         /// <summary>
@@ -175,6 +188,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_summary")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_summary")]
         public string ActivitySummary { get; set; }
 
         /// <summary>
@@ -185,9 +199,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [warning]=Alert,[danger]=Error</para>
         /// </summary>
         [JsonPropertyName("activity_exception_decoration")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_exception_decoration")]
         public string ActivityExceptionDecoration { get; set; }
 
         /// <summary>
@@ -201,6 +217,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_exception_icon")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("activity_exception_icon")]
         public string ActivityExceptionIcon { get; set; }
 
         /// <summary>
@@ -215,6 +232,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("activity_calendar_event_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("activity_calendar_event_id")]
         public int? ActivityCalendarEventId { get; set; }
 
         /// <summary>
@@ -227,6 +245,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("message_is_follower")]
+        [OdooField("message_is_follower")]
         public bool MessageIsFollower { get; set; }
 
         /// <summary>
@@ -240,6 +259,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.followers</para>
         /// </summary>
         [JsonPropertyName("message_follower_ids")]
+        [OdooField("message_follower_ids")]
         public List<int> MessageFollowerIds { get; set; }
 
         /// <summary>
@@ -253,6 +273,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("message_partner_ids")]
+        [OdooField("message_partner_ids")]
         public List<int> MessagePartnerIds { get; set; }
 
         /// <summary>
@@ -266,6 +287,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.message</para>
         /// </summary>
         [JsonPropertyName("message_ids")]
+        [OdooField("message_ids")]
         public List<int> MessageIds { get; set; }
 
         /// <summary>
@@ -278,6 +300,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("has_message")]
+        [OdooField("has_message")]
         public bool HasMessage { get; set; }
 
         /// <summary>
@@ -290,6 +313,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("message_needaction")]
+        [OdooField("message_needaction")]
         public bool MessageNeedaction { get; set; }
 
         /// <summary>
@@ -302,6 +326,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("message_needaction_counter")]
+        [OdooField("message_needaction_counter")]
         public int MessageNeedactionCounter { get; set; }
 
         /// <summary>
@@ -314,6 +339,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("message_has_error")]
+        [OdooField("message_has_error")]
         public bool MessageHasError { get; set; }
 
         /// <summary>
@@ -326,6 +352,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("message_has_error_counter")]
+        [OdooField("message_has_error_counter")]
         public int MessageHasErrorCounter { get; set; }
 
         /// <summary>
@@ -338,6 +365,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("message_attachment_count")]
+        [OdooField("message_attachment_count")]
         public int MessageAttachmentCount { get; set; }
 
         /// <summary>
@@ -351,6 +379,7 @@ namespace OdooSharp.Models
         /// <para>Relation: rating.rating</para>
         /// </summary>
         [JsonPropertyName("rating_ids")]
+        [OdooField("rating_ids")]
         public List<int> RatingIds { get; set; }
 
         /// <summary>
@@ -364,6 +393,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.message</para>
         /// </summary>
         [JsonPropertyName("website_message_ids")]
+        [OdooField("website_message_ids")]
         public List<int> WebsiteMessageIds { get; set; }
 
         /// <summary>
@@ -376,6 +406,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("message_has_sms_error")]
+        [OdooField("message_has_sms_error")]
         public bool MessageHasSmsError { get; set; }
 
         /// <summary>
@@ -388,6 +419,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("depreciation_entries_count")]
+        [OdooField("depreciation_entries_count")]
         public int DepreciationEntriesCount { get; set; }
 
         /// <summary>
@@ -400,6 +432,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("gross_increase_count")]
+        [OdooField("gross_increase_count")]
         public int GrossIncreaseCount { get; set; }
 
         /// <summary>
@@ -412,6 +445,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("total_depreciation_entries_count")]
+        [OdooField("total_depreciation_entries_count")]
         public int TotalDepreciationEntriesCount { get; set; }
 
         /// <summary>
@@ -425,6 +459,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -439,6 +474,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -452,6 +488,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("country_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("country_code")]
         public string CountryCode { get; set; }
 
         /// <summary>
@@ -466,6 +503,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -476,9 +514,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [model]=Model,[draft]=Draft,[open]=Running,[paused]=On Hold,[close]=Closed,[cancelled]=Cancelled</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -491,6 +531,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -501,9 +542,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [linear]=Straight Line,[degressive]=Declining,[degressive_then_linear]=Declining then Straight Line</para>
         /// </summary>
         [JsonPropertyName("method")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("method")]
         public string Method { get; set; }
 
         /// <summary>
@@ -516,6 +559,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("method_number")]
+        [OdooField("method_number")]
         public int MethodNumber { get; set; }
 
         /// <summary>
@@ -526,9 +570,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [1]=Months,[12]=Years</para>
         /// </summary>
         [JsonPropertyName("method_period")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("method_period")]
         public string MethodPeriod { get; set; }
 
         /// <summary>
@@ -541,6 +587,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("method_progress_factor")]
+        [OdooField("method_progress_factor")]
         public double MethodProgressFactor { get; set; }
 
         /// <summary>
@@ -551,9 +598,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [none]=No Prorata,[constant_periods]=Constant Periods,[daily_computation]=Based on days per period</para>
         /// </summary>
         [JsonPropertyName("prorata_computation_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("prorata_computation_type")]
         public string ProrataComputationType { get; set; }
 
         /// <summary>
@@ -567,6 +616,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("prorata_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("prorata_date")]
         public DateTime? ProrataDate { get; set; }
 
         /// <summary>
@@ -580,6 +630,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("paused_prorata_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("paused_prorata_date")]
         public DateTime? PausedProrataDate { get; set; }
 
         /// <summary>
@@ -594,6 +645,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_asset_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_asset_id")]
         public int? AccountAssetId { get; set; }
 
         /// <summary>
@@ -608,6 +660,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("asset_group_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("asset_group_id")]
         public int? AssetGroupId { get; set; }
 
         /// <summary>
@@ -622,6 +675,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_depreciation_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_depreciation_id")]
         public int? AccountDepreciationId { get; set; }
 
         /// <summary>
@@ -636,6 +690,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_depreciation_expense_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_depreciation_expense_id")]
         public int? AccountDepreciationExpenseId { get; set; }
 
         /// <summary>
@@ -650,6 +705,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("journal_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("journal_id")]
         public int? JournalId { get; set; }
 
         /// <summary>
@@ -662,6 +718,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("original_value")]
+        [OdooField("original_value")]
         public decimal OriginalValue { get; set; }
 
         /// <summary>
@@ -674,6 +731,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("book_value")]
+        [OdooField("book_value")]
         public decimal BookValue { get; set; }
 
         /// <summary>
@@ -686,6 +744,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("value_residual")]
+        [OdooField("value_residual")]
         public decimal ValueResidual { get; set; }
 
         /// <summary>
@@ -698,6 +757,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("salvage_value")]
+        [OdooField("salvage_value")]
         public decimal SalvageValue { get; set; }
 
         /// <summary>
@@ -710,6 +770,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("salvage_value_pct")]
+        [OdooField("salvage_value_pct")]
         public double SalvageValuePct { get; set; }
 
         /// <summary>
@@ -722,6 +783,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("total_depreciable_value")]
+        [OdooField("total_depreciable_value")]
         public decimal TotalDepreciableValue { get; set; }
 
         /// <summary>
@@ -734,6 +796,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("gross_increase_value")]
+        [OdooField("gross_increase_value")]
         public decimal GrossIncreaseValue { get; set; }
 
         /// <summary>
@@ -746,6 +809,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("non_deductible_tax_value")]
+        [OdooField("non_deductible_tax_value")]
         public decimal NonDeductibleTaxValue { get; set; }
 
         /// <summary>
@@ -758,6 +822,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("related_purchase_value")]
+        [OdooField("related_purchase_value")]
         public decimal RelatedPurchaseValue { get; set; }
 
         /// <summary>
@@ -771,6 +836,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move</para>
         /// </summary>
         [JsonPropertyName("depreciation_move_ids")]
+        [OdooField("depreciation_move_ids")]
         public List<int> DepreciationMoveIds { get; set; }
 
         /// <summary>
@@ -784,6 +850,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move.line</para>
         /// </summary>
         [JsonPropertyName("original_move_line_ids")]
+        [OdooField("original_move_line_ids")]
         public List<int> OriginalMoveLineIds { get; set; }
 
         /// <summary>
@@ -797,6 +864,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("asset_properties_definition")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("asset_properties_definition")]
         public object AssetPropertiesDefinition { get; set; }
 
         /// <summary>
@@ -810,6 +878,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("asset_properties")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("asset_properties")]
         public object AssetProperties { get; set; }
 
         /// <summary>
@@ -823,6 +892,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("acquisition_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("acquisition_date")]
         public DateTime? AcquisitionDate { get; set; }
 
         /// <summary>
@@ -836,6 +906,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("disposal_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("disposal_date")]
         public DateTime? DisposalDate { get; set; }
 
         /// <summary>
@@ -850,6 +921,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("model_id")]
         public int? ModelId { get; set; }
 
         /// <summary>
@@ -860,9 +932,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [asset_receivable]=Receivable,[asset_cash]=Bank and Cash,[asset_current]=Current Assets,[asset_non_current]=Non-current Assets,[asset_prepayments]=Prepayments,[asset_fixed]=Fixed Assets,[liability_payable]=Payable,[liability_credit_card]=Credit Card,[liability_current]=Current Liabilities,[liability_non_current]=Non-current Liabilities,[equity]=Equity,[equity_unaffected]=Current Year Earnings,[income]=Income,[income_other]=Other Income,[expense]=Expenses,[expense_depreciation]=Depreciation,[expense_direct_cost]=Cost of Revenue,[off_balance]=Off-Balance Sheet</para>
         /// </summary>
         [JsonPropertyName("account_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("account_type")]
         public string AccountType { get; set; }
 
         /// <summary>
@@ -875,6 +949,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_account_asset_id")]
+        [OdooField("display_account_asset_id")]
         public bool DisplayAccountAssetId { get; set; }
 
         /// <summary>
@@ -889,6 +964,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("parent_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("parent_id")]
         public int? ParentId { get; set; }
 
         /// <summary>
@@ -902,6 +978,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.asset</para>
         /// </summary>
         [JsonPropertyName("children_ids")]
+        [OdooField("children_ids")]
         public List<int> ChildrenIds { get; set; }
 
         /// <summary>
@@ -914,6 +991,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("already_depreciated_amount_import")]
+        [OdooField("already_depreciated_amount_import")]
         public decimal AlreadyDepreciatedAmountImport { get; set; }
 
         /// <summary>
@@ -926,6 +1004,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("asset_lifetime_days")]
+        [OdooField("asset_lifetime_days")]
         public double AssetLifetimeDays { get; set; }
 
         /// <summary>
@@ -938,6 +1017,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("asset_paused_days")]
+        [OdooField("asset_paused_days")]
         public double AssetPausedDays { get; set; }
 
         /// <summary>
@@ -950,6 +1030,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("net_gain_on_sale")]
+        [OdooField("net_gain_on_sale")]
         public decimal NetGainOnSale { get; set; }
 
         /// <summary>
@@ -963,6 +1044,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.asset</para>
         /// </summary>
         [JsonPropertyName("linked_assets_ids")]
+        [OdooField("linked_assets_ids")]
         public List<int> LinkedAssetsIds { get; set; }
 
         /// <summary>
@@ -975,6 +1057,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("count_linked_asset")]
+        [OdooField("count_linked_asset")]
         public int CountLinkedAsset { get; set; }
 
         /// <summary>
@@ -987,6 +1070,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("warning_count_assets")]
+        [OdooField("warning_count_assets")]
         public bool WarningCountAssets { get; set; }
 
         /// <summary>
@@ -1001,6 +1085,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -1014,6 +1099,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -1028,6 +1114,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -1041,6 +1128,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -1054,6 +1142,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.loan</para>
         /// </summary>
         [JsonPropertyName("linked_loans_ids")]
+        [OdooField("linked_loans_ids")]
         public List<int> LinkedLoansIds { get; set; }
 
         /// <summary>
@@ -1066,6 +1155,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("count_linked_loans")]
+        [OdooField("count_linked_loans")]
         public int CountLinkedLoans { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("route_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("route_name")]
         public string RouteName { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Relation: onboarding.onboarding.step</para>
         /// </summary>
         [JsonPropertyName("step_ids")]
+        [OdooField("step_ids")]
         public List<int> StepIds { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("text_completed")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("text_completed")]
         public string TextCompleted { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_per_company")]
+        [OdooField("is_per_company")]
         public bool IsPerCompany { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("panel_close_action_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("panel_close_action_name")]
         public string PanelCloseActionName { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("current_progress_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("current_progress_id")]
         public int? CurrentProgressId { get; set; }
 
         /// <summary>
@@ -132,9 +141,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [not_done]=Not done,[just_done]=Just done,[done]=Done</para>
         /// </summary>
         [JsonPropertyName("current_onboarding_state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("current_onboarding_state")]
         public string CurrentOnboardingState { get; set; }
 
         /// <summary>
@@ -147,6 +158,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_onboarding_closed")]
+        [OdooField("is_onboarding_closed")]
         public bool IsOnboardingClosed { get; set; }
 
         /// <summary>
@@ -160,6 +172,7 @@ namespace OdooSharp.Models
         /// <para>Relation: onboarding.progress</para>
         /// </summary>
         [JsonPropertyName("progress_ids")]
+        [OdooField("progress_ids")]
         public List<int> ProgressIds { get; set; }
 
         /// <summary>
@@ -172,6 +185,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -186,6 +200,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -199,6 +214,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -213,6 +229,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -226,6 +243,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

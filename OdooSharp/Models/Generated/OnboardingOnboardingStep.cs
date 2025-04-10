@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// <para>Relation: onboarding.onboarding</para>
         /// </summary>
         [JsonPropertyName("onboarding_ids")]
+        [OdooField("onboarding_ids")]
         public List<int> OnboardingIds { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("title")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("title")]
         public string Title { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("description")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("description")]
         public string Description { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("button_text")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("button_text")]
         public string ButtonText { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("done_icon")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("done_icon")]
         public string DoneIcon { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("done_text")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("done_text")]
         public string DoneText { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("step_image")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("step_image")]
         public byte[] StepImage { get; set; }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("step_image_filename")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("step_image_filename")]
         public string StepImageFilename { get; set; }
 
         /// <summary>
@@ -148,6 +158,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("step_image_alt")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("step_image_alt")]
         public string StepImageAlt { get; set; }
 
         /// <summary>
@@ -161,6 +172,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("panel_step_open_action_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("panel_step_open_action_name")]
         public string PanelStepOpenActionName { get; set; }
 
         /// <summary>
@@ -175,6 +187,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("current_progress_step_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("current_progress_step_id")]
         public int? CurrentProgressStepId { get; set; }
 
         /// <summary>
@@ -185,9 +198,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [not_done]=Not done,[just_done]=Just done,[done]=Done</para>
         /// </summary>
         [JsonPropertyName("current_step_state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("current_step_state")]
         public string CurrentStepState { get; set; }
 
         /// <summary>
@@ -201,6 +216,7 @@ namespace OdooSharp.Models
         /// <para>Relation: onboarding.progress.step</para>
         /// </summary>
         [JsonPropertyName("progress_ids")]
+        [OdooField("progress_ids")]
         public List<int> ProgressIds { get; set; }
 
         /// <summary>
@@ -213,6 +229,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_per_company")]
+        [OdooField("is_per_company")]
         public bool IsPerCompany { get; set; }
 
         /// <summary>
@@ -225,6 +242,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -239,6 +257,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -252,6 +271,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -266,6 +286,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -279,6 +300,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.account</para>
         /// </summary>
         [JsonPropertyName("import_summary_account_ids")]
+        [OdooField("import_summary_account_ids")]
         public List<int> ImportSummaryAccountIds { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.journal</para>
         /// </summary>
         [JsonPropertyName("import_summary_journal_ids")]
+        [OdooField("import_summary_journal_ids")]
         public List<int> ImportSummaryJournalIds { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move</para>
         /// </summary>
         [JsonPropertyName("import_summary_move_ids")]
+        [OdooField("import_summary_move_ids")]
         public List<int> ImportSummaryMoveIds { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("import_summary_partner_ids")]
+        [OdooField("import_summary_partner_ids")]
         public List<int> ImportSummaryPartnerIds { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.tax</para>
         /// </summary>
         [JsonPropertyName("import_summary_tax_ids")]
+        [OdooField("import_summary_tax_ids")]
         public List<int> ImportSummaryTaxIds { get; set; }
 
         /// <summary>
@@ -109,6 +116,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("import_summary_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("import_summary_name")]
         public string ImportSummaryName { get; set; }
 
         /// <summary>
@@ -121,6 +129,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("import_summary_len_account")]
+        [OdooField("import_summary_len_account")]
         public int ImportSummaryLenAccount { get; set; }
 
         /// <summary>
@@ -133,6 +142,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("import_summary_len_journal")]
+        [OdooField("import_summary_len_journal")]
         public int ImportSummaryLenJournal { get; set; }
 
         /// <summary>
@@ -145,6 +155,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("import_summary_len_move")]
+        [OdooField("import_summary_len_move")]
         public int ImportSummaryLenMove { get; set; }
 
         /// <summary>
@@ -157,6 +168,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("import_summary_len_partner")]
+        [OdooField("import_summary_len_partner")]
         public int ImportSummaryLenPartner { get; set; }
 
         /// <summary>
@@ -169,6 +181,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("import_summary_len_tax")]
+        [OdooField("import_summary_len_tax")]
         public int ImportSummaryLenTax { get; set; }
 
         /// <summary>
@@ -181,6 +194,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("import_summary_have_data")]
+        [OdooField("import_summary_have_data")]
         public bool ImportSummaryHaveData { get; set; }
 
         /// <summary>
@@ -195,6 +209,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -208,6 +223,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -222,6 +238,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -235,6 +252,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

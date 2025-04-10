@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("header_visible")]
+        [OdooField("header_visible")]
         public bool HeaderVisible { get; set; }
 
         /// <summary>
@@ -55,6 +58,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("footer_visible")]
+        [OdooField("footer_visible")]
         public bool FooterVisible { get; set; }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("header_overlay")]
+        [OdooField("header_overlay")]
         public bool HeaderOverlay { get; set; }
 
         /// <summary>
@@ -80,6 +85,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("header_color")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("header_color")]
         public string HeaderColor { get; set; }
 
         /// <summary>
@@ -93,6 +99,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("header_text_color")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("header_text_color")]
         public string HeaderTextColor { get; set; }
 
     }

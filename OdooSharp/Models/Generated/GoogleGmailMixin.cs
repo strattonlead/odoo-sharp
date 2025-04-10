@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_authorization_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_authorization_code")]
         public string GoogleGmailAuthorizationCode { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_refresh_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_refresh_token")]
         public string GoogleGmailRefreshToken { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_access_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_access_token")]
         public string GoogleGmailAccessToken { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("google_gmail_access_token_expiration")]
+        [OdooField("google_gmail_access_token_expiration")]
         public int GoogleGmailAccessTokenExpiration { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_uri")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_uri")]
         public string GoogleGmailUri { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("pol_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("pol_id")]
         public int? PolId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("aml_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("aml_id")]
         public int? AmlId { get; set; }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -87,6 +92,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -101,6 +107,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_id")]
         public int? ProductId { get; set; }
 
         /// <summary>
@@ -113,6 +120,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("line_qty")]
+        [OdooField("line_qty")]
         public double LineQty { get; set; }
 
         /// <summary>
@@ -127,6 +135,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("line_uom_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("line_uom_id")]
         public int? LineUomId { get; set; }
 
         /// <summary>
@@ -139,6 +148,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("qty_invoiced")]
+        [OdooField("qty_invoiced")]
         public double QtyInvoiced { get; set; }
 
         /// <summary>
@@ -153,6 +163,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("purchase_order_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("purchase_order_id")]
         public int? PurchaseOrderId { get; set; }
 
         /// <summary>
@@ -167,6 +178,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_move_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_move_id")]
         public int? AccountMoveId { get; set; }
 
         /// <summary>
@@ -179,6 +191,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("line_amount_untaxed")]
+        [OdooField("line_amount_untaxed")]
         public decimal LineAmountUntaxed { get; set; }
 
         /// <summary>
@@ -193,6 +206,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -206,6 +220,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -220,6 +235,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_uom_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_uom_id")]
         public int? ProductUomId { get; set; }
 
         /// <summary>
@@ -232,6 +248,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("product_uom_qty")]
+        [OdooField("product_uom_qty")]
         public double ProductUomQty { get; set; }
 
         /// <summary>
@@ -244,6 +261,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("product_uom_price")]
+        [OdooField("product_uom_price")]
         public double ProductUomPrice { get; set; }
 
         /// <summary>
@@ -256,6 +274,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("billed_amount_untaxed")]
+        [OdooField("billed_amount_untaxed")]
         public decimal BilledAmountUntaxed { get; set; }
 
         /// <summary>
@@ -268,6 +287,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("purchase_amount_untaxed")]
+        [OdooField("purchase_amount_untaxed")]
         public decimal PurchaseAmountUntaxed { get; set; }
 
         /// <summary>
@@ -281,6 +301,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("reference")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("reference")]
         public string Reference { get; set; }
 
     }

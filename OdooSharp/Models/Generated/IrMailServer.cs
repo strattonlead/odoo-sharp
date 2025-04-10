@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_authorization_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_authorization_code")]
         public string GoogleGmailAuthorizationCode { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_refresh_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_refresh_token")]
         public string GoogleGmailRefreshToken { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_access_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_access_token")]
         public string GoogleGmailAccessToken { get; set; }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("google_gmail_access_token_expiration")]
+        [OdooField("google_gmail_access_token_expiration")]
         public int GoogleGmailAccessTokenExpiration { get; set; }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_gmail_uri")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_gmail_uri")]
         public string GoogleGmailUri { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -121,6 +129,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("from_filter")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("from_filter")]
         public string FromFilter { get; set; }
 
         /// <summary>
@@ -134,6 +143,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_host")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_host")]
         public string SmtpHost { get; set; }
 
         /// <summary>
@@ -146,6 +156,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("smtp_port")]
+        [OdooField("smtp_port")]
         public int SmtpPort { get; set; }
 
         /// <summary>
@@ -156,9 +167,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [login]=Username,[certificate]=SSL Certificate,[cli]=Command Line Interface,[gmail]=Gmail OAuth Authentication</para>
         /// </summary>
         [JsonPropertyName("smtp_authentication")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_authentication")]
         public string SmtpAuthentication { get; set; }
 
         /// <summary>
@@ -172,6 +185,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_authentication_info")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_authentication_info")]
         public string SmtpAuthenticationInfo { get; set; }
 
         /// <summary>
@@ -185,6 +199,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_user")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_user")]
         public string SmtpUser { get; set; }
 
         /// <summary>
@@ -198,6 +213,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_pass")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_pass")]
         public string SmtpPass { get; set; }
 
         /// <summary>
@@ -208,9 +224,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [none]=None,[starttls_strict]=TLS (STARTTLS), encryption and validation,[starttls]=TLS (STARTTLS), encryption only,[ssl_strict]=SSL/TLS, encryption and validation,[ssl]=SSL/TLS, encryption only</para>
         /// </summary>
         [JsonPropertyName("smtp_encryption")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("smtp_encryption")]
         public string SmtpEncryption { get; set; }
 
         /// <summary>
@@ -224,6 +242,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_ssl_certificate")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("smtp_ssl_certificate")]
         public byte[] SmtpSslCertificate { get; set; }
 
         /// <summary>
@@ -237,6 +256,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("smtp_ssl_private_key")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("smtp_ssl_private_key")]
         public byte[] SmtpSslPrivateKey { get; set; }
 
         /// <summary>
@@ -249,6 +269,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("smtp_debug")]
+        [OdooField("smtp_debug")]
         public bool SmtpDebug { get; set; }
 
         /// <summary>
@@ -261,6 +282,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("max_email_size")]
+        [OdooField("max_email_size")]
         public double MaxEmailSize { get; set; }
 
         /// <summary>
@@ -273,6 +295,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -285,6 +308,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("active")]
+        [OdooField("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -299,6 +323,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -312,6 +337,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -326,6 +352,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -339,6 +366,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -352,6 +380,7 @@ namespace OdooSharp.Models
         /// <para>Relation: mail.template</para>
         /// </summary>
         [JsonPropertyName("mail_template_ids")]
+        [OdooField("mail_template_ids")]
         public List<int> MailTemplateIds { get; set; }
 
     }

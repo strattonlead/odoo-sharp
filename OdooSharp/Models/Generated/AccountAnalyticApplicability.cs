@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("analytic_plan_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("analytic_plan_id")]
         public int? AnalyticPlanId { get; set; }
 
         /// <summary>
@@ -55,9 +58,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [general]=Miscellaneous,[invoice]=Invoice,[bill]=Vendor Bill,[purchase_order]=Purchase Order,[sale_order]=Sale Order</para>
         /// </summary>
         [JsonPropertyName("business_domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("business_domain")]
         public string BusinessDomain { get; set; }
 
         /// <summary>
@@ -68,9 +73,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [optional]=Optional,[mandatory]=Mandatory,[unavailable]=Unavailable</para>
         /// </summary>
         [JsonPropertyName("applicability")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("applicability")]
         public string Applicability { get; set; }
 
         /// <summary>
@@ -85,6 +92,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -99,6 +107,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -112,6 +121,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -126,6 +136,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -139,6 +150,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -152,6 +164,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_prefix")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("account_prefix")]
         public string AccountPrefix { get; set; }
 
         /// <summary>
@@ -166,6 +179,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_categ_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_categ_id")]
         public int? ProductCategId { get; set; }
 
         /// <summary>
@@ -178,6 +192,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("display_account_prefix")]
+        [OdooField("display_account_prefix")]
         public bool DisplayAccountPrefix { get; set; }
 
         /// <summary>
@@ -191,6 +206,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_prefix_placeholder")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("account_prefix_placeholder")]
         public string AccountPrefixPlaceholder { get; set; }
 
     }

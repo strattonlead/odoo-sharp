@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("question_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("question_id")]
         public int? QuestionId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("matrix_question_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("matrix_question_id")]
         public int? MatrixQuestionId { get; set; }
 
         /// <summary>
@@ -69,9 +73,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [simple_choice]=Multiple choice: only one answer,[multiple_choice]=Multiple choice: multiple answers allowed,[text_box]=Multiple Lines Text Box,[char_box]=Single Line Text Box,[numerical_box]=Numerical Value,[scale]=Scale,[date]=Date,[datetime]=Datetime,[matrix]=Matrix</para>
         /// </summary>
         [JsonPropertyName("question_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("question_type")]
         public string QuestionType { get; set; }
 
         /// <summary>
@@ -84,6 +90,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -94,9 +101,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [no_scoring]=No scoring,[scoring_with_answers_after_page]=Scoring with answers after each page,[scoring_with_answers]=Scoring with answers at the end,[scoring_without_answers]=Scoring without answers</para>
         /// </summary>
         [JsonPropertyName("scoring_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("scoring_type")]
         public string ScoringType { get; set; }
 
         /// <summary>
@@ -110,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("value")]
         public string Value { get; set; }
 
         /// <summary>
@@ -123,6 +133,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value_image")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("value_image")]
         public byte[] ValueImage { get; set; }
 
         /// <summary>
@@ -136,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value_image_filename")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("value_image_filename")]
         public string ValueImageFilename { get; set; }
 
         /// <summary>
@@ -149,6 +161,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("value_label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("value_label")]
         public string ValueLabel { get; set; }
 
         /// <summary>
@@ -161,6 +174,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_correct")]
+        [OdooField("is_correct")]
         public bool IsCorrect { get; set; }
 
         /// <summary>
@@ -173,6 +187,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("answer_score")]
+        [OdooField("answer_score")]
         public double AnswerScore { get; set; }
 
         /// <summary>
@@ -187,6 +202,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -200,6 +216,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -214,6 +231,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -227,6 +245,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

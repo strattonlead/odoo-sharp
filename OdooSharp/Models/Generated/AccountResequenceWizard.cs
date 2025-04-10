@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("sequence_number_reset")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("sequence_number_reset")]
         public string SequenceNumberReset { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("first_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("first_date")]
         public DateTime? FirstDate { get; set; }
 
         /// <summary>
@@ -70,6 +74,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("end_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("end_date")]
         public DateTime? EndDate { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("first_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("first_name")]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -93,9 +99,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [keep]=Keep current order,[date]=Reorder by accounting date</para>
         /// </summary>
         [JsonPropertyName("ordering")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("ordering")]
         public string Ordering { get; set; }
 
         /// <summary>
@@ -109,6 +117,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move</para>
         /// </summary>
         [JsonPropertyName("move_ids")]
+        [OdooField("move_ids")]
         public List<int> MoveIds { get; set; }
 
         /// <summary>
@@ -122,6 +131,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("new_values")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("new_values")]
         public string NewValues { get; set; }
 
         /// <summary>
@@ -135,6 +145,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("preview_moves")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("preview_moves")]
         public string PreviewMoves { get; set; }
 
         /// <summary>
@@ -149,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -162,6 +174,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -176,6 +189,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -189,6 +203,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

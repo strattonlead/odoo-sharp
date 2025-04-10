@@ -1,4 +1,5 @@
 ﻿using OdooSharp.Configuration;
+using OdooSharp.Extensions;
 using OdooSharp.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OdooSharp.Client
 {
-    public class OdooClient
+    public class OdooClient : IOdooClient
     {
         private readonly HttpClientHandler _httpClientHandler;
         private readonly HttpClient _httpClient;
@@ -98,72 +99,9 @@ namespace OdooSharp.Client
             return JsonSerializer.Deserialize<OdooFieldsResponse>(json, options) ?? new OdooFieldsResponse();
         }
 
-        //public async Task<List<T>> SearchReadAsync<T>(object[] domain = null, string[] fields = null)
-        //{
-        //    var model = _getModelName<T>();
-        //    if (domain == null)
-        //    {
-        //        domain = _getDomain<T>();
-        //    }
-
-        //    var payload = new
-        //    {
-        //        jsonrpc = "2.0",
-        //        method = "call",
-        //        @params = new
-        //        {
-        //            service = "object",
-        //            method = "execute_kw",
-        //            args = new object[]
-        //            {
-        //                _options.Database,
-        //                _session!.Uid,
-        //                _options.Password,
-        //                model,
-        //                "search_read",
-        //                new object[] { domain },
-        //                new
-        //                {
-        //                    fields,
-        //                    limit = 100
-        //                }
-        //            }
-        //        },
-        //        id = 1
-        //    };
-
-        //    var response = await _httpClient.PostAsync(
-        //        $"{_options.Url}/jsonrpc",
-        //        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-        //    var json = await response.Content.ReadAsStringAsync();
-        //    var doc = JsonDocument.Parse(json);
-        //    var root = doc.RootElement.GetProperty("result");
-
-        //    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        //    return JsonSerializer.Deserialize<List<T>>(root.GetRawText(), options) ?? new List<T>();
-        //}
-
-        public async Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null)
+        public async Task<JsonRpcResponse<OdooFieldsResponse>> GetModelFieldTypedAsync(string model, string fieldName) => await _postAsync<OdooFieldsResponse>(model, OdooMethod.fields_get, new object[] { fieldName });
+        public async Task<OdooFieldsResponse> GetModelFieldTypedAsyncOld(string model, string fieldName)
         {
-            var model = _getModelName<T>();
-            if (domain == null)
-            {
-                domain = _getDomain<T>();
-            }
-
-            var args = new Dictionary<string, object>
-            {
-                ["fields"] = fields,
-                ["limit"] = limit,
-                ["offset"] = offset
-            };
-
-            if (!string.IsNullOrWhiteSpace(order))
-            {
-                args["order"] = order;
-            }
-
             var payload = new
             {
                 jsonrpc = "2.0",
@@ -178,19 +116,52 @@ namespace OdooSharp.Client
                         _session!.Uid,
                         _options.Password,
                         model,
-                        "search_read",
-                        new object[] { domain },
-                        args
+                        "fields_get",
+                        new object[] { fieldName },
+                        new { }
                     }
                 },
-                id = 1
+                id = 2
             };
 
             var response = await _httpClient.PostAsync(
                 $"{_options.Url}/jsonrpc",
                 new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
 
-            return await _deserializeHttpReponseAsync<JsonRpcResponse<List<T>>>(response);
+            var json = await response.Content.ReadAsStringAsync();
+            var doc = JsonDocument.Parse(json);
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            return JsonSerializer.Deserialize<OdooFieldsResponse>(json, options) ?? new OdooFieldsResponse();
+        }
+
+        public async Task<JsonRpcResponse<int>> SearchReadCountAsync<T>(/*Expression<Func<T, bool>> predicate = null*/)
+        {
+            //var domain = predicate != null ? (object[])new OdooExpressionParser().Parse(predicate.Body) : _getDomain<T>();
+            var domain = _getDomain<T>();
+
+            return await _postAsync<T, int>(OdooMethod.search_count, new object[] { domain });
+
+        }
+
+        public async Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null)
+        {
+            var model = _getModelName<T>();
+            domain ??= _getDomain<T>();
+
+            var kwargs = new Dictionary<string, object>
+            {
+                ["fields"] = fields ?? Array.Empty<string>(),
+                ["limit"] = limit,
+                ["offset"] = offset
+            };
+
+            if (!string.IsNullOrWhiteSpace(order))
+            {
+                kwargs["order"] = order;
+            }
+
+            return await _postAsync<T, List<T>>(OdooMethod.search_read, new object[] { domain }, kwargs);
         }
 
         private async Task<T> _deserializeHttpReponseAsync<T>(HttpResponseMessage responseMessage)
@@ -212,49 +183,7 @@ namespace OdooSharp.Client
             return default;
         }
 
-        public async Task<JsonRpcResponse<T>> GetByIdAsync<T>(int id, string[] fields = null)
-        {
-            var model = _getModelName<T>();
-
-            var payload = new
-            {
-                jsonrpc = "2.0",
-                method = "call",
-                @params = new
-                {
-                    service = "object",
-                    method = "execute_kw",
-                    args = new object[]
-                    {
-                        _options.Database,
-                        _session!.Uid,
-                        _options.Password,
-                        model,
-                        "read",
-                        new object[] { new[] { id } },
-                        new { fields = fields }
-                    }
-                },
-                id = 1
-            };
-
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-            var listResponse = await _deserializeHttpReponseAsync<JsonRpcResponse<List<T>>>(response);
-            return listResponse.FirstOrDefault();
-
-            //var json = await response.Content.ReadAsStringAsync();
-            //var doc = JsonDocument.Parse(json);
-            //var result = doc.RootElement.GetProperty("result");
-
-            //if (result.GetArrayLength() == 0)
-            //    return default;
-
-            //var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            //return JsonSerializer.Deserialize<T>(result[0].GetRawText(), options);
-        }
+        public async Task<JsonRpcResponse<T>> ReadById<T>(int id) => await _postAsync<T, T>(OdooMethod.read, new object[] { new[] { id } });
 
         public async Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100)
         {
@@ -310,71 +239,27 @@ namespace OdooSharp.Client
             return results;
         }
 
-        public async Task<JsonRpcResponse<int>> CreateAsync<T>(string model, T data)
+        public async Task<JsonRpcResponse<int>> CreateAsync<T>(T data) => await _postAsync<T, int>(OdooMethod.create, new object[] { data });
+
+        public async Task<JsonRpcResponse<bool>> WriteAsync<T>(T values)
         {
-            var payload = new
+            var type = typeof(T);
+            var idProp = type.GetProperty("Id");
+            if (idProp == null)
             {
-                jsonrpc = "2.0",
-                method = "call",
-                @params = new
-                {
-                    service = "object",
-                    method = "execute_kw",
-                    args = new object[]
-                    {
-                        _options.Database,
-                        _session!.Uid,
-                        _options.Password,
-                        model,
-                        "create",
-                        new object[] { data }
-                    }
-                },
-                id = 1
-            };
+                throw new InvalidOperationException($"Model {type.Name} is missing 'Id' property.");
+            }
 
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+            var id = idProp.GetValue(values);
+            if (id == null || (int)id == 0)
+            {
+                throw new InvalidOperationException($"Model {type.Name} has invalid 'Id' value.");
+            }
 
-            return await _deserializeHttpReponseAsync<JsonRpcResponse<int>>(response);
-            //var json = await response.Content.ReadAsStringAsync();
-            //var doc = JsonDocument.Parse(json);
-            //return doc.RootElement.GetProperty("result").GetInt32();
+            return await _postAsync<T, bool>(OdooMethod.write, new object[] { new[] { id }, values });
         }
 
-        public async Task<JsonRpcResponse<bool>> WriteAsync<T>(string model, int id, T values)
-        {
-            var payload = new
-            {
-                jsonrpc = "2.0",
-                method = "call",
-                @params = new
-                {
-                    service = "object",
-                    method = "execute_kw",
-                    args = new object[]
-                    {
-                        _options.Database,
-                        _session!.Uid,
-                        _options.Password,
-                        model,
-                        "write",
-                        new object[] { new[] { id }, values }
-                    }
-                },
-                id = 1
-            };
-
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-            return await _deserializeHttpReponseAsync<JsonRpcResponse<bool>>(response);
-            //var json = await response.Content.ReadAsStringAsync();
-            //var doc = JsonDocument.Parse(json);
-            //return doc.RootElement.GetProperty("result").GetBoolean();
-        }
+        public async Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id) => await _postAsync<T, bool>(OdooMethod.unlink, new object[] { id });
 
         public async Task<JsonRpcResponse<bool>> DeleteAsync(string model, int id)
         {
@@ -409,6 +294,53 @@ namespace OdooSharp.Client
             //return doc.RootElement.GetProperty("result").GetBoolean();
         }
 
+        #region Helper
+
+        private async Task<JsonRpcResponse<Tout>> _postAsync<T, Tout>(OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
+        {
+            var payload = _request<T>(method, methodArgs, kwargs);
+            var response = await _postAsync(payload);
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<Tout>>(response);
+        }
+
+        private async Task<JsonRpcResponse<Tout>> _postAsync<Tout>(string model, OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
+        {
+            var payload = _request(model, method, methodArgs, kwargs);
+            var response = await _postAsync(payload);
+            return await _deserializeHttpReponseAsync<JsonRpcResponse<Tout>>(response);
+        }
+
+        private async Task<HttpResponseMessage> _postAsync<T>(T payload)
+            where T : OdooRpcRequest
+            => await _httpClient.PostAsync($"{_options.Url}/jsonrpc", new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+        private OdooRpcRequest<OdooRpcParams> _request<T>(OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
+        {
+            var model = _getModelName<T>();
+            return _request(model, method, methodArgs, kwargs);
+        }
+        private OdooRpcRequest<OdooRpcParams> _request(string model, OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null) => _request("object", "execute_kw", _args(model, method, methodArgs, kwargs));
+        private OdooRpcRequest<OdooRpcParams> _request(string service, string method, OdooExecuteKwArgs args) => new OdooRpcRequest<OdooRpcParams>()
+        {
+            Params = new OdooRpcParams()
+            {
+                Service = service,
+                Method = method,
+                Args = OdooArgsBuilder.FromExecuteKw(args)
+            }
+        };
+
+        private OdooExecuteKwArgs _args(string model, OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs) => new OdooExecuteKwArgs()
+        {
+            Db = _options.Database,
+            UserId = _session!.Uid,
+            Password = _options.Password,
+            Model = model,
+            Method = method.ToString(),
+            MethodArgs = methodArgs,
+            Kwargs = kwargs
+        };
+
         private string _getModelName<T>()
         {
             var attr = typeof(T).GetCustomAttribute<OdooModelAttribute>();
@@ -442,5 +374,7 @@ namespace OdooSharp.Client
 
             return domain;
         }
+
+        #endregion
     }
 }

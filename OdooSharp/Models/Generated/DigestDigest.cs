@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.users</para>
         /// </summary>
         [JsonPropertyName("user_ids")]
+        [OdooField("user_ids")]
         public List<int> UserIds { get; set; }
 
         /// <summary>
@@ -67,9 +71,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [daily]=Daily,[weekly]=Weekly,[monthly]=Monthly,[quarterly]=Quarterly</para>
         /// </summary>
         [JsonPropertyName("periodicity")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("periodicity")]
         public string Periodicity { get; set; }
 
         /// <summary>
@@ -83,6 +89,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("next_run_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("next_run_date")]
         public DateTime? NextRunDate { get; set; }
 
         /// <summary>
@@ -97,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -111,6 +119,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -124,6 +133,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("available_fields")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("available_fields")]
         public string AvailableFields { get; set; }
 
         /// <summary>
@@ -136,6 +146,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_subscribed")]
+        [OdooField("is_subscribed")]
         public bool IsSubscribed { get; set; }
 
         /// <summary>
@@ -146,9 +157,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [activated]=Activated,[deactivated]=Deactivated</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -161,6 +174,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_res_users_connected")]
+        [OdooField("kpi_res_users_connected")]
         public bool KpiResUsersConnected { get; set; }
 
         /// <summary>
@@ -173,6 +187,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("kpi_res_users_connected_value")]
+        [OdooField("kpi_res_users_connected_value")]
         public int KpiResUsersConnectedValue { get; set; }
 
         /// <summary>
@@ -185,6 +200,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_mail_message_total")]
+        [OdooField("kpi_mail_message_total")]
         public bool KpiMailMessageTotal { get; set; }
 
         /// <summary>
@@ -197,6 +213,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("kpi_mail_message_total_value")]
+        [OdooField("kpi_mail_message_total_value")]
         public int KpiMailMessageTotalValue { get; set; }
 
         /// <summary>
@@ -211,6 +228,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -224,6 +242,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -238,6 +257,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -251,6 +271,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -263,6 +284,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_account_total_revenue")]
+        [OdooField("kpi_account_total_revenue")]
         public bool KpiAccountTotalRevenue { get; set; }
 
         /// <summary>
@@ -275,6 +297,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("kpi_account_total_revenue_value")]
+        [OdooField("kpi_account_total_revenue_value")]
         public decimal KpiAccountTotalRevenueValue { get; set; }
 
         /// <summary>
@@ -287,6 +310,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_crm_lead_created")]
+        [OdooField("kpi_crm_lead_created")]
         public bool KpiCrmLeadCreated { get; set; }
 
         /// <summary>
@@ -299,6 +323,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("kpi_crm_lead_created_value")]
+        [OdooField("kpi_crm_lead_created_value")]
         public int KpiCrmLeadCreatedValue { get; set; }
 
         /// <summary>
@@ -311,6 +336,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_crm_opportunities_won")]
+        [OdooField("kpi_crm_opportunities_won")]
         public bool KpiCrmOpportunitiesWon { get; set; }
 
         /// <summary>
@@ -323,6 +349,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("kpi_crm_opportunities_won_value")]
+        [OdooField("kpi_crm_opportunities_won_value")]
         public int KpiCrmOpportunitiesWonValue { get; set; }
 
         /// <summary>
@@ -335,6 +362,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_helpdesk_tickets_closed")]
+        [OdooField("kpi_helpdesk_tickets_closed")]
         public bool KpiHelpdeskTicketsClosed { get; set; }
 
         /// <summary>
@@ -347,6 +375,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("kpi_helpdesk_tickets_closed_value")]
+        [OdooField("kpi_helpdesk_tickets_closed_value")]
         public int KpiHelpdeskTicketsClosedValue { get; set; }
 
         /// <summary>
@@ -359,6 +388,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_account_bank_cash")]
+        [OdooField("kpi_account_bank_cash")]
         public bool KpiAccountBankCash { get; set; }
 
         /// <summary>
@@ -371,6 +401,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("kpi_account_bank_cash_value")]
+        [OdooField("kpi_account_bank_cash_value")]
         public decimal KpiAccountBankCashValue { get; set; }
 
         /// <summary>
@@ -383,6 +414,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_all_sale_total")]
+        [OdooField("kpi_all_sale_total")]
         public bool KpiAllSaleTotal { get; set; }
 
         /// <summary>
@@ -395,6 +427,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("kpi_all_sale_total_value")]
+        [OdooField("kpi_all_sale_total_value")]
         public decimal KpiAllSaleTotalValue { get; set; }
 
         /// <summary>
@@ -407,6 +440,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("kpi_website_sale_total")]
+        [OdooField("kpi_website_sale_total")]
         public bool KpiWebsiteSaleTotal { get; set; }
 
         /// <summary>
@@ -419,6 +453,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Monetary</para>
         /// </summary>
         [JsonPropertyName("kpi_website_sale_total_value")]
+        [OdooField("kpi_website_sale_total_value")]
         public decimal KpiWebsiteSaleTotalValue { get; set; }
 
     }

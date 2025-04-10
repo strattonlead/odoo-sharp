@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// <para>Relation: appointment.answer.input</para>
         /// </summary>
         [JsonPropertyName("appointment_answer_input_ids")]
+        [OdooField("appointment_answer_input_ids")]
         public List<int> AppointmentAnswerInputIds { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("appointment_invite_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("appointment_invite_id")]
         public int? AppointmentInviteId { get; set; }
 
         /// <summary>
@@ -72,6 +76,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("appointment_type_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("appointment_type_id")]
         public int? AppointmentTypeId { get; set; }
 
         /// <summary>
@@ -84,6 +89,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("duration")]
+        [OdooField("duration")]
         public double Duration { get; set; }
 
         /// <summary>
@@ -97,6 +103,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.partner</para>
         /// </summary>
         [JsonPropertyName("guest_ids")]
+        [OdooField("guest_ids")]
         public List<int> GuestIds { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -137,6 +146,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("start")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("start")]
         public DateTime? Start { get; set; }
 
         /// <summary>
@@ -150,6 +160,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("stop")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("stop")]
         public DateTime? Stop { get; set; }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("asked_capacity")]
+        [OdooField("asked_capacity")]
         public int AskedCapacity { get; set; }
 
         /// <summary>
@@ -175,6 +187,7 @@ namespace OdooSharp.Models
         /// <para>Relation: calendar.booking.line</para>
         /// </summary>
         [JsonPropertyName("booking_line_ids")]
+        [OdooField("booking_line_ids")]
         public List<int> BookingLineIds { get; set; }
 
         /// <summary>
@@ -189,6 +202,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("staff_user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("staff_user_id")]
         public int? StaffUserId { get; set; }
 
         /// <summary>
@@ -203,6 +217,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("account_move_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_move_id")]
         public int? AccountMoveId { get; set; }
 
         /// <summary>
@@ -217,6 +232,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("product_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_id")]
         public int? ProductId { get; set; }
 
         /// <summary>
@@ -230,6 +246,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("booking_token")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("booking_token")]
         public string BookingToken { get; set; }
 
         /// <summary>
@@ -242,6 +259,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("not_available")]
+        [OdooField("not_available")]
         public bool NotAvailable { get; set; }
 
         /// <summary>
@@ -256,6 +274,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("calendar_event_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("calendar_event_id")]
         public int? CalendarEventId { get; set; }
 
         /// <summary>
@@ -270,6 +289,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -283,6 +303,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -297,6 +318,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -310,6 +332,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -324,6 +347,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("order_line_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("order_line_id")]
         public int? OrderLineId { get; set; }
 
     }

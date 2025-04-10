@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("report_line_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("report_line_id")]
         public int? ReportLineId { get; set; }
 
         /// <summary>
@@ -58,6 +61,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("report_line_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("report_line_name")]
         public string ReportLineName { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("label")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("label")]
         public string Label { get; set; }
 
         /// <summary>
@@ -81,9 +86,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [domain]=Odoo Domain,[tax_tags]=Tax Tags,[aggregation]=Aggregate Other Formulas,[account_codes]=Prefix of Account Codes,[external]=External Value,[custom]=Custom Python Function</para>
         /// </summary>
         [JsonPropertyName("engine")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("engine")]
         public string Engine { get; set; }
 
         /// <summary>
@@ -97,6 +104,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("formula")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("formula")]
         public string Formula { get; set; }
 
         /// <summary>
@@ -110,6 +118,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("subformula")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("subformula")]
         public string Subformula { get; set; }
 
         /// <summary>
@@ -120,9 +129,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [from_beginning]=From the very start,[from_fiscalyear]=From the start of the fiscal year,[to_beginning_of_fiscalyear]=At the beginning of the fiscal year,[to_beginning_of_period]=At the beginning of the period,[strict_range]=Strictly on the given dates,[previous_tax_period]=From previous tax period</para>
         /// </summary>
         [JsonPropertyName("date_scope")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("date_scope")]
         public string DateScope { get; set; }
 
         /// <summary>
@@ -133,9 +144,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [monetary]=Monetary,[percentage]=Percentage,[integer]=Integer,[float]=Float,[date]=Date,[datetime]=Datetime,[boolean]=Boolean,[string]=String</para>
         /// </summary>
         [JsonPropertyName("figure_type")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("figure_type")]
         public string FigureType { get; set; }
 
         /// <summary>
@@ -148,6 +161,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("green_on_positive")]
+        [OdooField("green_on_positive")]
         public bool GreenOnPositive { get; set; }
 
         /// <summary>
@@ -160,6 +174,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("blank_if_zero")]
+        [OdooField("blank_if_zero")]
         public bool BlankIfZero { get; set; }
 
         /// <summary>
@@ -172,6 +187,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("auditable")]
+        [OdooField("auditable")]
         public bool Auditable { get; set; }
 
         /// <summary>
@@ -185,6 +201,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("carryover_target")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("carryover_target")]
         public string CarryoverTarget { get; set; }
 
         /// <summary>
@@ -199,6 +216,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -212,6 +230,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -226,6 +245,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -239,6 +259,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
     }

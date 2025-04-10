@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("st_line_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("st_line_id")]
         public int? StLineId { get; set; }
 
         /// <summary>
@@ -59,6 +62,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("move_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("move_id")]
         public int? MoveId { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("st_line_checked")]
+        [OdooField("st_line_checked")]
         public bool StLineChecked { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("st_line_is_reconciled")]
+        [OdooField("st_line_is_reconciled")]
         public bool StLineIsReconciled { get; set; }
 
         /// <summary>
@@ -97,6 +103,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("st_line_journal_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("st_line_journal_id")]
         public int? StLineJournalId { get; set; }
 
         /// <summary>
@@ -110,6 +117,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("st_line_transaction_details")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("st_line_transaction_details")]
         public string StLineTransactionDetails { get; set; }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("transaction_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("transaction_currency_id")]
         public int? TransactionCurrencyId { get; set; }
 
         /// <summary>
@@ -138,6 +147,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("journal_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("journal_currency_id")]
         public int? JournalCurrencyId { get; set; }
 
         /// <summary>
@@ -152,6 +162,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -165,6 +176,7 @@ namespace OdooSharp.Models
         /// <para>Relation: bank.rec.widget.line</para>
         /// </summary>
         [JsonPropertyName("line_ids")]
+        [OdooField("line_ids")]
         public List<int> LineIds { get; set; }
 
         /// <summary>
@@ -178,6 +190,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.reconcile.model</para>
         /// </summary>
         [JsonPropertyName("available_reco_model_ids")]
+        [OdooField("available_reco_model_ids")]
         public List<int> AvailableRecoModelIds { get; set; }
 
         /// <summary>
@@ -192,6 +205,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("selected_reco_model_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("selected_reco_model_id")]
         public int? SelectedRecoModelId { get; set; }
 
         /// <summary>
@@ -205,6 +219,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("partner_name")]
         public string PartnerName { get; set; }
 
         /// <summary>
@@ -219,6 +234,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -232,6 +248,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("country_code")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("country_code")]
         public string CountryCode { get; set; }
 
         /// <summary>
@@ -246,6 +263,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_currency_id")]
         public int? CompanyCurrencyId { get; set; }
 
         /// <summary>
@@ -258,6 +276,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("matching_rules_allow_auto_reconcile")]
+        [OdooField("matching_rules_allow_auto_reconcile")]
         public bool MatchingRulesAllowAutoReconcile { get; set; }
 
         /// <summary>
@@ -268,9 +287,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [invalid]=Invalid,[valid]=Valid,[reconciled]=Reconciled</para>
         /// </summary>
         [JsonPropertyName("state")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("state")]
         public string State { get; set; }
 
         /// <summary>
@@ -283,6 +304,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("is_multi_currency")]
+        [OdooField("is_multi_currency")]
         public bool IsMultiCurrency { get; set; }
 
         /// <summary>
@@ -296,6 +318,7 @@ namespace OdooSharp.Models
         /// <para>Relation: account.move.line</para>
         /// </summary>
         [JsonPropertyName("selected_aml_ids")]
+        [OdooField("selected_aml_ids")]
         public List<int> SelectedAmlIds { get; set; }
 
         /// <summary>
@@ -309,6 +332,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("todo_command")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("todo_command")]
         public object TodoCommand { get; set; }
 
         /// <summary>
@@ -322,6 +346,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("return_todo_command")]
         [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]
+        [OdooField("return_todo_command")]
         public object ReturnTodoCommand { get; set; }
 
         /// <summary>
@@ -335,6 +360,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("form_index")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("form_index")]
         public string FormIndex { get; set; }
 
         /// <summary>
@@ -348,6 +374,7 @@ namespace OdooSharp.Models
         /// <para>Relation: sale.order</para>
         /// </summary>
         [JsonPropertyName("matched_sale_order_ids")]
+        [OdooField("matched_sale_order_ids")]
         public List<int> MatchedSaleOrderIds { get; set; }
 
     }

@@ -18,6 +18,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("id")]
+        [OdooField("id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("display_name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("display_name")]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("name")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -56,6 +59,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("sequence")]
+        [OdooField("sequence")]
         public int Sequence { get; set; }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("domain")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("domain")]
         public string Domain { get; set; }
 
         /// <summary>
@@ -83,6 +88,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_id")]
         public int? CompanyId { get; set; }
 
         /// <summary>
@@ -96,6 +102,7 @@ namespace OdooSharp.Models
         /// <para>Relation: res.lang</para>
         /// </summary>
         [JsonPropertyName("language_ids")]
+        [OdooField("language_ids")]
         public List<int> LanguageIds { get; set; }
 
         /// <summary>
@@ -108,6 +115,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("language_count")]
+        [OdooField("language_count")]
         public int LanguageCount { get; set; }
 
         /// <summary>
@@ -122,6 +130,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("default_lang_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("default_lang_id")]
         public int? DefaultLangId { get; set; }
 
         /// <summary>
@@ -134,6 +143,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("auto_redirect_lang")]
+        [OdooField("auto_redirect_lang")]
         public bool AutoRedirectLang { get; set; }
 
         /// <summary>
@@ -146,6 +156,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("cookies_bar")]
+        [OdooField("cookies_bar")]
         public bool CookiesBar { get; set; }
 
         /// <summary>
@@ -158,6 +169,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("configurator_done")]
+        [OdooField("configurator_done")]
         public bool ConfiguratorDone { get; set; }
 
         /// <summary>
@@ -170,6 +182,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("block_third_party_domains")]
+        [OdooField("block_third_party_domains")]
         public bool BlockThirdPartyDomains { get; set; }
 
         /// <summary>
@@ -183,6 +196,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("custom_blocked_third_party_domains")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("custom_blocked_third_party_domains")]
         public string CustomBlockedThirdPartyDomains { get; set; }
 
         /// <summary>
@@ -196,6 +210,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("blocked_third_party_domains")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("blocked_third_party_domains")]
         public string BlockedThirdPartyDomains { get; set; }
 
         /// <summary>
@@ -209,6 +224,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("logo")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("logo")]
         public byte[] Logo { get; set; }
 
         /// <summary>
@@ -222,6 +238,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_twitter")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_twitter")]
         public string SocialTwitter { get; set; }
 
         /// <summary>
@@ -235,6 +252,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_facebook")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_facebook")]
         public string SocialFacebook { get; set; }
 
         /// <summary>
@@ -248,6 +266,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_github")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_github")]
         public string SocialGithub { get; set; }
 
         /// <summary>
@@ -261,6 +280,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_linkedin")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_linkedin")]
         public string SocialLinkedin { get; set; }
 
         /// <summary>
@@ -274,6 +294,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_youtube")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_youtube")]
         public string SocialYoutube { get; set; }
 
         /// <summary>
@@ -287,6 +308,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_instagram")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_instagram")]
         public string SocialInstagram { get; set; }
 
         /// <summary>
@@ -300,6 +322,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_tiktok")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("social_tiktok")]
         public string SocialTiktok { get; set; }
 
         /// <summary>
@@ -313,6 +336,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("social_default_image")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("social_default_image")]
         public byte[] SocialDefaultImage { get; set; }
 
         /// <summary>
@@ -325,6 +349,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("has_social_default_image")]
+        [OdooField("has_social_default_image")]
         public bool HasSocialDefaultImage { get; set; }
 
         /// <summary>
@@ -338,6 +363,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_analytics_key")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_analytics_key")]
         public string GoogleAnalyticsKey { get; set; }
 
         /// <summary>
@@ -351,6 +377,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_search_console")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_search_console")]
         public string GoogleSearchConsole { get; set; }
 
         /// <summary>
@@ -364,6 +391,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("google_maps_api_key")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("google_maps_api_key")]
         public string GoogleMapsApiKey { get; set; }
 
         /// <summary>
@@ -377,6 +405,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("plausible_shared_key")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("plausible_shared_key")]
         public string PlausibleSharedKey { get; set; }
 
         /// <summary>
@@ -390,6 +419,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("plausible_site")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("plausible_site")]
         public string PlausibleSite { get; set; }
 
         /// <summary>
@@ -404,6 +434,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("user_id")]
         public int? UserId { get; set; }
 
         /// <summary>
@@ -416,6 +447,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("cdn_activated")]
+        [OdooField("cdn_activated")]
         public bool CdnActivated { get; set; }
 
         /// <summary>
@@ -429,6 +461,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("cdn_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("cdn_url")]
         public string CdnUrl { get; set; }
 
         /// <summary>
@@ -442,6 +475,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("cdn_filters")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("cdn_filters")]
         public string CdnFilters { get; set; }
 
         /// <summary>
@@ -456,6 +490,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("partner_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("partner_id")]
         public int? PartnerId { get; set; }
 
         /// <summary>
@@ -470,6 +505,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("menu_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("menu_id")]
         public int? MenuId { get; set; }
 
         /// <summary>
@@ -483,6 +519,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("homepage_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("homepage_url")]
         public string HomepageUrl { get; set; }
 
         /// <summary>
@@ -496,6 +533,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("custom_code_head")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("custom_code_head")]
         public string CustomCodeHead { get; set; }
 
         /// <summary>
@@ -509,6 +547,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("custom_code_footer")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("custom_code_footer")]
         public string CustomCodeFooter { get; set; }
 
         /// <summary>
@@ -522,6 +561,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("robots_txt")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("robots_txt")]
         public string RobotsTxt { get; set; }
 
         /// <summary>
@@ -535,6 +575,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("favicon")]
         [JsonConverter(typeof(OdooByteArrayConverter))]
+        [OdooField("favicon")]
         public byte[] Favicon { get; set; }
 
         /// <summary>
@@ -549,6 +590,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("theme_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("theme_id")]
         public int? ThemeId { get; set; }
 
         /// <summary>
@@ -561,6 +603,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("specific_user_account")]
+        [OdooField("specific_user_account")]
         public bool SpecificUserAccount { get; set; }
 
         /// <summary>
@@ -571,9 +614,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [b2b]=On invitation,[b2c]=Free sign up</para>
         /// </summary>
         [JsonPropertyName("auth_signup_uninvited")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("auth_signup_uninvited")]
         public string AuthSignupUninvited { get; set; }
 
         /// <summary>
@@ -588,6 +633,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("create_uid")]
         public int? CreateUid { get; set; }
 
         /// <summary>
@@ -601,6 +647,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("create_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("create_date")]
         public DateTime? CreateDate { get; set; }
 
         /// <summary>
@@ -615,6 +662,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_uid")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("write_uid")]
         public int? WriteUid { get; set; }
 
         /// <summary>
@@ -628,6 +676,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("write_date")]
         [JsonConverter(typeof(OdooDateTimeConverter))]
+        [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
@@ -642,6 +691,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("crm_default_team_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("crm_default_team_id")]
         public int? CrmDefaultTeamId { get; set; }
 
         /// <summary>
@@ -656,6 +706,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("crm_default_user_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("crm_default_user_id")]
         public int? CrmDefaultUserId { get; set; }
 
         /// <summary>
@@ -668,6 +719,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("enabled_portal_reorder_button")]
+        [OdooField("enabled_portal_reorder_button")]
         public bool EnabledPortalReorderButton { get; set; }
 
         /// <summary>
@@ -682,6 +734,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("salesperson_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("salesperson_id")]
         public int? SalespersonId { get; set; }
 
         /// <summary>
@@ -696,6 +749,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("salesteam_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("salesteam_id")]
         public int? SalesteamId { get; set; }
 
         /// <summary>
@@ -706,9 +760,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [tax_excluded]=Tax Excluded,[tax_included]=Tax Included</para>
         /// </summary>
         [JsonPropertyName("show_line_subtotals_tax_selection")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("show_line_subtotals_tax_selection")]
         public string ShowLineSubtotalsTaxSelection { get; set; }
 
         /// <summary>
@@ -719,9 +775,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [stay]=Stay on Product Page,[go_to_cart]=Go to cart,[force_dialog]=Let the user decide (dialog)</para>
         /// </summary>
         [JsonPropertyName("add_to_cart_action")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("add_to_cart_action")]
         public string AddToCartAction { get; set; }
 
         /// <summary>
@@ -732,9 +790,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [optional]=Optional,[disabled]=Disabled (buy as guest),[mandatory]=Mandatory (no guest checkout)</para>
         /// </summary>
         [JsonPropertyName("account_on_checkout")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("account_on_checkout")]
         public string AccountOnCheckout { get; set; }
 
         /// <summary>
@@ -749,6 +809,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("cart_recovery_mail_template_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("cart_recovery_mail_template_id")]
         public int? CartRecoveryMailTemplateId { get; set; }
 
         /// <summary>
@@ -762,6 +823,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("contact_us_button_url")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("contact_us_button_url")]
         public string ContactUsButtonUrl { get; set; }
 
         /// <summary>
@@ -774,6 +836,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Float</para>
         /// </summary>
         [JsonPropertyName("cart_abandoned_delay")]
+        [OdooField("cart_abandoned_delay")]
         public double CartAbandonedDelay { get; set; }
 
         /// <summary>
@@ -786,6 +849,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("send_abandoned_cart_email")]
+        [OdooField("send_abandoned_cart_email")]
         public bool SendAbandonedCartEmail { get; set; }
 
         /// <summary>
@@ -798,6 +862,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("shop_ppg")]
+        [OdooField("shop_ppg")]
         public int ShopPpg { get; set; }
 
         /// <summary>
@@ -810,6 +875,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("shop_ppr")]
+        [OdooField("shop_ppr")]
         public int ShopPpr { get; set; }
 
         /// <summary>
@@ -823,6 +889,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("shop_gap")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("shop_gap")]
         public string ShopGap { get; set; }
 
         /// <summary>
@@ -833,9 +900,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [website_sequence asc]=Featured,[publish_date desc]=Newest Arrivals,[name asc]=Name (A-Z),[list_price asc]=Price - Low to High,[list_price desc]=Price - High to Low</para>
         /// </summary>
         [JsonPropertyName("shop_default_sort")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("shop_default_sort")]
         public string ShopDefaultSort { get; set; }
 
         /// <summary>
@@ -849,6 +918,7 @@ namespace OdooSharp.Models
         /// <para>Relation: website.sale.extra.field</para>
         /// </summary>
         [JsonPropertyName("shop_extra_field_ids")]
+        [OdooField("shop_extra_field_ids")]
         public List<int> ShopExtraFieldIds { get; set; }
 
         /// <summary>
@@ -859,9 +929,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [carousel]=Carousel,[grid]=Grid</para>
         /// </summary>
         [JsonPropertyName("product_page_image_layout")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("product_page_image_layout")]
         public string ProductPageImageLayout { get; set; }
 
         /// <summary>
@@ -872,9 +944,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [none]=Hidden,[50_pc]=50 %,[66_pc]=66 %,[100_pc]=100 %</para>
         /// </summary>
         [JsonPropertyName("product_page_image_width")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("product_page_image_width")]
         public string ProductPageImageWidth { get; set; }
 
         /// <summary>
@@ -885,9 +959,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [none]=None,[small]=Small,[medium]=Medium,[big]=Big</para>
         /// </summary>
         [JsonPropertyName("product_page_image_spacing")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("product_page_image_spacing")]
         public string ProductPageImageSpacing { get; set; }
 
         /// <summary>
@@ -898,9 +974,11 @@ namespace OdooSharp.Models
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [everyone]=All users,[logged_in]=Logged in users</para>
         /// </summary>
         [JsonPropertyName("ecommerce_access")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("ecommerce_access")]
         public string EcommerceAccess { get; set; }
 
         /// <summary>
@@ -913,6 +991,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Integer</para>
         /// </summary>
         [JsonPropertyName("product_page_grid_columns")]
+        [OdooField("product_page_grid_columns")]
         public int ProductPageGridColumns { get; set; }
 
         /// <summary>
@@ -925,6 +1004,7 @@ namespace OdooSharp.Models
         /// <para>Field type: Boolean</para>
         /// </summary>
         [JsonPropertyName("prevent_zero_price_sale")]
+        [OdooField("prevent_zero_price_sale")]
         public bool PreventZeroPriceSale { get; set; }
 
         /// <summary>
@@ -938,6 +1018,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("prevent_zero_price_sale_text")]
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("prevent_zero_price_sale_text")]
         public string PreventZeroPriceSaleText { get; set; }
 
         /// <summary>
@@ -952,6 +1033,7 @@ namespace OdooSharp.Models
         /// </summary>
         [JsonPropertyName("currency_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("currency_id")]
         public int? CurrencyId { get; set; }
 
         /// <summary>
@@ -965,6 +1047,7 @@ namespace OdooSharp.Models
         /// <para>Relation: product.pricelist</para>
         /// </summary>
         [JsonPropertyName("pricelist_ids")]
+        [OdooField("pricelist_ids")]
         public List<int> PricelistIds { get; set; }
 
     }
