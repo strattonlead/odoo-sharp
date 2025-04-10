@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OdooSharp.Models\OdooSharp.Models.csproj" />
     <ProjectReference Include="..\OdooSharp\OdooSharp.csproj" />
   </ItemGroup>
 

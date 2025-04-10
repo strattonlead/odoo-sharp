@@ -36,8 +36,13 @@ namespace OdooSharp.Tests
                 Email = "kontakt@mustermann-logistik.de",
                 Phone = "+49 123 456789",
                 AutopostBills = "never",
-                Active = true,
+                Active = true
             };
+
+            // Beispiel für ein custom feld aus dem studio. generieren lassen oder manuell einfügen
+            //[JsonPropertyName("x_studio_timocompublicid")]
+            //[OdooField("x_studio_timocompublicid")]
+            //public int TimocomId { get; set; }
 
             var info = await client.GetModelFieldsTypedAsync("res.partner");
             var info2 = await client.GetModelFieldTypedAsync("res.partner", "autopost_bills");
