@@ -14,11 +14,6 @@ namespace OdooSharp.DependencyInjection
             var options = optionsBuilder.Build();
 
             services.AddSingleton(new OdooClient(options));
-
-            services.AddOdooClient(options => options
-                .UseUrl("")
-                .UseDatabase("")
-                .UseCredentials("", ""));
         }
     }
 }
