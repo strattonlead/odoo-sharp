@@ -45,7 +45,7 @@ namespace OdooSharp.Tests
             //public int TimocomId { get; set; }
 
             var info = await client.GetModelFieldsTypedAsync("res.partner");
-            var info2 = await client.GetModelFieldTypedAsync("res.partner", "autopost_bills");
+            var info2 = await client.GetModelFieldTypedAsync("res.partner", "x_studio_languages");
 
             var countResponse = await client.SearchReadCountAsync<ResPartner>();
 

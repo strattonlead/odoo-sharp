@@ -9,6 +9,8 @@ namespace OdooSharp.Client
         Task<List<OdooModel>> GetModelsAsync();
         Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model);
 
+        Task<JsonRpcResponse<int>> CreateAsync<T>(T data);
+        Task<JsonRpcResponse<bool>> WriteAsync<T>(T values);
         Task<JsonRpcResponse<int>> SearchReadCountAsync<T>();
         Task<JsonRpcResponse<T>> ReadById<T>(int id);
         Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null);
