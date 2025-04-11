@@ -35,7 +35,7 @@ jobs:
       uses: actions/setup-dotnet@v4
 
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
-    # - run: dotnet build OdooSharp.Codegen --configuration Release
+    - run: dotnet build OdooSharp.Codegen --configuration Release
     - run: dotnet pack OdooSharp.Codegen --configuration Release --output ${{ env.NuGetDirectory }}
     - run: ls -l OdooSharp.Codegen/bin/Release/netstandard2.1/*.pdb
     - run: unzip -l ${{ env.NuGetDirectory }}/CreateIf.OdooSharp.Codegen.*.nupkg
