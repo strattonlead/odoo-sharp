@@ -41,3 +41,5 @@ Usage Examples:
 
 "@ | Write-Host
 }
+
+Export-ModuleMember -Function OdooGen-Generate, OdooGen-Check, OdooGen-Init, OdooGen-Version, OdooGen-Help
