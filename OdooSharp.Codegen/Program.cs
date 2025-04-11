@@ -1,14 +1,21 @@
 ﻿using OdooSharp.Codegen.Commands;
 using System.CommandLine;
+using System.Threading.Tasks;
 
-var rootCommand = new RootCommand("odoogen CLI tool for generating Odoo models");
+public static class Program
+{
+    public static async Task<int> Main(string[] args)
+    {
+        var rootCommand = new RootCommand("odoogen CLI tool for generating Odoo models");
 
-rootCommand.AddCommand(new GenerateCommand());
-rootCommand.AddCommand(new CheckCommand());
-rootCommand.AddCommand(new InitCommand());
-rootCommand.AddCommand(new VersionCommand());
+        rootCommand.AddCommand(new GenerateCommand());
+        rootCommand.AddCommand(new CheckCommand());
+        rootCommand.AddCommand(new InitCommand());
+        rootCommand.AddCommand(new VersionCommand());
 
-await rootCommand.InvokeAsync(args);
+        return await rootCommand.InvokeAsync(args);
+    }
+}
 
 //// See https://aka.ms/new-console-template for more information
 //using OdooSharp.Client;
