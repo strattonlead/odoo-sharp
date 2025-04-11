@@ -1,18 +1,51 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>odoogen</ToolCommandName>
+		<TargetFramework>net8.0</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Nullable>disable</Nullable>
+		<Nullable>disable</Nullable>
+		<PackageId>CreateIf.OdooSharp.Codegen</PackageId>
+		<Version>0.0.9</Version>
+		<PackageVersion>0.0.9</PackageVersion>
+		<AssemblyVersion>0.0.9</AssemblyVersion>
+		<FileVersion>0.0.9</FileVersion>
+		<InformationalVersion>0.0.9</InformationalVersion>
+		<LangVersion>latest</LangVersion>
+		<Authors>Arndt Bieberstein</Authors>
+		<Company>createIF Labs GmbH</Company>
+		<EnablePackageValidation>true</EnablePackageValidation>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+		<PackageTags>Odoo, Api, RPC</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Description>CLI + PMC Tools for Odoo Integration</Description>
+		<PackageProjectUrl>https://github.com/strattonlead/odoo-sharp</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PrivateRepositoryUrl>https://github.com/strattonlead/odoo-sharp.git</PrivateRepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="DotNetEnv" Version="3.1.1" />
+		<PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-    <ProjectReference Include="..\OdooSharp\OdooSharp.csproj" />
-  </ItemGroup>
+		<ProjectReference Include="..\OdooSharp\OdooSharp.csproj" />
+	</ItemGroup>
 
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
+		<None Include="tools\init.ps1" Pack="true" PackagePath="tools\" />
+		<None Include="tools\odoogen.psm1" Pack="true" PackagePath="tools\" />
+	</ItemGroup>
 </Project>
