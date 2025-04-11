@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>disable</Nullable>
 		<Nullable>disable</Nullable>
-		<PackageId>CreateIf.OdooSharp.Models</PackageId>
+		<PackageId>CreateIf.OdooSharp.DependencyInjection</PackageId>
 		<Version>0.0.7</Version>
 		<PackageVersion>0.0.7</PackageVersion>
 		<Authors>Arndt Bieberstein</Authors>
@@ -14,7 +14,7 @@
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
 		<PackageTags>Odoo, Api, RPC</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Description>Base Odoo Model classes.</Description>
+		<Description>DI for the OdooSharp client.</Description>
 		<PackageProjectUrl>https://github.com/strattonlead/odoo-sharp</PackageProjectUrl>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PrivateRepositoryUrl>https://github.com/strattonlead/odoo-sharp.git</PrivateRepositoryUrl>
@@ -26,7 +26,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
 		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
@@ -39,7 +39,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OdooSharp.Configuration\OdooSharp.Configuration.csproj" />
+	  <ProjectReference Include="..\OdooSharp.DependencyInjection\OdooSharp.DependencyInjection.csproj" />
 	</ItemGroup>
-
 </Project>

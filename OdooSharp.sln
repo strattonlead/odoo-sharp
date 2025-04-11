@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.DependencyInjecti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.Codegen", "OdooSharp.Codegen\OdooSharp.Codegen.csproj", "{36130B5D-28AC-4FF0-AC01-E490458B2414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.Tests", "OdooSharp.Tests\OdooSharp.Tests.csproj", "{C2B9B090-6053-410A-9A70-3F1AE4AA1ED3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.Tests", "OdooSharp.Tests\OdooSharp.Tests.csproj", "{C2B9B090-6053-410A-9A70-3F1AE4AA1ED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.Models", "OdooSharp.Models\OdooSharp.Models.csproj", "{2BA23574-BE4A-43BA-AA1C-E719637EB6F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.Models", "OdooSharp.Models\OdooSharp.Models.csproj", "{2BA23574-BE4A-43BA-AA1C-E719637EB6F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.Configuration", "OdooSharp.Configuration\OdooSharp.Configuration.csproj", "{650B29E4-2204-487B-BC27-ECE2347EF9CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdooSharp.Configuration", "OdooSharp.Configuration\OdooSharp.Configuration.csproj", "{650B29E4-2204-487B-BC27-ECE2347EF9CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdooSharp.Configuration.EnvironmentVariables", "OdooSharp.Configuration.EnvironmentVariables\OdooSharp.Configuration.EnvironmentVariables.csproj", "{F8C2598A-F56E-4075-80D0-D6E6F03654DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{650B29E4-2204-487B-BC27-ECE2347EF9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{650B29E4-2204-487B-BC27-ECE2347EF9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{650B29E4-2204-487B-BC27-ECE2347EF9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8C2598A-F56E-4075-80D0-D6E6F03654DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C2598A-F56E-4075-80D0-D6E6F03654DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C2598A-F56E-4075-80D0-D6E6F03654DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C2598A-F56E-4075-80D0-D6E6F03654DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
