@@ -25,9 +25,13 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<DebugType>none</DebugType>
-		<DebugSymbols>false</DebugSymbols>
-		<IncludeSymbols>false</IncludeSymbols>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<Deterministic>true</Deterministic>
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
