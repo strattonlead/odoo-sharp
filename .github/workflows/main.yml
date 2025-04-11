@@ -36,7 +36,7 @@ jobs:
 
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
     - run: dotnet build OdooSharp.Codegen --configuration Release
-    - run: dotnet pack OdooSharp.Codegen --configuration Release --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:DebugType=portable -p:DebugSymbols=true -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:ContinuousIntegrationBuild=true -p:BuildProjectReferences=true --output ${{ env.NuGetDirectory }}
+    - run: dotnet pack OdooSharp.Codegen --configuration Release --output ${{ env.NuGetDirectory }}
     - run: ls -l OdooSharp.Codegen/bin/Release/netstandard2.1/*.pdb
     - run: unzip -l ${{ env.NuGetDirectory }}/CreateIf.OdooSharp.Codegen.*.nupkg
     - run: unzip -l ${{ env.NuGetDirectory }}/CreateIf.OdooSharp.Codegen.*.snupkg
