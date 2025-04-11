@@ -37,6 +37,7 @@ jobs:
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
     - run: dotnet pack OdooSharp --configuration Release --output ${{ env.NuGetDirectory }}
     - run: dotnet pack OdooSharp.Configuration --configuration Release --output ${{ env.NuGetDirectory }}
+    - run: dotnet pack OdooSharp.Configuration.EnvironmentVariables --configuration Release --output ${{ env.NuGetDirectory }}
     - run: dotnet pack OdooSharp.DependencyInjection --configuration Release --output ${{ env.NuGetDirectory }}
     - run: dotnet pack OdooSharp.Models --configuration Release --output ${{ env.NuGetDirectory }}
 
