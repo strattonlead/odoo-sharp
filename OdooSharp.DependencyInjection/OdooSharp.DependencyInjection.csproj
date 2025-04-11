@@ -5,8 +5,8 @@
 		<Nullable>disable</Nullable>
 		<Nullable>disable</Nullable>
 		<PackageId>CreateIf.OdooSharp.DependencyInjection</PackageId>
-		<Version>0.0.10</Version>
-		<PackageVersion>0.0.10</PackageVersion>
+		<Version>0.0.11</Version>
+		<PackageVersion>0.0.11</PackageVersion>
 		<Authors>Arndt Bieberstein</Authors>
 		<Company>createIF Labs GmbH</Company>
 		<EnablePackageValidation>true</EnablePackageValidation>
