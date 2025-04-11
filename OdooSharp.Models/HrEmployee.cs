@@ -1994,6 +1994,19 @@ namespace OdooSharp.Models
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
+        /// <para>Name: Document Count</para>
+        /// <para>Internal: document_count</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Integer</para>
+        /// </summary>
+        [JsonPropertyName("document_count")]
+        [OdooField("document_count")]
+        public int DocumentCount { get; set; }
+
+        /// <summary>
         /// <para>Name: Hourly Cost</para>
         /// <para>Internal: hourly_cost</para>
         /// <para>Store: yes</para>

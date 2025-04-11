@@ -268,6 +268,36 @@ namespace OdooSharp.Models
         public DateTime? WriteDate { get; set; }
 
         /// <summary>
+        /// <para>Name: Document</para>
+        /// <para>Internal: document_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("document_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("document_id")]
+        public int? DocumentId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Template</para>
+        /// <para>Internal: template_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: spreadsheet.template</para>
+        /// </summary>
+        [JsonPropertyName("template_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("template_id")]
+        public int? TemplateId { get; set; }
+
+        /// <summary>
         /// <para>Name: Dashboard</para>
         /// <para>Internal: dashboard_id</para>
         /// <para>Store: yes</para>

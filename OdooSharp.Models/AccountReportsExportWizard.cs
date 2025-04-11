@@ -136,5 +136,34 @@ namespace OdooSharp.Models
         [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
 
+        /// <summary>
+        /// <para>Name: Folder</para>
+        /// <para>Internal: folder_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: yes</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("folder_id")]
+        public int? FolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Tags</para>
+        /// <para>Internal: tag_ids</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2Many</para>
+        /// <para>Relation: documents.tag</para>
+        /// </summary>
+        [JsonPropertyName("tag_ids")]
+        [OdooField("tag_ids")]
+        public List<int> TagIds { get; set; }
+
     }
 }

@@ -4188,6 +4188,33 @@ namespace OdooSharp.Models
         public int OpportunityCount { get; set; }
 
         /// <summary>
+        /// <para>Name: Documents</para>
+        /// <para>Internal: document_ids</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: One2Many</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("document_ids")]
+        [OdooField("document_ids")]
+        public List<int> DocumentIds { get; set; }
+
+        /// <summary>
+        /// <para>Name: Document Count</para>
+        /// <para>Internal: document_count</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Integer</para>
+        /// </summary>
+        [JsonPropertyName("document_count")]
+        [OdooField("document_count")]
+        public int DocumentCount { get; set; }
+
+        /// <summary>
         /// <para>Name: Tickets</para>
         /// <para>Internal: ticket_count</para>
         /// <para>Store: no</para>
@@ -4797,6 +4824,74 @@ namespace OdooSharp.Models
         [JsonConverter(typeof(OdooDateTimeConverter))]
         [OdooField("l10n_din5008_date")]
         public DateTime? L10nDin5008Date { get; set; }
+
+        /// <summary>
+        /// <para>Name: TimocomPublicId</para>
+        /// <para>Internal: x_studio_timocompublicid</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Integer</para>
+        /// </summary>
+        [JsonPropertyName("x_studio_timocompublicid")]
+        [OdooField("x_studio_timocompublicid")]
+        public int XStudioTimocompublicid { get; set; }
+
+        /// <summary>
+        /// <para>Name: Sprachen</para>
+        /// <para>Internal: x_studio_sprachen</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Char</para>
+        /// </summary>
+        [JsonPropertyName("x_studio_sprachen")]
+        [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("x_studio_sprachen")]
+        public string XStudioSprachen { get; set; }
+
+        /// <summary>
+        /// <para>Name: LogiheroId</para>
+        /// <para>Internal: x_studio_logiheroid</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Integer</para>
+        /// </summary>
+        [JsonPropertyName("x_studio_logiheroid")]
+        [OdooField("x_studio_logiheroid")]
+        public int XStudioLogiheroid { get; set; }
+
+        /// <summary>
+        /// <para>Name: Languages</para>
+        /// <para>Internal: x_studio_sprachen_1</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Char</para>
+        /// </summary>
+        [JsonPropertyName("x_studio_sprachen_1")]
+        [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("x_studio_sprachen_1")]
+        public string XStudioSprachen1 { get; set; }
+
+        /// <summary>
+        /// <para>Name: Languages</para>
+        /// <para>Internal: x_studio_languages</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Char</para>
+        /// </summary>
+        [JsonPropertyName("x_studio_languages")]
+        [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("x_studio_languages")]
+        public string XStudioLanguages { get; set; }
 
     }
 }

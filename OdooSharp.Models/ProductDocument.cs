@@ -526,6 +526,20 @@ namespace OdooSharp.Models
         public List<int> VoiceIds { get; set; }
 
         /// <summary>
+        /// <para>Name: Document</para>
+        /// <para>Internal: document_ids</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: One2Many</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("document_ids")]
+        [OdooField("document_ids")]
+        public List<int> DocumentIds { get; set; }
+
+        /// <summary>
         /// <para>Name: Key</para>
         /// <para>Internal: key</para>
         /// <para>Store: no</para>

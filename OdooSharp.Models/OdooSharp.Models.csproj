@@ -5,8 +5,8 @@
 		<Nullable>disable</Nullable>
 		<Nullable>disable</Nullable>
 		<PackageId>CreateIf.OdooSharp.Models</PackageId>
-		<Version>0.0.7</Version>
-		<PackageVersion>0.0.7</PackageVersion>
+		<Version>0.0.8</Version>
+		<PackageVersion>0.0.8</PackageVersion>
 		<Authors>Arndt Bieberstein</Authors>
 		<Company>createIF Labs GmbH</Company>
 		<EnablePackageValidation>true</EnablePackageValidation>

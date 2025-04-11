@@ -2708,6 +2708,34 @@ namespace OdooSharp.Models
         public bool ImpactingCashBasis { get; set; }
 
         /// <summary>
+        /// <para>Name: Request document from a bank statement line</para>
+        /// <para>Internal: suspense_statement_line_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: account.bank.statement.line</para>
+        /// </summary>
+        [JsonPropertyName("suspense_statement_line_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("suspense_statement_line_id")]
+        public int? SuspenseStatementLineId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Has Documents</para>
+        /// <para>Internal: has_documents</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Boolean</para>
+        /// </summary>
+        [JsonPropertyName("has_documents")]
+        [OdooField("has_documents")]
+        public bool HasDocuments { get; set; }
+
+        /// <summary>
         /// <para>Name: L10N De Datev Main Account</para>
         /// <para>Internal: l10n_de_datev_main_account_id</para>
         /// <para>Store: yes</para>

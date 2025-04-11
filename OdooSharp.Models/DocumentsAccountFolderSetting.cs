@@ -5,8 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace OdooSharp.Models
 {
-    [OdooModel("hr.departure.wizard")]
-    public partial class HrDepartureWizard
+    [OdooModel("documents.account.folder.setting")]
+    public partial class DocumentsAccountFolderSetting
     {
         /// <summary>
         /// <para>Name: ID</para>
@@ -36,61 +36,78 @@ namespace OdooSharp.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// <para>Name: Departure Reason</para>
-        /// <para>Internal: departure_reason_id</para>
+        /// <para>Name: Company</para>
+        /// <para>Internal: company_id</para>
         /// <para>Store: yes</para>
         /// <para>Required: yes</para>
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Many2One</para>
-        /// <para>Relation: hr.departure.reason</para>
+        /// <para>Relation: res.company</para>
         /// </summary>
-        [JsonPropertyName("departure_reason_id")]
+        [JsonPropertyName("company_id")]
         [JsonConverter(typeof(OdooMany2OneIdConverter))]
-        [OdooField("departure_reason_id")]
-        public int? DepartureReasonId { get; set; }
+        [OdooField("company_id")]
+        public int? CompanyId { get; set; }
 
         /// <summary>
-        /// <para>Name: Additional Information</para>
-        /// <para>Internal: departure_description</para>
+        /// <para>Name: Accounting Folder</para>
+        /// <para>Internal: company_account_folder_id</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("company_account_folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("company_account_folder_id")]
+        public int? CompanyAccountFolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Journal</para>
+        /// <para>Internal: journal_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: yes</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: account.journal</para>
+        /// </summary>
+        [JsonPropertyName("journal_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("journal_id")]
+        public int? JournalId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Workspace</para>
+        /// <para>Internal: folder_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: yes</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("folder_id")]
+        public int? FolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Tags</para>
+        /// <para>Internal: tag_ids</para>
         /// <para>Store: yes</para>
         /// <para>Required: no</para>
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
-        /// <para>Field type: Html</para>
-        /// </summary>
-        [JsonPropertyName("departure_description")]
-        [JsonConverter(typeof(OdooFlexibleStringConverter))]
-        [OdooField("departure_description")]
-        public string DepartureDescription { get; set; }
-
-        /// <summary>
-        /// <para>Name: Departure Date</para>
-        /// <para>Internal: departure_date</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: yes</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Date</para>
-        /// </summary>
-        [JsonPropertyName("departure_date")]
-        [JsonConverter(typeof(OdooDateTimeConverter))]
-        [OdooField("departure_date")]
-        public DateTime? DepartureDate { get; set; }
-
-        /// <summary>
-        /// <para>Name: Employees</para>
-        /// <para>Internal: employee_ids</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: yes</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
         /// <para>Field type: Many2Many</para>
-        /// <para>Relation: hr.employee</para>
+        /// <para>Relation: documents.tag</para>
         /// </summary>
-        [JsonPropertyName("employee_ids")]
-        [OdooField("employee_ids")]
-        public List<int> EmployeeIds { get; set; }
+        [JsonPropertyName("tag_ids")]
+        [OdooField("tag_ids")]
+        public List<int> TagIds { get; set; }
 
         /// <summary>
         /// <para>Name: Created by</para>
@@ -149,46 +166,6 @@ namespace OdooSharp.Models
         [JsonConverter(typeof(OdooDateTimeConverter))]
         [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
-
-        /// <summary>
-        /// <para>Name: Send Docs</para>
-        /// <para>Internal: send_documents_enabled</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Boolean</para>
-        /// </summary>
-        [JsonPropertyName("send_documents_enabled")]
-        [OdooField("send_documents_enabled")]
-        public bool SendDocumentsEnabled { get; set; }
-
-        /// <summary>
-        /// <para>Name: Send Access Link</para>
-        /// <para>Internal: send_hr_documents_access_link</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Boolean</para>
-        /// </summary>
-        [JsonPropertyName("send_hr_documents_access_link")]
-        [OdooField("send_hr_documents_access_link")]
-        public bool SendHrDocumentsAccessLink { get; set; }
-
-        /// <summary>
-        /// <para>Name: Warning Message</para>
-        /// <para>Internal: warning_message</para>
-        /// <para>Store: no</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: yes</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Char</para>
-        /// </summary>
-        [JsonPropertyName("warning_message")]
-        [JsonConverter(typeof(OdooFlexibleStringConverter))]
-        [OdooField("warning_message")]
-        public string WarningMessage { get; set; }
 
     }
 }

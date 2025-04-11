@@ -2539,6 +2539,76 @@ namespace OdooSharp.Models
         public string CurrencyProvider { get; set; }
 
         /// <summary>
+        /// <para>Name: Documents Hr Settings</para>
+        /// <para>Internal: documents_hr_settings</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Boolean</para>
+        /// </summary>
+        [JsonPropertyName("documents_hr_settings")]
+        [OdooField("documents_hr_settings")]
+        public bool DocumentsHrSettings { get; set; }
+
+        /// <summary>
+        /// <para>Name: HR Folder</para>
+        /// <para>Internal: documents_hr_folder</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("documents_hr_folder")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("documents_hr_folder")]
+        public int? DocumentsHrFolder { get; set; }
+
+        /// <summary>
+        /// <para>Name: Documents Product Settings</para>
+        /// <para>Internal: documents_product_settings</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Boolean</para>
+        /// </summary>
+        [JsonPropertyName("documents_product_settings")]
+        [OdooField("documents_product_settings")]
+        public bool DocumentsProductSettings { get; set; }
+
+        /// <summary>
+        /// <para>Name: Product Folder</para>
+        /// <para>Internal: product_folder_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("product_folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("product_folder_id")]
+        public int? ProductFolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Product Tag</para>
+        /// <para>Internal: product_tag_ids</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2Many</para>
+        /// <para>Relation: documents.tag</para>
+        /// </summary>
+        [JsonPropertyName("product_tag_ids")]
+        [OdooField("product_tag_ids")]
+        public List<int> ProductTagIds { get; set; }
+
+        /// <summary>
         /// <para>Name: Purchase Lead Time</para>
         /// <para>Internal: po_lead</para>
         /// <para>Store: yes</para>
@@ -2975,6 +3045,78 @@ namespace OdooSharp.Models
         [JsonConverter(typeof(OdooFlexibleStringConverter))]
         [OdooField("sale_onboarding_payment_method")]
         public string SaleOnboardingPaymentMethod { get; set; }
+
+        /// <summary>
+        /// <para>Name: Documents Account Settings</para>
+        /// <para>Internal: documents_account_settings</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Boolean</para>
+        /// </summary>
+        [JsonPropertyName("documents_account_settings")]
+        [OdooField("documents_account_settings")]
+        public bool DocumentsAccountSettings { get; set; }
+
+        /// <summary>
+        /// <para>Name: Accounting Folder</para>
+        /// <para>Internal: account_folder_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("account_folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("account_folder_id")]
+        public int? AccountFolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Peppol Reception Mode</para>
+        /// <para>Internal: peppol_reception_mode</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Selection</para>
+        /// <para>Allowed selection values: [journal]=Receive in Journal,[documents]=Receive in Documents</para>
+        /// </summary>
+        [JsonPropertyName("peppol_reception_mode")]
+        [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("peppol_reception_mode")]
+        public string PeppolReceptionMode { get; set; }
+
+        /// <summary>
+        /// <para>Name: Document Workspace</para>
+        /// <para>Internal: documents_account_peppol_folder_id</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: documents.document</para>
+        /// </summary>
+        [JsonPropertyName("documents_account_peppol_folder_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("documents_account_peppol_folder_id")]
+        public int? DocumentsAccountPeppolFolderId { get; set; }
+
+        /// <summary>
+        /// <para>Name: Document Tags</para>
+        /// <para>Internal: documents_account_peppol_tag_ids</para>
+        /// <para>Store: yes</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Many2Many</para>
+        /// <para>Relation: documents.tag</para>
+        /// </summary>
+        [JsonPropertyName("documents_account_peppol_tag_ids")]
+        [OdooField("documents_account_peppol_tag_ids")]
+        public List<int> DocumentsAccountPeppolTagIds { get; set; }
 
         /// <summary>
         /// <para>Name: L10N De Datev Consultant Number</para>

@@ -5,8 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace OdooSharp.Models
 {
-    [OdooModel("hr.departure.wizard")]
-    public partial class HrDepartureWizard
+    [OdooModel("documents.link_to_record_wizard")]
+    public partial class DocumentsLinkToRecordWizard
     {
         /// <summary>
         /// <para>Name: ID</para>
@@ -36,61 +36,75 @@ namespace OdooSharp.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// <para>Name: Departure Reason</para>
-        /// <para>Internal: departure_reason_id</para>
+        /// <para>Name: Documents</para>
+        /// <para>Internal: document_ids</para>
         /// <para>Store: yes</para>
-        /// <para>Required: yes</para>
-        /// <para>Readonly: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
-        /// <para>Field type: Many2One</para>
-        /// <para>Relation: hr.departure.reason</para>
+        /// <para>Field type: Many2Many</para>
+        /// <para>Relation: documents.document</para>
         /// </summary>
-        [JsonPropertyName("departure_reason_id")]
-        [JsonConverter(typeof(OdooMany2OneIdConverter))]
-        [OdooField("departure_reason_id")]
-        public int? DepartureReasonId { get; set; }
+        [JsonPropertyName("document_ids")]
+        [OdooField("document_ids")]
+        public List<int> DocumentIds { get; set; }
 
         /// <summary>
-        /// <para>Name: Additional Information</para>
-        /// <para>Internal: departure_description</para>
+        /// <para>Name: Model</para>
+        /// <para>Internal: model_id</para>
         /// <para>Store: yes</para>
         /// <para>Required: no</para>
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
-        /// <para>Field type: Html</para>
+        /// <para>Field type: Many2One</para>
+        /// <para>Relation: ir.model</para>
         /// </summary>
-        [JsonPropertyName("departure_description")]
-        [JsonConverter(typeof(OdooFlexibleStringConverter))]
-        [OdooField("departure_description")]
-        public string DepartureDescription { get; set; }
+        [JsonPropertyName("model_id")]
+        [JsonConverter(typeof(OdooMany2OneIdConverter))]
+        [OdooField("model_id")]
+        public int? ModelId { get; set; }
 
         /// <summary>
-        /// <para>Name: Departure Date</para>
-        /// <para>Internal: departure_date</para>
+        /// <para>Name: is_readonly_model</para>
+        /// <para>Internal: is_readonly_model</para>
         /// <para>Store: yes</para>
-        /// <para>Required: yes</para>
+        /// <para>Required: no</para>
         /// <para>Readonly: no</para>
         /// <para>Company Dependent: no</para>
-        /// <para>Field type: Date</para>
+        /// <para>Field type: Boolean</para>
         /// </summary>
-        [JsonPropertyName("departure_date")]
-        [JsonConverter(typeof(OdooDateTimeConverter))]
-        [OdooField("departure_date")]
-        public DateTime? DepartureDate { get; set; }
+        [JsonPropertyName("is_readonly_model")]
+        [OdooField("is_readonly_model")]
+        public bool IsReadonlyModel { get; set; }
 
         /// <summary>
-        /// <para>Name: Employees</para>
-        /// <para>Internal: employee_ids</para>
+        /// <para>Name: Record</para>
+        /// <para>Internal: resource_ref</para>
         /// <para>Store: yes</para>
-        /// <para>Required: yes</para>
+        /// <para>Required: no</para>
         /// <para>Readonly: no</para>
+        /// <para>Company Dependent: no</para>
+        /// <para>Field type: Reference</para>
+        /// <para>Allowed selection values: [account.account]=Account,[account.analytic.account]=Analytic Account,[appointment.type]=Appointment Type,[knowledge.article.thread]=Article Discussion Thread,[account.asset]=Asset/Revenue Recognition,[res.partner.bank]=Bank Accounts,[account.online.link]=Bank Connection,[account.bank.statement]=Bank Statement,[extract.mixin]=Base class to extract data from documents,[extract.mixin.with.words]=Base class to extract data from documents with OCRed words saved,[calendar.event]=Calendar Event,[res.company]=Companies,[res.partner]=Contact,[hr.department]=Department,[discuss.channel]=Discussion Channel,[mail.thread.cc]=Email CC management,[mail.thread]=Email Thread,[hr.employee]=Employee,[gamification.badge]=Gamification Badge,[gamification.challenge]=Gamification Challenge,[helpdesk.team]=Helpdesk Team,[helpdesk.ticket]=Helpdesk Ticket,[iap.account]=IAP Account,[hr.job]=Job Position,[account.journal]=Journal,[account.move]=Journal Entry,[knowledge.article]=Knowledge Article,[crm.lead]=Lead,[account.loan]=Loan,[x_logi_menu]=Logi Menü,[mail.blacklist]=Mail Blacklist,[mail.thread.blacklist]=Mail Blacklist mixin,[mail.thread.main.attachment]=Mail Main Attachment management,[account.payment]=Payments,[phone.blacklist]=Phone Blacklist,[mail.thread.phone]=Phone Blacklist Mixin,[account.reconcile.model]=Preset to create journal entries during a invoices and payments matching,[product.pricelist]=Pricelist,[product.template]=Product,[product.category]=Product Category,[product.product]=Product Variant,[purchase.order]=Purchase Order,[rating.mixin]=Rating Mixin,[sale.order]=Sales Order,[crm.team]=Sales Team,[crm.team.member]=Sales Team Member,[sign.request]=Signature Request,[spreadsheet.cell.thread]=Spreadsheet discussion thread,[studio.approval.rule]=Studio Approval Rule,[survey.survey]=Survey,[survey.user_input]=Survey User Input,[account.tax]=Tax</para>
+        /// </summary>
+        [JsonPropertyName("resource_ref")]
+        [JsonConverter(typeof(OdooFlexibleStringConverter))]
+        [OdooField("resource_ref")]
+        public string ResourceRef { get; set; }
+
+        /// <summary>
+        /// <para>Name: Models</para>
+        /// <para>Internal: accessible_model_ids</para>
+        /// <para>Store: no</para>
+        /// <para>Required: no</para>
+        /// <para>Readonly: yes</para>
         /// <para>Company Dependent: no</para>
         /// <para>Field type: Many2Many</para>
-        /// <para>Relation: hr.employee</para>
+        /// <para>Relation: ir.model</para>
         /// </summary>
-        [JsonPropertyName("employee_ids")]
-        [OdooField("employee_ids")]
-        public List<int> EmployeeIds { get; set; }
+        [JsonPropertyName("accessible_model_ids")]
+        [OdooField("accessible_model_ids")]
+        public List<int> AccessibleModelIds { get; set; }
 
         /// <summary>
         /// <para>Name: Created by</para>
@@ -149,46 +163,6 @@ namespace OdooSharp.Models
         [JsonConverter(typeof(OdooDateTimeConverter))]
         [OdooField("write_date")]
         public DateTime? WriteDate { get; set; }
-
-        /// <summary>
-        /// <para>Name: Send Docs</para>
-        /// <para>Internal: send_documents_enabled</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Boolean</para>
-        /// </summary>
-        [JsonPropertyName("send_documents_enabled")]
-        [OdooField("send_documents_enabled")]
-        public bool SendDocumentsEnabled { get; set; }
-
-        /// <summary>
-        /// <para>Name: Send Access Link</para>
-        /// <para>Internal: send_hr_documents_access_link</para>
-        /// <para>Store: yes</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: no</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Boolean</para>
-        /// </summary>
-        [JsonPropertyName("send_hr_documents_access_link")]
-        [OdooField("send_hr_documents_access_link")]
-        public bool SendHrDocumentsAccessLink { get; set; }
-
-        /// <summary>
-        /// <para>Name: Warning Message</para>
-        /// <para>Internal: warning_message</para>
-        /// <para>Store: no</para>
-        /// <para>Required: no</para>
-        /// <para>Readonly: yes</para>
-        /// <para>Company Dependent: no</para>
-        /// <para>Field type: Char</para>
-        /// </summary>
-        [JsonPropertyName("warning_message")]
-        [JsonConverter(typeof(OdooFlexibleStringConverter))]
-        [OdooField("warning_message")]
-        public string WarningMessage { get; set; }
 
     }
 }
