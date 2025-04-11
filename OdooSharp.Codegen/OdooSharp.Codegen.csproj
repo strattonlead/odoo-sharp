@@ -25,9 +25,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<IncludeSymbols>true</IncludeSymbols>
-		<IncludeSource>true</IncludeSource>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<SymbolPackageFormat>nupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
