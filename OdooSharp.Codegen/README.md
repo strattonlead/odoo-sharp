@@ -1,89 +1,87 @@
-﻿# OdooSharp JSON-RPC C# ORM Client
+﻿# 🧩 OdooGen – Odoo Model Code Generator for .NET
 
-A type-safe, extensible C# client for interacting with the Odoo JSON-RPC API.  
-Supports full CRUD, filtering, paging, and model-level attributes for clean data access.
+**OdooGen** is a .NET CLI & PowerShell tool that helps you generate **strongly-typed C# model classes** from Odoo metadata via the RPC API.
 
----
+Use it in microservices or backend integrations — works perfectly with **Odoo SaaS (Cloud)** and **On-Premise** environments.
 
-## 🚀 Features
+## ✨ Features
 
-- 🔐 Auth via JSON-RPC (`/web/session/authenticate`)
-- 🔍 Generic `search_read` with domain, fields, paging, sorting
-- 🆕 `create`, ✏️ `write`, 🗑️ `unlink`, 📥 `read` (by ID)
-- 🧠 Model-level `[OdooModel(...)]` attribute for smart mapping
-- 🔄 Paged queries
-- ✅ Typed response classes via `System.Text.Json`
-
----
+- 🔁 Generate classes for **one or all Odoo models**
+- ✅ Nullable and typed properties
+- ⚡ Works without Python modules or Odoo addons
+- 🧪 PowerShell integration for Visual Studio
+- 🧰 Supports `.env`-based configuration
+- 🧱 Designed for clean CI/CD usage (e.g. GitHub Actions)
 
 ## 📦 Installation
 
-Just include the nuget package `CreateIf.Odoo` and your typed model classes into your project.  
-Requires .netstandard2.1 or compatible with `HttpClient`, `System.Text.Json`.
+### 🔹 Option 1 – .NET Global Tool
 
----
-
-## 🛠️ Configuration
-
-```csharp
-var options = new OdooClientOptions
-{
-    Url = "https://your-odoo-instance.odoo.com",
-    Database = "your-database-name",
-    Username = "your-user@example.com",
-    Password = "your-password"
-};
-
-var client = new OdooClient(options);
+```bash
+dotnet tool install --global CreateIf.OdooSharp.Codegen
 ```
 
-## 🧪 Usage
+Make sure ~/.dotnet/tools is in your PATH.
 
-```csharp
-var client = new OdooClient(new OdooClientOptions
-{
-    Url = "https://your-odoo-url.odoo.com",
-    Database = "your-db",
-    Username = "you@example.com",
-    Password = "your-password"
-});
+### 🔹 Option 2 – NuGet Package (Visual Studio + PowerShell) *(preferred)*
 
-if (await client.AuthenticateAsync())
-{
-    Console.WriteLine("Authenticated.");
-
-    var models = await client.GetModelsAsync();
-
-    // you can use your custom defined models too
-    var quotes = await client.SearchReadAsync<Lieferangebot>(
-        model: "x_lieferangebot",
-        domain: new object[] { new object[] { "x_status", "=", "offen" } },
-        fields: new[] { "x_name", "x_preis", "x_status" },
-        limit: 100
-    );
-}
-else
-{
-    Console.WriteLine("Authentication failed.");
-}
+```powershell
+Install-Package CreateIf.OdooSharp.Codegen
 ```
 
-The custom model class
+Registers OdooGen-* commands in Package Manager Console.
 
-```csharp
-[OdooModel("x_lieferangebot", "[[\"x_status\", \"=\", \"offen\"]]")]
-public class Lieferangebot
-{
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
+## ⚙️ Quickstart
 
-    [JsonPropertyName("x_name")]
-    public string Name { get; set; }
+### 1. Initialize config
 
-    [JsonPropertyName("x_preis")]
-    public float Preis { get; set; }
+```powershell
+OdooGen-Init
+```
 
-    [JsonPropertyName("x_status")]
-    public string Status { get; set; }
-}
+Creates a .env file with:
+
+```ini
+ODOO_CLIENT_URL=https://your.odoo.server
+ODOO_CLIENT_DB=your-database
+ODOO_CLIENT_USERNAME=your-email@example.com
+ODOO_CLIENT_PASSWORD=your-password
+```
+
+## 🔧 PowerShell Commands (PMC)
+
+| Command               | Description                             |
+|-----------------------|-----------------------------------------|
+| `OdooGen-Init`        | Creates `.env` configuration file       |
+| `OdooGen-Check`       | Tests Odoo server & authentication      |
+| `OdooGen-Generate`    | Generates model class files             |
+| `OdooGen-Version`     | Displays the installed version          |
+| `OdooGen-Help`        | Shows CLI usage overview                |
+
+### 🔹 Examples
+
+```powershell
+# Initialize config
+OdooGen-Init
+
+# Check connection
+OdooGen-Check
+
+# Generate single model
+OdooGen-Generate -Model res.partner
+
+# Generate all models to a specific folder
+OdooGen-Generate -All -Output ./Generated
+```
+
+### 💻 CLI Usage (dotnet tool)
+
+If installed via dotnet tool, you can use:
+
+```bash
+dotnet odoogen init
+dotnet odoogen check
+dotnet odoogen generate --model res.partner
+dotnet odoogen generate --all --output ./Generated
+dotnet odoogen --version
 ```
