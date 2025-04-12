@@ -1,22 +1,44 @@
-﻿function OdooGen-Generate {
+﻿$__OdooGenDll = Join-Path (Get-Package CreateIf.OdooSharp.Codegen).InstallPath "tools/netstandard2.1/OdooSharp.Codegen.dll"
+
+# Helper to invoke CLI
+function Invoke-OdooGen {
+    param (
+        [string[]]$Arguments
+    )
+    & dotnet $__OdooGenDll @Arguments
+}
+
+function OdooGen-Generate {
     param(
         [string]$Model,
         [switch]$All,
         [string]$Output = "./OdooModels"
     )
-    dotnet odoogen generate --model $Model --all:$All --output $Output
+
+    $args = @("generate")
+    if ($Model) {
+        $args += @("--model", $Model)
+    }
+    if ($All) {
+        $args += "--all"
+    }
+    if ($Output) {
+        $args += @("--output", $Output)
+    }
+
+    Invoke-OdooGen -Arguments $args
 }
 
 function OdooGen-Check {
-    dotnet odoogen check
+    Invoke-OdooGen -Arguments @("check")
 }
 
 function OdooGen-Init {
-    dotnet odoogen init
+    Invoke-OdooGen -Arguments @("init")
 }
 
 function OdooGen-Version {
-    dotnet odoogen --version
+    Invoke-OdooGen -Arguments @("--version")
 }
 
 function OdooGen-Help {
@@ -38,7 +60,6 @@ Usage Examples:
   OdooGen-Check
   OdooGen-Generate -Model res.partner
   OdooGen-Generate -All -Output ./Generated
-
 "@ | Write-Host
 }
 

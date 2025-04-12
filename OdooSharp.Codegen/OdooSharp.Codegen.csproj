@@ -5,11 +5,11 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Nullable>disable</Nullable>
 		<PackageId>CreateIf.OdooSharp.Codegen</PackageId>
-		<Version>0.0.12</Version>
-		<PackageVersion>0.0.12</PackageVersion>
-		<AssemblyVersion>0.0.12</AssemblyVersion>
-		<FileVersion>0.0.12</FileVersion>
-		<InformationalVersion>0.0.12</InformationalVersion>
+		<Version>0.0.13</Version>
+		<PackageVersion>0.0.13</PackageVersion>
+		<AssemblyVersion>0.0.13</AssemblyVersion>
+		<FileVersion>0.0.13</FileVersion>
+		<InformationalVersion>0.0.13</InformationalVersion>
 		<LangVersion>latest</LangVersion>
 		<Authors>Arndt Bieberstein</Authors>
 		<Company>createIF Labs GmbH</Company>
