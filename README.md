@@ -87,3 +87,26 @@ public class Lieferangebot
     public string Status { get; set; }
 }
 ```
+
+---
+
+# 🧩 OdooGen – Odoo Model Code Generator for .NET
+
+**OdooGen** is a .NET CLI & PowerShell tool that helps you generate **strongly-typed C# model classes** from Odoo metadata via the RPC API.
+
+Use it in microservices or backend integrations — works perfectly with **Odoo SaaS (Cloud)** and **On-Premise** environments.
+
+## ✨ Features
+
+- 🔁 Generate classes for **one or all Odoo models**
+- ✅ Nullable and typed properties
+- ⚡ Works without Python modules or Odoo addons
+- 🧪 PowerShell integration for Visual Studio
+- 🧰 Supports `.env`-based configuration
+- 🧱 Designed for clean CI/CD usage (e.g. GitHub Actions)
+
+## 📦 Installation
+
+Go to the readme of the codegen:
+
+[📦 Codegen CLI Documentation](./OdooSharp.Codegen/README.md)
