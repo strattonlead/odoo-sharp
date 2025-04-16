@@ -2,18 +2,21 @@
 using System.CommandLine;
 using System.Threading.Tasks;
 
-public static class Program
+namespace OdooSharp.Codegen
 {
-    public static async Task<int> Main(string[] args)
+    public class Program
     {
-        var rootCommand = new RootCommand("odoogen CLI tool for generating Odoo models");
+        public static async Task<int> Main(string[] args)
+        {
+            var rootCommand = new RootCommand("odoogen CLI tool for generating Odoo models");
 
-        rootCommand.AddCommand(new GenerateCommand());
-        rootCommand.AddCommand(new CheckCommand());
-        rootCommand.AddCommand(new InitCommand());
-        rootCommand.AddCommand(new VersionCommand());
+            rootCommand.AddCommand(new GenerateCommand());
+            rootCommand.AddCommand(new CheckCommand());
+            rootCommand.AddCommand(new InitCommand());
+            rootCommand.AddCommand(new VersionCommand());
 
-        return await rootCommand.InvokeAsync(args);
+            return await rootCommand.InvokeAsync(args);
+        }
     }
 }
 

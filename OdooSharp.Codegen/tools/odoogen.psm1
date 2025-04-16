@@ -5,7 +5,14 @@ function Invoke-OdooGen {
     param (
         [string[]]$Arguments
     )
+    if (-not (Get-Command "odoogen" -ErrorAction SilentlyContinue)) {
+        throw "❌ 'odoogen' is not installed. Please run: dotnet tool install --global odoogen"
+    }
     & dotnet $__OdooGenDll @Arguments
+}
+
+function OdooGen-install {
+    & dotnet tool install --global odoogen
 }
 
 function OdooGen-Generate {
