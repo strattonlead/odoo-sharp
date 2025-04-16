@@ -36,6 +36,34 @@ function OdooGen-Generate {
     Invoke-OdooGen -Arguments $args
 }
 
+function OdooGen-List {
+    param(
+        [string]$Model,
+        [string]$Filter
+    )
+
+    $args = @("list")
+    if ($Model) {
+        $args += @("--model", $Model)
+    }
+    if ($Filter) {
+        $args += @("--filter", $Filter)
+    }
+    Invoke-OdooGen -Arguments $args
+}
+
+function OdooGen-List {
+    param(
+        [string]$Model
+    )
+
+    $args = @("info")
+    if ($Model) {
+        $args += @("--model", $Model)
+    }
+    Invoke-OdooGen -Arguments $args
+}
+
 function OdooGen-Check {
     Invoke-OdooGen -Arguments @("check")
 }

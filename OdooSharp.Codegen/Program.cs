@@ -10,9 +10,11 @@ namespace OdooSharp.Codegen
         {
             var rootCommand = new RootCommand("odoogen CLI tool for generating Odoo models");
 
-            rootCommand.AddCommand(new GenerateCommand());
             rootCommand.AddCommand(new CheckCommand());
             rootCommand.AddCommand(new InitCommand());
+            rootCommand.AddCommand(new ListCommand());
+            rootCommand.AddCommand(new InfoCommand());
+            rootCommand.AddCommand(new GenerateCommand());
             rootCommand.AddCommand(new VersionCommand());
 
             return await rootCommand.InvokeAsync(args);
