@@ -1,4 +1,5 @@
 ﻿using OdooSharp.Configuration;
+using OdooSharp.Exceptions;
 using OdooSharp.Extensions;
 using OdooSharp.Models;
 using System;
@@ -18,6 +19,7 @@ namespace OdooSharp.Client
         private readonly HttpClient _httpClient;
         private readonly OdooClientOptions _options;
         private OdooSession _session;
+        public bool Authenticated => _session != null;
 
         public OdooClient(OdooClientOptions options)
         {
@@ -66,6 +68,11 @@ namespace OdooSharp.Client
 
         public async Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model)
         {
+            if (!Authenticated)
+            {
+                throw new NotAuthenticatedException();
+            }
+
             var payload = new
             {
                 jsonrpc = "2.0",
@@ -298,6 +305,11 @@ namespace OdooSharp.Client
 
         private async Task<JsonRpcResponse<Tout>> _postAsync<T, Tout>(OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
         {
+            if (!Authenticated)
+            {
+                throw new NotAuthenticatedException();
+            }
+
             var payload = _request<T>(method, methodArgs, kwargs);
             var response = await _postAsync(payload);
             return await _deserializeHttpReponseAsync<JsonRpcResponse<Tout>>(response);
@@ -305,6 +317,11 @@ namespace OdooSharp.Client
 
         private async Task<JsonRpcResponse<Tout>> _postAsync<Tout>(string model, OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
         {
+            if (!Authenticated)
+            {
+                throw new NotAuthenticatedException();
+            }
+
             var payload = _request(model, method, methodArgs, kwargs);
             var response = await _postAsync(payload);
             return await _deserializeHttpReponseAsync<JsonRpcResponse<Tout>>(response);

@@ -36,7 +36,7 @@ namespace OdooSharp.Codegen.Commands
                 }
 
                 var allModels = await client.GetModelsAsync();
-                var filteredModels = allModels;
+                var filteredModels = allModels.OrderBy(x => x.Id).ToList();
                 if (!string.IsNullOrWhiteSpace(filter))
                 {
                     filteredModels = allModels.Where(x => x.Name.Contains(filter) || x.Model.Contains(filter)).ToList();

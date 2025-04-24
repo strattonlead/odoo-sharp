@@ -10,6 +10,26 @@ namespace OdooSharp.Codegen.Commands
         {
             this.SetHandler(() =>
             {
+                var genMapFile = ".odoogen-map";
+                if (File.Exists(genMapFile))
+                {
+                    Console.WriteLine("⚠️ .odoogen-map file already exists.");
+                }
+                else
+                {
+                    File.WriteAllText(genMapFile, @"[{
+        ""model_name"": ""x_odoo_model_name"",
+        ""class_name"": ""MyCSharpClassName"",
+        ""namespace"": ""My.Namespace"",
+        ""property_mappings"": [{
+                ""field_name"": ""x_studio_field_name"",
+                ""property_name"": ""MyCSharpPropertyName""
+            }
+        ]
+    }
+]");
+                }
+
                 var file = ".env";
                 if (File.Exists(file))
                 {
@@ -27,3 +47,5 @@ ODOO_CLIENT_PASSWORD=securepassword");
         }
     }
 }
+
+

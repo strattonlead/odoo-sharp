@@ -1,23 +1,24 @@
 ﻿using OdooSharp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace OdooSharp.Codegen
 {
     public class OdooModelGenerator
     {
-        /// <summary>
-        /// <para>Type: many2one</para>
-        /// <para>Relation: res.partner</para>
-        /// <para>Required: Yes</para>
-        /// <para>Readonly: No</para>
-        /// </summary>
-        public static string GenerateCSharpClass(string modelName, Dictionary<string, OdooField> fields)
+        public static string GenerateCSharpClass(string modelName, string @namespace, Dictionary<string, OdooField> fields)
         {
-            var className = ToPascalCase(modelName.Replace(".", "_"));
+            var classNameMappings = GetMappings();
+            classNameMappings.TryGetValue(modelName, out var mapping);
+
+            @namespace = @namespace ?? mapping?.Namespace ?? "OdooSharp.Models";
+            var className = mapping?.ClassName ?? GetClassName(modelName, classNameMappings);
+
             var sb = new StringBuilder();
 
             sb.AppendLine("using OdooSharp.Configuration;");
@@ -25,7 +26,7 @@ namespace OdooSharp.Codegen
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.Text.Json.Serialization;");
             sb.AppendLine();
-            sb.AppendLine("namespace OdooSharp.Models");
+            sb.AppendLine($"namespace {@namespace}");
             sb.AppendLine("{");
 
             sb.AppendLine($"    [OdooModel(\"{modelName}\")]");
@@ -40,7 +41,8 @@ namespace OdooSharp.Codegen
                 var field = pair.Value;
 
                 var csharpType = OdooFieldMapper.MapToCSharpType(field, modelName);
-                var propertyName = ToPascalCase(pair.Key);
+                mapping.PropertyMappingsDict.TryGetValue(pair.Key, out var propertyMapping);
+                var propertyName = propertyMapping?.PropertyName ?? ToPascalCase(pair.Key);
 
                 sb.AppendLine($"        /// <summary>");
                 sb.AppendLine($"        /// <para>Name: {field.Label}</para>");
@@ -131,6 +133,41 @@ namespace OdooSharp.Codegen
         //        .Select(part => char.ToUpper(part[0]) + part.Substring(1)));
         //}
 
+        public static Dictionary<string, ClassNameMapping> GetMappings()
+        {
+            Dictionary<string, ClassNameMapping> classNameMappings = new Dictionary<string, ClassNameMapping>();
+            var genMapFile = ".odoogen-map";
+            if (File.Exists(genMapFile))
+            {
+                var text = File.ReadAllText(genMapFile);
+                classNameMappings = JsonSerializer.Deserialize<ClassNameMapping[]>(text).ToDictionary(x => x.ModelName);
+            }
+            return classNameMappings;
+        }
+
+        public static string GetClassName(string modelName)
+        {
+            var classNameMappings = GetMappings();
+            var className = ToPascalCase(modelName.Replace(".", "_"));
+            if (classNameMappings.TryGetValue(modelName, out var mapping))
+            {
+                className = mapping.ClassName;
+            }
+
+            return className;
+        }
+
+        public static string GetClassName(string modelName, Dictionary<string, ClassNameMapping> classNameMappings)
+        {
+            var className = ToPascalCase(modelName.Replace(".", "_"));
+            if (classNameMappings.TryGetValue(modelName, out var mapping))
+            {
+                className = mapping.ClassName;
+            }
+
+            return className;
+        }
+
         public static string ToPascalCase(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -161,6 +198,35 @@ namespace OdooSharp.Codegen
         {
             if (string.IsNullOrEmpty(s)) return s;
             return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+
+
+        public class ClassNameMapping
+        {
+            [JsonPropertyName("model_name")]
+            public string ModelName { get; set; }
+
+            [JsonPropertyName("class_name")]
+            public string ClassName { get; set; }
+
+            [JsonPropertyName("namespace")]
+            public string Namespace { get; set; }
+
+            [JsonPropertyName("property_mappings")]
+            public List<PropertyNameMapping> PropertyMappings { get; set; }
+
+            [JsonIgnore]
+            public Dictionary<string, PropertyNameMapping> PropertyMappingsDict => PropertyMappings?.GroupBy(x => x.FieldName).Select(x => x.First()).ToDictionary(x => x.FieldName) ?? new Dictionary<string, PropertyNameMapping>();
+        }
+
+        public class PropertyNameMapping
+        {
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; }
+
+            [JsonPropertyName("property_name")]
+            public string PropertyName { get; set; }
         }
     }
 }

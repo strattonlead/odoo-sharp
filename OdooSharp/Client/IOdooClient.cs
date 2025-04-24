@@ -6,6 +6,8 @@ namespace OdooSharp.Client
 {
     public interface IOdooClient
     {
+        bool Authenticated { get; }
+        Task<bool> AuthenticateAsync();
         Task<List<OdooModel>> GetModelsAsync();
         Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model);
 
