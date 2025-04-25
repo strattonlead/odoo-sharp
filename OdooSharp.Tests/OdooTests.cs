@@ -26,6 +26,8 @@ namespace OdooSharp.Tests
             var client = new OdooClient(Options);
             await client.AuthenticateAsync();
 
+            var test = await client.ReadById<ResPartner>(1);
+
             var query = await client.Query<ResPartner>().Where(x => x.Name.Contains("Bieber")).ToListAsync();
 
             var companyPartner = new ResPartner()

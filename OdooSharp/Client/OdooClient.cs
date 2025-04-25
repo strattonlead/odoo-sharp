@@ -190,7 +190,7 @@ namespace OdooSharp.Client
             return default;
         }
 
-        public async Task<JsonRpcResponse<T>> ReadById<T>(int id) => await _postAsync<T, T>(OdooMethod.read, new object[] { new[] { id } });
+        public async Task<JsonRpcResponse<T>> ReadById<T>(int id) => (await _postAsync<T, T[]>(OdooMethod.read, new object[] { new[] { id } })).First<T>();
 
         public async Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100)
         {

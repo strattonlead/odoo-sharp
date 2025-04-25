@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -19,6 +20,30 @@ namespace OdooSharp.Models
     {
         [JsonPropertyName("result")]
         public T Result { get; set; }
+
+        public JsonRpcResponse<TResult> First<TResult>()
+        {
+            var collection = Result as IEnumerable;
+            if (collection != null)
+            {
+                foreach (TResult first in collection)
+                {
+                    return new JsonRpcResponse<TResult>
+                    {
+                        JsonRpc = JsonRpc,
+                        Id = Id,
+                        Error = Error,
+                        Result = first
+                    };
+                }
+            }
+            return new JsonRpcResponse<TResult>
+            {
+                JsonRpc = JsonRpc,
+                Id = Id,
+                Error = Error
+            };
+        }
     }
 
     public static class JsonRpcResponseExtensions
