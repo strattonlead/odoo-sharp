@@ -361,14 +361,33 @@ namespace OdooSharp.Client
             foreach (var prop in props)
             {
                 if (!prop.CanRead || !prop.CanWrite || prop.Name == "Id")
+                {
                     continue;
+                }
+
+                var odooFieldAttr = prop.GetCustomAttribute<OdooFieldAttribute>();
+                if (odooFieldAttr == null)
+                {
+                    continue;
+                }
+
+                var fieldName = odooFieldAttr.FieldName;
+                if (fieldName == "id")
+                {
+                    continue;
+                }
+
+                if (odooFieldAttr.IsReadonly)
+                {
+                    continue;
+                }
 
                 var originalValue = prop.GetValue(original);
                 var modifiedValue = prop.GetValue(modified);
 
                 if (!Equals(originalValue, modifiedValue))
                 {
-                    changed[prop.Name] = modifiedValue;
+                    changed[fieldName] = modifiedValue;
                 }
             }
 

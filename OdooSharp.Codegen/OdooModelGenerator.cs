@@ -117,7 +117,7 @@ namespace OdooSharp.Codegen
                     sb.AppendLine($"        [JsonConverter(typeof(OdooFlexibleJsonObjectConverter))]");
                 }
 
-                sb.AppendLine($"        [OdooField(\"{field.Name}\")]");
+                sb.AppendLine($"        [OdooField(\"{field.Name}\", {field.Readonly.ToString().ToLower()})]");
                 sb.AppendLine($"        public {csharpType} {propertyName} {{ get; set; }}");
                 sb.AppendLine();
             }

@@ -6,10 +6,12 @@ namespace OdooSharp.Configuration
     public class OdooFieldAttribute : Attribute
     {
         public string FieldName { get; }
+        public bool IsReadonly { get; }
 
-        public OdooFieldAttribute(string fieldName)
+        public OdooFieldAttribute(string fieldName, bool isReadonly = false)
         {
             FieldName = fieldName;
+            IsReadonly = isReadonly;
         }
     }
 }
