@@ -13,6 +13,8 @@ namespace OdooSharp.Client
 
         Task<JsonRpcResponse<int>> CreateAsync<T>(T data);
         Task<JsonRpcResponse<bool>> WriteAsync<T>(T values);
+        Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T modified);
+        Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T original, T modified);
         Task<JsonRpcResponse<int>> SearchReadCountAsync<T>();
         Task<JsonRpcResponse<T>> ReadById<T>(int id);
         Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null);

@@ -266,6 +266,56 @@ namespace OdooSharp.Client
             return await _postAsync<T, bool>(OdooMethod.write, new object[] { new[] { id }, values });
         }
 
+        public async Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T modified)
+        {
+            var type = typeof(T);
+            var idProp = type.GetProperty("Id");
+            if (idProp == null)
+            {
+                throw new InvalidOperationException($"Model {type.Name} is missing 'Id' property.");
+            }
+
+            var id = (int)idProp.GetValue(modified);
+            var readResult = await ReadById<T>(id);
+            if (readResult.Error != null)
+            {
+                return new JsonRpcResponse<bool>()
+                {
+                    Error = readResult.Error,
+                    Result = false,
+                    JsonRpc = readResult.JsonRpc
+                };
+            }
+
+            var original = readResult.Result;
+            return await WriteChangedAsync(original, modified);
+        }
+
+        public async Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T original, T modified)
+        {
+            var type = typeof(T);
+            var idProp = type.GetProperty("Id");
+            if (idProp == null)
+            {
+                throw new InvalidOperationException($"Model {type.Name} is missing 'Id' property.");
+            }
+
+            var id = idProp.GetValue(modified);
+            if (id == null || (int)id == 0)
+            {
+                throw new InvalidOperationException($"Model {type.Name} has invalid 'Id' value.");
+            }
+
+            var changedFields = _getChangedFields(original, modified);
+            if (changedFields.Count == 0)
+            {
+                return new JsonRpcResponse<bool> { Result = true };
+            }
+
+            var methodArgs = new object[] { new[] { id }, changedFields };
+            return await _postAsync<T, bool>(OdooMethod.write, methodArgs);
+        }
+
         public async Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id) => await _postAsync<T, bool>(OdooMethod.unlink, new object[] { id });
 
         public async Task<JsonRpcResponse<bool>> DeleteAsync(string model, int id)
@@ -302,6 +352,28 @@ namespace OdooSharp.Client
         }
 
         #region Helper
+
+        private Dictionary<string, object> _getChangedFields<T>(T original, T modified)
+        {
+            var changed = new Dictionary<string, object>();
+            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (var prop in props)
+            {
+                if (!prop.CanRead || !prop.CanWrite || prop.Name == "Id")
+                    continue;
+
+                var originalValue = prop.GetValue(original);
+                var modifiedValue = prop.GetValue(modified);
+
+                if (!Equals(originalValue, modifiedValue))
+                {
+                    changed[prop.Name] = modifiedValue;
+                }
+            }
+
+            return changed;
+        }
 
         private async Task<JsonRpcResponse<Tout>> _postAsync<T, Tout>(OdooMethod method, object[] methodArgs, Dictionary<string, object> kwargs = null)
         {
