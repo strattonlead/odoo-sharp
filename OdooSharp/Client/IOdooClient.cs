@@ -20,5 +20,6 @@ namespace OdooSharp.Client
         Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null);
         Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100);
         Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id);
+        Dictionary<string, object> GetChangedFields<T>(T original, T modified);
     }
 }

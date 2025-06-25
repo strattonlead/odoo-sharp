@@ -306,7 +306,7 @@ namespace OdooSharp.Client
                 throw new InvalidOperationException($"Model {type.Name} has invalid 'Id' value.");
             }
 
-            var changedFields = _getChangedFields(original, modified);
+            var changedFields = GetChangedFields(original, modified);
             if (changedFields.Count == 0)
             {
                 return new JsonRpcResponse<bool> { Result = true };
@@ -353,7 +353,7 @@ namespace OdooSharp.Client
 
         #region Helper
 
-        private Dictionary<string, object> _getChangedFields<T>(T original, T modified)
+        private Dictionary<string, object> GetChangedFields<T>(T original, T modified)
         {
             var changed = new Dictionary<string, object>();
             var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
