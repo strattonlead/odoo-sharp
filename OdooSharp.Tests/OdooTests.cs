@@ -74,5 +74,17 @@ namespace OdooSharp.Tests
 
             countResponse = await client.SearchReadCountAsync<ResPartner>();
         }
+
+        [Fact]
+        public void DynamicWriteTest()
+        {
+            var client = new OdooClient(Options);
+            var original = new SaleOrder();
+            var modified = new SaleOrder()
+            {
+                DateOrder = DateTime.UtcNow
+            };
+            var changed = client.GetChangedFields(original, modified);
+        }
     }
 }

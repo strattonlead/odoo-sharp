@@ -4,11 +4,13 @@ using OdooSharp.Extensions;
 using OdooSharp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace OdooSharp.Client
@@ -383,10 +385,32 @@ namespace OdooSharp.Client
                 }
 
                 var originalValue = prop.GetValue(original);
-                var modifiedValue = prop.GetValue(modified);
+                object modifiedValue = prop.GetValue(modified);
 
                 if (!Equals(originalValue, modifiedValue))
                 {
+                    var converterTypeAttribute = prop.GetCustomAttribute<JsonConverterAttribute>();
+                    if (converterTypeAttribute != null)
+                    {
+                        var converter = Activator.CreateInstance(converterTypeAttribute.ConverterType) as JsonConverter;
+                        if (converter != null)
+                        {
+                            using var stream = new MemoryStream();
+                            using var writer = new Utf8JsonWriter(stream);
+
+                            var method = converterTypeAttribute.ConverterType.GetMethod("Write");
+                            if (method == null)
+                                throw new InvalidOperationException($"No Write method found in {converterTypeAttribute.ConverterType.Name}");
+
+                            // Some converters are generic (JsonConverter<T>), so we need the generic type
+                            var options = new JsonSerializerOptions();
+                            method.Invoke(converter, new object[] { writer, modifiedValue, options });
+
+                            writer.Flush();
+                            modifiedValue = Encoding.UTF8.GetString(stream.ToArray());
+                        }
+                    }
+
                     changed[fieldName] = modifiedValue;
                 }
             }
