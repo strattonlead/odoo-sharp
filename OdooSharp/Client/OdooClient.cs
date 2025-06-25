@@ -411,7 +411,15 @@ namespace OdooSharp.Client
                             var jsonString = Encoding.UTF8.GetString(stream.ToArray());
                             if (jsonString.StartsWith("\"") && jsonString.EndsWith("\""))
                             {
-                                jsonString = jsonString[1..^1];
+                                if (prop.PropertyType == typeof(byte[]))
+                                {
+                                    jsonString = JsonSerializer.Deserialize<string>(jsonString);
+                                }
+                                else
+                                {
+                                    jsonString = jsonString[1..^1];
+
+                                }
                             }
                             modifiedValue = jsonString;
                         }

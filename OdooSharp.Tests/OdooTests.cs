@@ -2,6 +2,7 @@ using OdooSharp.Client;
 using OdooSharp.Configuration;
 using OdooSharp.Models;
 using OdooSharp.Queries;
+using System.Text.Json;
 
 namespace OdooSharp.Tests
 {
@@ -79,12 +80,21 @@ namespace OdooSharp.Tests
         public void DynamicWriteTest()
         {
             var client = new OdooClient(Options);
-            var original = new SaleOrder();
+            var original = new SaleOrder()
+            {
+                Signature = new byte[] { 1, 2, 3, 4, 5, }
+
+            };
             var modified = new SaleOrder()
             {
-                DateOrder = DateTime.UtcNow
+                DateOrder = DateTime.UtcNow,
+                Signature = new byte[] { 1, 2, 3, 4, 5, 6 }
             };
             var changed = client.GetChangedFields(original, modified);
+
+            var a = JsonSerializer.Serialize(original);
+            var b = JsonSerializer.Serialize(modified);
+            var c = JsonSerializer.Serialize(changed);
         }
     }
 }
