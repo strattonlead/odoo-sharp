@@ -407,7 +407,13 @@ namespace OdooSharp.Client
                             method.Invoke(converter, new object[] { writer, modifiedValue, options });
 
                             writer.Flush();
-                            modifiedValue = Encoding.UTF8.GetString(stream.ToArray());
+
+                            var jsonString = Encoding.UTF8.GetString(stream.ToArray());
+                            if (jsonString.StartsWith("\"") && jsonString.EndsWith("\""))
+                            {
+                                jsonString = jsonString[1..^1];
+                            }
+                            modifiedValue = jsonString;
                         }
                     }
 
