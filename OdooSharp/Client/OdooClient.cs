@@ -353,7 +353,7 @@ namespace OdooSharp.Client
 
         #region Helper
 
-        private Dictionary<string, object> GetChangedFields<T>(T original, T modified)
+        public Dictionary<string, object> GetChangedFields<T>(T original, T modified)
         {
             var changed = new Dictionary<string, object>();
             var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
