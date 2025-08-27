@@ -21,6 +21,11 @@ namespace OdooSharp.Queries
             _client = client;
         }
 
+        public OdooQuery<T> WithFields(params string[] fields)
+        {
+            _fields = fields;
+            return this;
+        }
 
         public OdooQuery<T> Where(Expression<Func<T, bool>> predicate)
         {
