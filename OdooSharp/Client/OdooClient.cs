@@ -66,6 +66,30 @@ namespace OdooSharp.Client
             return false;
         }
 
+        public async Task<OdooAuthEnvelope> AuthenticateUserAsync(string username, string password)
+        {
+            var payload = new
+            {
+                jsonrpc = "2.0",
+                method = "call",
+                @params = new
+                {
+                    db = _options.Database,
+                    login = username,
+                    password = password
+                },
+                id = 1
+            };
+
+            var response = await _httpClient.PostAsync(
+                $"{_options.Url}/web/session/authenticate",
+                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<OdooAuthEnvelope>(json);
+        }
+
         public async Task<List<OdooModel>> GetModelsAsync() => await SearchReadAllPagedAsync<OdooModel>(new object[0], new string[] { "model", "name" });
 
         public async Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model)

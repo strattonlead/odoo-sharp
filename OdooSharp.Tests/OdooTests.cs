@@ -96,5 +96,12 @@ namespace OdooSharp.Tests
             var b = JsonSerializer.Serialize(modified);
             var c = JsonSerializer.Serialize(changed);
         }
+
+        [Fact]
+        public async void UserLoginTest()
+        {
+            var client = new OdooClient(Options);
+            var result = await client.AuthenticateUserAsync(Options.Username, Options.Password);
+        }
     }
 }
