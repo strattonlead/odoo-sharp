@@ -17,13 +17,25 @@ Use it in microservices or backend integrations — works perfectly with **Odoo 
 
 ### 🔹 Option 1 – .NET Global Tool
 
+Local compile and install
+
 ```bash
-dotnet tool install --global CreateIf.OdooSharp.Codegen
+dotnet pack .\OdooSharp.Codegen -c Release
+dotnet tool install -g CreateIf.OdooSharp.Codegen --add-source .\OdooSharp.Codegen\bin\Release
+dotnet tool install -g CreateIf.OdooSharp.Codegen
+```
+
+### 🔹 Option 2 – .NET Global Tool
+
+Local compile and install
+
+```bash
+dotnet tool install -g --global CreateIf.OdooSharp.Codegen
 ```
 
 Make sure ~/.dotnet/tools is in your PATH.
 
-### 🔹 Option 2 – NuGet Package (Visual Studio + PowerShell) *(preferred)*
+### 🔹 Option 3 – NuGet Package (Visual Studio + PowerShell) *(preferred)*
 
 ```powershell
 Install-Package CreateIf.OdooSharp.Codegen
