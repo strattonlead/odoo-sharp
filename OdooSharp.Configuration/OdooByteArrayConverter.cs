@@ -13,7 +13,7 @@ namespace OdooSharp.Configuration
                 JsonTokenType.String => Convert.FromBase64String(reader.GetString()),
                 JsonTokenType.Null => null,
                 JsonTokenType.False => null, // Odoo's "null" shortcut
-                JsonTokenType.StartObject => null,
+                JsonTokenType.StartObject => ReadObjectAsNull(ref reader),
                 _ => throw new JsonException($"Unexpected token type {reader.TokenType} for byte[]. Expected base64 string, null, or false.")
             };
         }
@@ -24,6 +24,12 @@ namespace OdooSharp.Configuration
                 writer.WriteStringValue(Convert.ToBase64String(value));
             else
                 writer.WriteNullValue();
+        }
+
+        private byte[] ReadObjectAsNull(ref Utf8JsonReader reader)
+        {
+            reader.Skip();
+            return null;
         }
     }
 }
