@@ -9,6 +9,7 @@ namespace OdooSharp.Client
         bool Authenticated { get; }
         Task<bool> AuthenticateAsync();
         Task<OdooAuthEnvelope> AuthenticateUserAsync(string username, string password);
+        Task<int?> AuthenticateUserLightAsync(string username, string password);
         Task<List<OdooModel>> GetModelsAsync();
         Task<OdooFieldsResponse> GetModelFieldsTypedAsync(string model);
 

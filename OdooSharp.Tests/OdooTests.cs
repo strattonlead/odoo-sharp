@@ -103,5 +103,34 @@ namespace OdooSharp.Tests
             var client = new OdooClient(Options);
             var result = await client.AuthenticateUserAsync(Options.Username, Options.Password);
         }
+
+        [Fact]
+        public async void GetIrAttachmentTest()
+        {
+
+            var client = new OdooClient(Options);
+            var result = await client.AuthenticateAsync();
+
+            //var read = await client.ReadById<IrAttachment>(24356);
+
+            var domain = new object[]
+            {
+                new object[] { "id", "=", 24356 }
+            };
+            var readResult = await client.SearchReadAsync<IrAttachment>(
+                domain: domain,
+                fields: new[] { "id", "name", "mimetype", "datas" },
+                limit: 1
+            );
+
+        }
+
+        [Fact]
+        public async void UserLoginLightTest()
+        {
+            IOdooClient client = new OdooClient(Options);
+            var result = await client.AuthenticateUserLightAsync(Options.Username, Options.Password);
+        }
+
     }
 }

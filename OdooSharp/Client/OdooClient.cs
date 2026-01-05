@@ -36,34 +36,46 @@ namespace OdooSharp.Client
 
         public async Task<bool> AuthenticateAsync()
         {
-            var payload = new
-            {
-                jsonrpc = "2.0",
-                method = "call",
-                @params = new
-                {
-                    db = _options.Database,
-                    login = _options.Username,
-                    password = _options.Password
-                },
-                id = 1
-            };
-
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/web/session/authenticate",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            if (doc.RootElement.TryGetProperty("result", out var result))
+            var uid = await AuthenticateLightAsync();
+            if (uid.HasValue)
             {
                 _session = new OdooSession
                 {
-                    Uid = result.GetProperty("uid").GetInt32(),
+                    Uid = uid.Value
                 };
                 return true;
             }
             return false;
+
+            // web style
+            //var payload = new
+            //{
+            //    jsonrpc = "2.0",
+            //    method = "call",
+            //    @params = new
+            //    {
+            //        db = _options.Database,
+            //        login = _options.Username,
+            //        password = _options.Password
+            //    },
+            //    id = 1
+            //};
+
+            //var response = await _httpClient.PostAsync(
+            //    $"{_options.Url}/web/session/authenticate",
+            //    new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+            //var json = await response.Content.ReadAsStringAsync();
+            //var doc = JsonDocument.Parse(json);
+            //if (doc.RootElement.TryGetProperty("result", out var result))
+            //{
+            //    _session = new OdooSession
+            //    {
+            //        Uid = result.GetProperty("uid").GetInt32(),
+            //    };
+            //    return true;
+            //}
+            //return false;
         }
 
         public async Task<OdooAuthEnvelope> AuthenticateUserAsync(string username, string password)
@@ -88,6 +100,67 @@ namespace OdooSharp.Client
             var json = await response.Content.ReadAsStringAsync();
 
             return JsonSerializer.Deserialize<OdooAuthEnvelope>(json);
+        }
+
+        public Task<int?> AuthenticateLightAsync()
+        {
+            return AuthenticateUserLightAsync(_options.Username, _options.Password);
+        }
+
+        public async Task<int?> AuthenticateUserLightAsync(string username, string password)
+        {
+            var payload = new
+            {
+                jsonrpc = "2.0",
+                method = "call",
+                @params = new
+                {
+                    service = "common",
+                    method = "authenticate",
+                    args = new object[]
+                    {
+                        _options.Database,
+                        username,
+                        password,
+                        new { }
+                    }
+                },
+                id = 1
+            };
+
+            var response = await _httpClient.PostAsync(
+                $"{_options.Url}/jsonrpc",
+                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+            var json = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(json);
+
+            if (doc.RootElement.TryGetProperty("result", out var resultElement))
+            {
+                if (resultElement.ValueKind == JsonValueKind.Number)
+                {
+                    var uid = resultElement.GetInt32();
+                    if (uid == 0)
+                    {
+                        return null;
+                    }
+                    return uid;
+                }
+                // If authentication fails, Odoo might return 'false' or an error object in 'result' (rare for jsonrpc usually error prop)
+                // or simply jsonrpc error.
+                // Depending on Odoo version, successful auth returns UID (int), failure might return something else or it throws.
+                // Usually common.authenticate returns UID or false equivalent.
+                // However, the JSON-RPC layer might wrap it.
+            }
+
+            // Fallback or error handling
+            // If result is missing, it might be an error response
+            if (doc.RootElement.TryGetProperty("error", out var errorElement))
+            {
+                throw new Exception(errorElement.GetRawText());
+            }
+
+            return null; // Or throw
         }
 
         public async Task<List<OdooModel>> GetModelsAsync() => await SearchReadAllPagedAsync<OdooModel>(new object[0], new string[] { "model", "name" });
