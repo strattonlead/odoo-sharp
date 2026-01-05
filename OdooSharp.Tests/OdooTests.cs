@@ -2,6 +2,7 @@ using OdooSharp.Client;
 using OdooSharp.Configuration;
 using OdooSharp.Models;
 using OdooSharp.Queries;
+using OdooSharp.Tests.Data;
 using System.Text.Json;
 
 namespace OdooSharp.Tests
@@ -130,6 +131,14 @@ namespace OdooSharp.Tests
         {
             IOdooClient client = new OdooClient(Options);
             var result = await client.AuthenticateUserLightAsync(Options.Username, Options.Password);
+        }
+
+        [Fact]
+        public async void AccountMoveTest()
+        {
+            IOdooClient client = new OdooClient(Options);
+            await client.AuthenticateAsync();
+            var result = await client.ReadById<OdooAccountMove>(1344);
         }
 
     }
