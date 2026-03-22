@@ -6,7 +6,7 @@
 		<Nullable>disable</Nullable>
 		<PackageId>CreateIf.OdooSharp.Configuration.EnvironmentVariables</PackageId>
 		<Version>1.0.0</Version>
-		<PackageVersion>0.0.31</PackageVersion>
+		<PackageVersion>1.0.0</PackageVersion>
 		<Authors>Arndt Bieberstein</Authors>
 		<Company>createIF Labs GmbH</Company>
 		<EnablePackageValidation>true</EnablePackageValidation>

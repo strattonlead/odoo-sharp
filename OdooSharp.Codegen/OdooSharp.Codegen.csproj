@@ -8,7 +8,7 @@
 		<PackageId>CreateIf.OdooSharp.Codegen</PackageId>
 		<ToolCommandName>odoogen</ToolCommandName>
 		<Version>1.0.0</Version>
-		<PackageVersion>0.0.31</PackageVersion>
+		<PackageVersion>1.0.0</PackageVersion>
 		<AssemblyVersion>0.0.30</AssemblyVersion>
 		<FileVersion>0.0.30</FileVersion>
 		<InformationalVersion>0.0.30</InformationalVersion>
