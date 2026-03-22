@@ -505,20 +505,23 @@ namespace OdooSharp.Client
 
                             writer.Flush();
 
-                            var jsonString = Encoding.UTF8.GetString(stream.ToArray());
-                            if (jsonString.StartsWith("\"") && jsonString.EndsWith("\""))
-                            {
-                                if (prop.PropertyType == typeof(byte[]))
-                                {
-                                    jsonString = JsonSerializer.Deserialize<string>(jsonString);
-                                }
-                                else
-                                {
-                                    jsonString = jsonString[1..^1];
+                            // Parse the converter's JSON output back into the correct .NET type
+                            // so that numbers stay as numbers, not strings.
+                            var jsonBytes = stream.ToArray();
+                            using var doc = JsonDocument.Parse(jsonBytes);
+                            var element = doc.RootElement;
 
-                                }
-                            }
-                            modifiedValue = jsonString;
+                            modifiedValue = element.ValueKind switch
+                            {
+                                JsonValueKind.Number => element.TryGetInt64(out var l) ? (object)l : element.GetDouble(),
+                                JsonValueKind.True => true,
+                                JsonValueKind.False => false,
+                                JsonValueKind.Null => null,
+                                JsonValueKind.String => prop.PropertyType == typeof(byte[])
+                                    ? (object)Convert.FromBase64String(element.GetString())
+                                    : element.GetString(),
+                                _ => element.GetRawText(),
+                            };
                         }
                     }
 
