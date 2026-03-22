@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la *.cs)",
+      "WebFetch(domain:www.odoo.com)",
+      "WebFetch(domain:www.cybrosys.com)"
+    ]
+  }
+}

@@ -11,16 +11,20 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace OdooSharp.Client
 {
-    public class OdooClient : IOdooClient
+    public class OdooClient : IOdooClient, IDisposable
     {
+        private static readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
         private readonly HttpClientHandler _httpClientHandler;
         private readonly HttpClient _httpClient;
         private readonly OdooClientOptions _options;
         private OdooSession _session;
+        private bool _disposed;
         public bool Authenticated => _session != null;
 
         public OdooClient(OdooClientOptions options)
@@ -34,9 +38,15 @@ namespace OdooSharp.Client
             _options = options;
         }
 
+        [Obsolete("Use AuthenticateAsync(CancellationToken) overload.")]
         public async Task<bool> AuthenticateAsync()
         {
-            var uid = await AuthenticateLightAsync();
+            return await AuthenticateAsync(CancellationToken.None);
+        }
+
+        public async Task<bool> AuthenticateAsync(CancellationToken ct)
+        {
+            var uid = await AuthenticateUserLightAsync(_options.Username, _options.Password, ct);
             if (uid.HasValue)
             {
                 _session = new OdooSession
@@ -46,39 +56,15 @@ namespace OdooSharp.Client
                 return true;
             }
             return false;
-
-            // web style
-            //var payload = new
-            //{
-            //    jsonrpc = "2.0",
-            //    method = "call",
-            //    @params = new
-            //    {
-            //        db = _options.Database,
-            //        login = _options.Username,
-            //        password = _options.Password
-            //    },
-            //    id = 1
-            //};
-
-            //var response = await _httpClient.PostAsync(
-            //    $"{_options.Url}/web/session/authenticate",
-            //    new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-            //var json = await response.Content.ReadAsStringAsync();
-            //var doc = JsonDocument.Parse(json);
-            //if (doc.RootElement.TryGetProperty("result", out var result))
-            //{
-            //    _session = new OdooSession
-            //    {
-            //        Uid = result.GetProperty("uid").GetInt32(),
-            //    };
-            //    return true;
-            //}
-            //return false;
         }
 
+        [Obsolete("Use AuthenticateUserAsync(string, string, CancellationToken) overload.")]
         public async Task<OdooAuthEnvelope> AuthenticateUserAsync(string username, string password)
+        {
+            return await AuthenticateUserAsync(username, password, CancellationToken.None);
+        }
+
+        public async Task<OdooAuthEnvelope> AuthenticateUserAsync(string username, string password, CancellationToken ct)
         {
             var payload = new
             {
@@ -93,21 +79,19 @@ namespace OdooSharp.Client
                 id = 1
             };
 
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/web/session/authenticate",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"{_options.Url}/web/session/authenticate", content, ct);
 
-            var json = await response.Content.ReadAsStringAsync();
-
-            return JsonSerializer.Deserialize<OdooAuthEnvelope>(json);
+            return await _deserializeHttpReponseAsync<OdooAuthEnvelope>(response);
         }
 
-        public Task<int?> AuthenticateLightAsync()
-        {
-            return AuthenticateUserLightAsync(_options.Username, _options.Password);
-        }
-
+        [Obsolete("Use AuthenticateUserLightAsync(string, string, CancellationToken) overload.")]
         public async Task<int?> AuthenticateUserLightAsync(string username, string password)
+        {
+            return await AuthenticateUserLightAsync(username, password, CancellationToken.None);
+        }
+
+        public async Task<int?> AuthenticateUserLightAsync(string username, string password, CancellationToken ct)
         {
             var payload = new
             {
@@ -128,11 +112,15 @@ namespace OdooSharp.Client
                 id = 1
             };
 
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
+            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"{_options.Url}/jsonrpc", content, ct);
             var json = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new OdooHttpException(response.StatusCode, json);
+            }
+
             using var doc = JsonDocument.Parse(json);
 
             if (doc.RootElement.TryGetProperty("result", out var resultElement))
@@ -146,21 +134,14 @@ namespace OdooSharp.Client
                     }
                     return uid;
                 }
-                // If authentication fails, Odoo might return 'false' or an error object in 'result' (rare for jsonrpc usually error prop)
-                // or simply jsonrpc error.
-                // Depending on Odoo version, successful auth returns UID (int), failure might return something else or it throws.
-                // Usually common.authenticate returns UID or false equivalent.
-                // However, the JSON-RPC layer might wrap it.
             }
 
-            // Fallback or error handling
-            // If result is missing, it might be an error response
             if (doc.RootElement.TryGetProperty("error", out var errorElement))
             {
                 throw new Exception(errorElement.GetRawText());
             }
 
-            return null; // Or throw
+            return null;
         }
 
         public async Task<List<OdooModel>> GetModelsAsync() => await SearchReadAllPagedAsync<OdooModel>(new object[0], new string[] { "model", "name" });
@@ -194,73 +175,46 @@ namespace OdooSharp.Client
                 id = 2
             };
 
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"{_options.Url}/jsonrpc", content);
 
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<OdooFieldsResponse>(json, options) ?? new OdooFieldsResponse();
+            return await _deserializeHttpReponseAsync<OdooFieldsResponse>(response) ?? new OdooFieldsResponse();
         }
 
         public async Task<JsonRpcResponse<OdooFieldsResponse>> GetModelFieldTypedAsync(string model, string fieldName) => await _postAsync<OdooFieldsResponse>(model, OdooMethod.fields_get, new object[] { fieldName });
-        public async Task<OdooFieldsResponse> GetModelFieldTypedAsyncOld(string model, string fieldName)
+
+        [Obsolete("Use SearchReadCountAsync<T>(object[], CancellationToken) overload.")]
+        public async Task<JsonRpcResponse<int>> SearchReadCountAsync<T>()
         {
-            var payload = new
-            {
-                jsonrpc = "2.0",
-                method = "call",
-                @params = new
-                {
-                    service = "object",
-                    method = "execute_kw",
-                    args = new object[]
-                    {
-                        _options.Database,
-                        _session!.Uid,
-                        _options.Password,
-                        model,
-                        "fields_get",
-                        new object[] { fieldName },
-                        new { }
-                    }
-                },
-                id = 2
-            };
-
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<OdooFieldsResponse>(json, options) ?? new OdooFieldsResponse();
+            return await SearchReadCountAsync<T>(null, CancellationToken.None);
         }
 
-        public async Task<JsonRpcResponse<int>> SearchReadCountAsync<T>(/*Expression<Func<T, bool>> predicate = null*/)
+        public async Task<JsonRpcResponse<int>> SearchReadCountAsync<T>(object[] domain, CancellationToken ct = default)
         {
-            //var domain = predicate != null ? (object[])new OdooExpressionParser().Parse(predicate.Body) : _getDomain<T>();
-            var domain = _getDomain<T>();
-
+            domain ??= _getDomain<T>();
             return await _postAsync<T, int>(OdooMethod.search_count, new object[] { domain });
-
         }
 
+        [Obsolete("Use SearchReadAsync<T> overload with CancellationToken.")]
         public async Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain = null, string[] fields = null, int limit = 100, int offset = 0, string order = null)
         {
-            var model = _getModelName<T>();
+            return await SearchReadAsync<T>(domain, fields, limit, offset, order, CancellationToken.None);
+        }
+
+        public async Task<JsonRpcResponse<List<T>>> SearchReadAsync<T>(object[] domain, string[] fields, int limit, int offset, string order, CancellationToken ct)
+        {
             domain ??= _getDomain<T>();
 
             var kwargs = new Dictionary<string, object>
             {
-                ["fields"] = fields ?? Array.Empty<string>(),
                 ["limit"] = limit,
                 ["offset"] = offset
             };
+
+            if (fields != null && fields.Length > 0)
+            {
+                kwargs["fields"] = fields;
+            }
 
             if (!string.IsNullOrWhiteSpace(order))
             {
@@ -273,80 +227,60 @@ namespace OdooSharp.Client
         private async Task<T> _deserializeHttpReponseAsync<T>(HttpResponseMessage responseMessage)
         {
             var json = await responseMessage.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+            if (!responseMessage.IsSuccessStatusCode)
+            {
+                throw new OdooHttpException(responseMessage.StatusCode, json);
+            }
+
             try
             {
-                return JsonSerializer.Deserialize<T>(json, options);
-
+                return JsonSerializer.Deserialize<T>(json, _jsonOptions);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine();
-                Console.WriteLine($"Provided json: {json}");
-                Console.WriteLine();
+                throw new OdooDeserializationException(json, ex);
             }
-            return default;
         }
 
-        public async Task<JsonRpcResponse<T>> ReadById<T>(int id) => (await _postAsync<T, T[]>(OdooMethod.read, new object[] { new[] { id } })).First<T>();
+        [Obsolete("Use ReadById<T>(int, CancellationToken) overload.")]
+        public async Task<JsonRpcResponse<T>> ReadById<T>(int id) => await ReadById<T>(id, CancellationToken.None);
+
+        public async Task<JsonRpcResponse<T>> ReadById<T>(int id, CancellationToken ct) => (await _postAsync<T, T[]>(OdooMethod.read, new object[] { new[] { id } })).First<T>();
 
         public async Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain = null, string[] fields = null, int pageSize = 100)
         {
-            var model = _getModelName<T>();
-            if (domain == null)
-            {
-                domain = _getDomain<T>();
-            }
+            return await SearchReadAllPagedAsync<T>(domain, fields, pageSize, null, CancellationToken.None);
+        }
 
+        public async Task<List<T>> SearchReadAllPagedAsync<T>(object[] domain, string[] fields, int pageSize, string order, CancellationToken ct = default)
+        {
             var results = new List<T>();
             int offset = 0;
             while (true)
             {
-                var payload = new
-                {
-                    jsonrpc = "2.0",
-                    method = "call",
-                    @params = new
-                    {
-                        service = "object",
-                        method = "execute_kw",
-                        args = new object[]
-                        {
-                            _options.Database,
-                            _session!.Uid,
-                            _options.Password,
-                            model,
-                            "search_read",
-                            new object[] { domain },
-                            new
-                            {
-                                fields = fields,
-                                limit = pageSize,
-                                offset = offset
-                            }
-                        }
-                    },
-                    id = 1
-                };
-
-                var response = await _httpClient.PostAsync(
-                    $"{_options.Url}/jsonrpc",
-                    new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
-
-                var json = await response.Content.ReadAsStringAsync();
-                var doc = JsonDocument.Parse(json);
-                var page = JsonSerializer.Deserialize<List<T>>(doc.RootElement.GetProperty("result").GetRawText());
+                ct.ThrowIfCancellationRequested();
+                var response = await SearchReadAsync<T>(domain, fields, pageSize, offset, order, ct);
+                var page = response.Result;
 
                 if (page == null || page.Count == 0) break;
                 results.AddRange(page);
+                if (page.Count < pageSize) break;
                 offset += pageSize;
             }
             return results;
         }
 
-        public async Task<JsonRpcResponse<int>> CreateAsync<T>(T data) => await _postAsync<T, int>(OdooMethod.create, new object[] { data });
+        [Obsolete("Use CreateAsync<T>(T, CancellationToken) overload.")]
+        public async Task<JsonRpcResponse<int>> CreateAsync<T>(T data) => await CreateAsync<T>(data, CancellationToken.None);
 
+        public async Task<JsonRpcResponse<int>> CreateAsync<T>(T data, CancellationToken ct)
+        {
+            var fields = _serializeWritableFields(data);
+            return await _postAsync<T, int>(OdooMethod.create, new object[] { fields });
+        }
+
+        [Obsolete("Use WriteAsync<T>(T, CancellationToken) overload.")]
         public async Task<JsonRpcResponse<bool>> WriteAsync<T>(T values)
         {
             var type = typeof(T);
@@ -365,6 +299,7 @@ namespace OdooSharp.Client
             return await _postAsync<T, bool>(OdooMethod.write, new object[] { new[] { id }, values });
         }
 
+        [Obsolete("Use WriteChangedAsync<T>(T, CancellationToken) overload.")]
         public async Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T modified)
         {
             var type = typeof(T);
@@ -390,7 +325,13 @@ namespace OdooSharp.Client
             return await WriteChangedAsync(original, modified);
         }
 
+        [Obsolete("Use WriteChangedAsync<T>(T, T, CancellationToken) overload.")]
         public async Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T original, T modified)
+        {
+            return await WriteChangedAsync<T>(original, modified, CancellationToken.None);
+        }
+
+        public async Task<JsonRpcResponse<bool>> WriteChangedAsync<T>(T original, T modified, CancellationToken ct)
         {
             var type = typeof(T);
             var idProp = type.GetProperty("Id");
@@ -415,10 +356,18 @@ namespace OdooSharp.Client
             return await _postAsync<T, bool>(OdooMethod.write, methodArgs);
         }
 
-        public async Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id) => await _postAsync<T, bool>(OdooMethod.unlink, new object[] { id });
+        [Obsolete("Use DeleteAsync<T>(int, CancellationToken) overload.")]
+        public async Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id) => await DeleteAsync<T>(id, CancellationToken.None);
+
+        public async Task<JsonRpcResponse<bool>> DeleteAsync<T>(int id, CancellationToken ct) => await _postAsync<T, bool>(OdooMethod.unlink, new object[] { new[] { id } });
 
         public async Task<JsonRpcResponse<bool>> DeleteAsync(string model, int id)
         {
+            if (!Authenticated)
+            {
+                throw new NotAuthenticatedException();
+            }
+
             var payload = new
             {
                 jsonrpc = "2.0",
@@ -440,18 +389,42 @@ namespace OdooSharp.Client
                 id = 1
             };
 
-            var response = await _httpClient.PostAsync(
-                $"{_options.Url}/jsonrpc",
-                new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+            var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"{_options.Url}/jsonrpc", content);
 
             return await _deserializeHttpReponseAsync<JsonRpcResponse<bool>>(response);
-            //var json = await response.Content.ReadAsStringAsync();
-            //var doc = JsonDocument.Parse(json);
-            //return doc.RootElement.GetProperty("result").GetBoolean();
         }
 
         #region Helper
 
+        private Dictionary<string, object> _serializeWritableFields<T>(T data)
+        {
+            var result = new Dictionary<string, object>();
+            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (var prop in props)
+            {
+                if (!prop.CanRead || prop.Name == "Id")
+                    continue;
+
+                var odooFieldAttr = prop.GetCustomAttribute<OdooFieldAttribute>();
+                if (odooFieldAttr == null)
+                    continue;
+
+                if (odooFieldAttr.FieldName == "id" || odooFieldAttr.IsReadonly)
+                    continue;
+
+                var value = prop.GetValue(data);
+                if (value == null)
+                    continue;
+
+                result[odooFieldAttr.FieldName] = value;
+            }
+
+            return result;
+        }
+
+        [Obsolete("Will be moved to a utility class in a future version.")]
         public Dictionary<string, object> GetChangedFields<T>(T original, T modified)
         {
             var changed = new Dictionary<string, object>();
@@ -622,5 +595,15 @@ namespace OdooSharp.Client
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            if (!_disposed)
+            {
+                _httpClient?.Dispose();
+                _httpClientHandler?.Dispose();
+                _disposed = true;
+            }
+        }
     }
 }
